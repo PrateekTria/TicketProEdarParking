@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_screen">
+
+    <RelativeLayout
+        android:id="@+id/rlHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_banner"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/main_location_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center_vertical"
+            android:maxLines="1"
+            android:padding="5dp"
+            android:text="Select Disinfecting"
+            android:textColor="#FFF"
+            android:textSize="@dimen/normal_font_size" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/btnTraffic"
+                android:layout_width="@dimen/icon_size_width"
+                android:layout_height="@dimen/icon_size_height"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="5dp"
+                android:onClick="switchToTraffic"
+                android:src="@drawable/traffic"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/main_status_indicator"
+                android:layout_width="@dimen/normal_font_size"
+                android:layout_height="@dimen/normal_font_size"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/red_status_btn"
+                android:visibility="gone" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linearEquipment"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlHeader"
+        android:layout_marginTop="1dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/euip.list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
+            tools:listitem="@layout/dar_equipment_row" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/lb"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/background_footer"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/violation_back_btn"
+                style="@style/ButtonText"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/small_button_height"
+                android:layout_weight="0.5"
+                android:background="@drawable/btn_yellow"
+                android:gravity="center"
+                android:text="Back"
+                android:textColor="#ffffff" />
+
+            <Button
+                android:id="@+id/violation_next_btn"
+                style="@style/ButtonText"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/small_button_height"
+                android:layout_weight="0.5"
+                android:background="@drawable/btn_blue"
+                android:gravity="center"
+                android:text="Next"
+                android:visibility="visible"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

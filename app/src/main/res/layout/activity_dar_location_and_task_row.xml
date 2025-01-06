@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/main_write_ticket_option"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:background="#4fb192"
+            android:clickable="true"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/txt_equipment_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:paddingLeft="10dp"
+                android:text="Handheld/Printer"
+                android:textColor="#fff"
+                android:textSize="@dimen/normal_font_size"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:layout_width="@dimen/icon_size_width"
+                android:layout_height="@dimen/icon_size_height"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/write_ticket_icon"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_screen">
+
+    <RelativeLayout
+        android:id="@+id/rlHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:background="#000"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/main_location_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center_vertical"
+            android:gravity="left"
+            android:maxLines="1"
+            android:padding="15dp"
+            android:text="Call Sign"
+            android:textColor="#FFF"
+            android:textSize="@dimen/normal_font_size" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/btnTraffic"
+                android:layout_width="@dimen/icon_size_width"
+                android:layout_height="@dimen/icon_size_height"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/traffic"
+                android:onClick="switchToTraffic"
+                android:visibility="gone" />
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/main_status_indicator"
+                android:layout_width="@dimen/normal_font_size"
+                android:layout_height="@dimen/normal_font_size"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/red_status_btn" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@+id/rlHeader"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:gravity="center"
+            android:text="Click on button for Call sign!"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp">
+
+            <Button
+                android:id="@+id/violation_back_btn"
+                style="@style/ButtonText"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/small_button_height"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/btn_blue"
+                android:gravity="center"
+                android:text="Call Sign"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

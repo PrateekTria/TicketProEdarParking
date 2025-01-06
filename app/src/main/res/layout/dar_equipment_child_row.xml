@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#A6ACAF">
+    <LinearLayout
+        android:id="@+id/child_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_action_arrow_left" />
+
+        <TextView
+            android:text="KDFDS"
+            android:padding="15dp"
+            android:layout_weight="1"
+            android:id="@+id/laptop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="15dp" />
+        <CheckBox
+            android:layout_marginRight="10dp"
+            android:clickable="false"
+            android:visibility="gone"
+            android:id="@+id/child_check"
+            android:layout_width="wrap_content"
+            android:buttonTint="#0000FF"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

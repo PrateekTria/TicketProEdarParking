@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "applicationId": "com.ticketpro.parking",
+  "variantType": "BASE_APK",
+  "elements": [
+    {
+      "outputType": {
+        "type": "INSTANT_APP_MANIFEST"
+      },
+      "apkData": {
+        "type": "MAIN",
+        "splits": [],
+        "versionCode": 50,
+        "versionName": "4.3.97",
+        "outputFile": "TicketPro-EdarParking2024-v4.3.97-release.apk",
+        "fullName": "release",
+        "baseName": "release",
+        "dirName": ""
+      },
+      "path": "AndroidManifest.xml",
+      "properties": {
+        "packageId": "com.ticketpro.parking",
+        "split": "",
+        "minSdkVersion": "26"
+      }
+    }
+  ]
+}

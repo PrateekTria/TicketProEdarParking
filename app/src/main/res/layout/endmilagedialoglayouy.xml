@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/enter_end_milge"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="0.3"
+                android:visibility="gone"
+                android:textColor="@color/white">
+
+            </TextView>
+            <EditText
+                android:layout_marginTop="10dp"
+                android:id="@+id/end_mileage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="0.5"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/text_field_bkg"
+                android:focusable="true"
+                android:hint="@string/mileage"
+                android:inputType="number"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:maxLength="8"
+                android:textSize="@dimen/normal_font_size"
+                android:layout_marginBottom="20dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+
+        <Button
+            android:id="@+id/endmilage_back"
+            style="@style/ButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/small_button_height"
+            android:background="@drawable/btn_yellow"
+            android:gravity="center"
+            android:text="@string/back"
+            android:layout_weight="0.1"
+            android:layout_gravity="center"
+            android:textColor="#ffffff"
+            />
+            <Button
+                android:id="@+id/endmilage_submit"
+                style="@style/ButtonText"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/small_button_height"
+                android:background="@drawable/btn_blue"
+                android:gravity="center"
+                android:text="@string/submit_mileage"
+                android:layout_weight="0.1"
+                android:layout_gravity="center"
+                android:textColor="#ffffff"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

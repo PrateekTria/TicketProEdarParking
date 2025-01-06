@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/background_screen"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/main_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/background_banner" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:padding="5dp"
+            android:text="Select Activity/Task"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/xxxsmall_font_size" />
+
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/main_header"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_above="@+id/lb"
+        android:layout_height="wrap_content">
+
+        <ListView
+            android:id="@+id/lv_assignment"
+            android:layout_width="match_parent"
+            android:divider="@color/black"
+            android:dividerHeight="1dip"
+            tools:listitem="@layout/activity_dar_location_and_task_row"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/lb"
+        android:layout_alignParentBottom="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_footer"
+        android:padding="5dp" >
+
+        <Button
+            android:id="@+id/violation_back_btn"
+            style="@style/ButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/small_button_height"
+            android:layout_centerInParent="true"
+            android:background="@drawable/btn_yellow"
+            android:gravity="center"
+            android:text="Back"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/violation_add_violation_btn"
+            style="@style/ButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/small_button_height"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_blue"
+            android:text="Add Violation"
+            android:textColor="#ffffff" />
+
+    </RelativeLayout>
+</RelativeLayout>

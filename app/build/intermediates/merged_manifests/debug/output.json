@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "applicationId": "com.ticketpro.parking",
+  "variantType": "BASE_APK",
+  "elements": [
+    {
+      "outputType": {
+        "type": "MERGED_MANIFESTS"
+      },
+      "apkData": {
+        "type": "MAIN",
+        "splits": [],
+        "versionCode": 50,
+        "versionName": "8.0.2",
+        "outputFile": "TicketPro-EdarParking2024-v4.3.97-debug.apk",
+        "fullName": "debug",
+        "baseName": "debug",
+        "dirName": ""
+      },
+      "path": "AndroidManifest.xml",
+      "properties": {
+        "packageId": "com.ticketpro.parking",
+        "split": "",
+        "minSdkVersion": "26"
+      }
+    }
+  ]
+}

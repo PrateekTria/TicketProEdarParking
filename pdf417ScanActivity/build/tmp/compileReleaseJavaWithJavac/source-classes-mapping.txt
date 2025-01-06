@@ -1,0 +1,2 @@
+mobi/pdf417/BuildConfig.java
+ mobi.pdf417.BuildConfig

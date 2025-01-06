@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_screen"
+    tools:context=".dar.Enforcement">
+
+
+    <RelativeLayout
+        android:id="@+id/rlHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_banner"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/main_location_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center_vertical"
+            android:maxLines="1"
+            android:padding="5dp"
+            android:text="Enforcement"
+            android:textColor="#FFF"
+            android:textSize="@dimen/normal_font_size" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/main_status_indicator"
+                android:layout_width="@dimen/normal_font_size"
+                android:layout_height="@dimen/normal_font_size"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/red_status_btn" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:padding="15dp"
+        android:layout_below="@+id/rlHeader"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    <Button
+        android:background="@drawable/yellow_boder"
+        android:id="@+id/btnWriteTicket"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="Write Ticket" />
+
+    <Button
+
+        android:layout_marginTop="10dp"
+        android:background="@drawable/yellow_boder"
+        android:textColor="@color/white"
+        android:id="@+id/btnChalk"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="Chalk Vehicle" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/lb"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/background_footer"
+        android:padding="5dp">
+
+        <Button
+            android:id="@+id/btnBak"
+            style="@style/ButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/small_button_height"
+            android:layout_centerInParent="true"
+            android:background="@drawable/btn_yellow"
+            android:gravity="center"
+            android:text="Back"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/violation_add_violation_btn"
+            style="@style/ButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/small_button_height"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_blue"
+            android:text="Add Violation"
+            android:textColor="#ffffff"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

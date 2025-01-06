@@ -1,0 +1,2 @@
+com/ticketpro/parking/test/BuildConfig.java
+ com.ticketpro.parking.test.BuildConfig

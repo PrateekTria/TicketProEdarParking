@@ -1,0 +1,145 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.firebase.crashlytics'
+// Apply the Performance Monitoring plugin
+apply plugin: 'com.google.firebase.firebase-perf'
+
+android {
+    signingConfigs {
+        archivesBaseName = "TicketPro-EdarParking2024-v4.3.97"
+        debug {
+            storeFile file('/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/Parking.jks')
+            storePassword 'parking@123'
+            keyAlias = 'ticketpro_parking'
+            keyPassword 'parking@123'
+        }
+    }
+
+    compileOptions.encoding = 'windows-1252' // write your encoding here
+    compileSdkVersion 29
+
+    defaultConfig {
+        applicationId "com.ticketpro.parking"
+        minSdkVersion 26
+        targetSdkVersion 29
+        versionCode = "2"
+        versionName = "8.0.2"
+        multiDexEnabled true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    aaptOptions {
+        noCompress 'db'
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':zXingLibrary')
+    implementation project(':pdf417ScanActivity')
+    implementation project(':library')
+    implementation files('libs/log4j-1.2.17.jar')
+    implementation files('libs/commons-logging-1.2.1.1.jar')
+    implementation files('libs/android-logging-log4j-1.0.3.jar')
+    implementation files('libs/commons-net-3.1.jar')
+    implementation files('libs/commons-validator-1.4.0.jar')
+    implementation files('libs/httpcore-4.3.1.jar')
+    implementation files('libs/httpmime-4.3.2.jar')
+    implementation files('libs/jackson-annotations-2.2.3.jar')
+    implementation files('libs/jackson-core-2.2.3.jar')
+    implementation files('libs/jackson-databind-2.2.3.jar')
+    implementation files('libs/opencsv-2.3.jar')
+    implementation files('libs/snmp6_1.jar')
+    implementation files('libs/ZSDK_ANDROID_API.jar')
+    implementation "androidx.work:work-runtime:2.7.1"
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+
+    //implementation 'com.google.android.gms:play-services-plus:17.0.0'
+    //implementation 'com.google.android.gms:play-services-auth:18.0.0'
+    implementation 'com.gdacciaro:iosdialog:1.0.3'
+    // Retrofit & OkHttp
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.18'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation('com.squareup.retrofit2:converter-simplexml:2.6.0') {
+        exclude group: 'xpp3', module: 'xpp3'
+        exclude group: 'stax', module: 'stax-api'
+        exclude group: 'stax', module: 'stax'
+    }
+    //Room DB dependencies
+    implementation "androidx.room:room-runtime:2.3.0"
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    annotationProcessor "androidx.room:room-compiler:2.3.0"
+    // optional - RxJava support for Room
+    implementation "androidx.room:room-rxjava2:2.3.0"
+    //FCM
+    implementation 'com.google.firebase:firebase-messaging:22.0.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    // Check for v11.4.2 or higher
+    implementation 'com.google.firebase:firebase-core:20.0.0'
+    // Add dependency
+    // Recommended: Add the Firebase SDK for Google Analytics.
+    implementation 'com.google.firebase:firebase-analytics:20.0.2'
+    // Add the Firebase Crashlytics SDK.
+    implementation 'com.google.firebase:firebase-crashlytics:18.2.6'
+
+    implementation 'com.google.firebase:firebase-auth:21.0.1'
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation 'net.openid:appauth:0.2.0'
+    implementation 'com.karumi:dexter:5.0.0'
+    implementation project(path: ':gpslibrary')
+    implementation 'com.google.firebase:firebase-perf:20.0.5'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    // Glide v4 uses this new annotation processor -- see https://bumptech.github.io/glide/doc/generatedapi.html
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    //Zoom image
+    implementation 'com.jsibbold:zoomage:1.3.1'
+    implementation 'com.mobsandgeeks:android-saripaar:2.0.2'
+
+
+    implementation "androidx.work:work-runtime:2.7.0"
+
+}
+apply plugin: 'com.google.gms.google-services'

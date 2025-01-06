@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_screen">
+
+    <RelativeLayout
+        android:id="@+id/rlHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_banner"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/f22500.title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center_vertical"
+            android:maxLines="1"
+            android:padding="5dp"
+            android:text="22500"
+            android:textColor="#FFF"
+            android:textSize="@dimen/normal_font_size" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/btnTraffic"
+                android:layout_width="@dimen/icon_size_width"
+                android:layout_height="@dimen/icon_size_height"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="5dp"
+                android:onClick="switchToTraffic"
+                android:src="@drawable/traffic"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/main_status_indicator"
+                android:layout_width="@dimen/normal_font_size"
+                android:layout_height="@dimen/normal_font_size"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/green_status_btn_bk"
+                android:visibility="gone" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linearEquipment"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lb"
+        android:layout_below="@+id/rlHeader"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:visibility="visible">
+
+        <EditText
+            android:id="@+id/f22500.event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/text_field_bkg"
+            android:focusable="true"
+            android:hint="Event/Case#"
+            android:inputType="textCapCharacters|textCapWords"
+            android:maxLength="48"
+            android:padding="10dp"
+            android:textSize="@dimen/normal_font_size" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Disposition"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/f22500.activity_spinner"
+            style="@android:style/Widget.Spinner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/rlHeader"
+            android:layout_gravity="right"
+            android:height="50dp"
+            android:hint="Select"
+            android:padding="10dp"
+            android:prompt="@string/spinner_title_activity"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="16sp"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/f22500.location"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/text_field_bkg"
+                android:clickable="true"
+                android:focusable="true"
+                android:hint="LOCATION"
+                android:inputType="textCapCharacters|textCapWords"
+                android:maxLength="48"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textSize="@dimen/normal_font_size">
+
+            </EditText>
+
+            <Button
+                android:id="@+id/f22500.btn_gps"
+                style="@style/ButtonText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight=".5"
+                android:background="@drawable/btn_yellow"
+                android:minWidth="56dp"
+                android:padding="6dp"
+                android:text="GPS" />
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/f22500.checkBox2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Customer contact"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/f22500.note"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/text_field_bkg"
+            android:gravity="start|top"
+            android:maxLength="200"
+            android:hint="NOTE"
+            android:imeOptions="actionDone"
+            android:inputType="textCapCharacters|textMultiLine"
+            android:padding="10dp"
+            android:textSize="@dimen/normal_font_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginBottom="10dp"
+        android:layout_above="@+id/lb"
+        android:orientation="horizontal"
+        android:id="@+id/layout_wrt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/f22_write_ticket"
+            style="@style/ButtonText"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:background="@drawable/btn_yellow"
+            android:text="Write Ticket"
+            android:textColor="#ffffff" />
+        <Button
+            android:id="@+id/f22_chalk"
+            style="@style/ButtonText"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:background="@drawable/btn_yellow"
+            android:text="Chalk Vehicle"
+            android:textColor="#ffffff" />
+        <Button
+            android:id="@+id/f22_tow"
+            style="@style/ButtonText"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight=".7"
+            android:textSize="14sp"
+            android:background="@drawable/btn_yellow"
+            android:text="TOW"
+            android:textColor="#ffffff" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/lb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/background_footer">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:textSize="12dp"
+                android:id="@+id/nonf.btnBack"
+                style="@style/ButtonText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/small_button_height"
+                android:layout_weight="1"
+                android:background="@drawable/btn_yellow"
+                android:text="BACK"
+                android:textColor="#ffffff" />
+
+            <Button
+                android:textSize="12dp"
+                android:id="@+id/nonf.btnEndShift"
+                style="@style/ButtonText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/small_button_height"
+                android:layout_alignLeft="@+id/violation_back_btn"
+                android:layout_weight="1"
+                android:background="@drawable/btn_blue"
+                android:text="END SHIFT"
+                android:textColor="#ffffff"
+                android:visibility="visible" />
+
+            <Button
+                android:textSize="12dp"
+                android:id="@+id/nonf.btn_logout"
+                style="@style/ButtonText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/small_button_height"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_weight="1"
+                android:background="@drawable/btn_yellow"
+                android:text="LOGOUT"
+                android:textColor="#ffffff" />
+
+            <Button
+                android:textSize="12dp"
+                android:id="@+id/nonf.btn_save"
+                style="@style/ButtonText"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/small_button_height"
+                android:background="@drawable/btn_blue"
+                android:text="SAVE"
+                android:textColor="#ffffff"
+                android:visibility="visible" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>
