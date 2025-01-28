@@ -74,20 +74,30 @@ public class PrintTokenParser {
         for (TicketViolation violation : printTicket.getTicketViolations()) {
             try {
                 String printTemplate = TPUtility.escapeSpecialChars(this.printTemplate);
+
+                // Replace placeholders with appropriate values
                 printTemplate = printTemplate.replaceAll("\\{CITE\\}", TPUtility.prefixZeros(violation.getCitationNumber(), 8));
-                printTemplate = printTemplate.replaceAll("\\{DATE\\}", DateUtil.getStringFromDate(printTicket.getTicketDate()) + "");
-                printTemplate = printTemplate.replaceAll("\\{CITE_DATE\\}", DateUtil.getDateStringFromDate(printTicket.getTicketDate()) + "");
-                printTemplate = printTemplate.replaceAll("\\{CITE_TIME\\}", DateUtil.getTimeStringFromDate(printTicket.getTicketDate()) + "");
-                printTemplate = printTemplate.replaceAll("\\{METER\\}", printTicket.getMeter() + "");
-                printTemplate = printTemplate.replaceAll("\\{LOCATION\\}", TPUtility.getFullAddress(printTicket) + "");
-                printTemplate = printTemplate.replaceAll("\\{VIOLATION\\}", TPUtility.escapeSpecialChars(violation.getViolationDesc()));
-                printTemplate = printTemplate.replaceAll("\\{PLATE\\}", printTicket.getPlate() + "");
-                printTemplate = printTemplate.replaceAll("\\{EXPDATE\\}", printTicket.getExpiration() + "");
-                printTemplate = printTemplate.replaceAll("\\{VIN\\}", printTicket.getVin() + "");
-                printTemplate = printTemplate.replaceAll("\\{STATE_CODE\\}", printTicket.getStateCode() + "");
-                printTemplate = printTemplate.replaceAll("\\{MAKE_CODE\\}", printTicket.getMakeCode() + "");
-                printTemplate = printTemplate.replaceAll("\\{BODY_CODE\\}", printTicket.getBodyCode() + "");
-                printTemplate = printTemplate.replaceAll("\\{COLOR_CODE\\}", printTicket.getColorCode() + "");
+
+                String ticketDateStr = printTicket.getTicketDate() != null ? DateUtil.getStringFromDate(printTicket.getTicketDate()) : "";
+                printTemplate = printTemplate.replaceAll("\\{DATE\\}", ticketDateStr);
+
+                String ticketDateFormatted = printTicket.getTicketDate() != null ? DateUtil.getDateStringFromDate(printTicket.getTicketDate()) : "";
+                printTemplate = printTemplate.replaceAll("\\{CITE_DATE\\}", ticketDateFormatted);
+
+                String ticketTimeFormatted = printTicket.getTicketDate() != null ? DateUtil.getTimeStringFromDate(printTicket.getTicketDate()) : "";
+                printTemplate = printTemplate.replaceAll("\\{CITE_TIME\\}", ticketTimeFormatted);
+
+                printTemplate = printTemplate.replaceAll("\\{METER\\}", printTicket.getMeter() != null ? printTicket.getMeter().toString() : "");
+                printTemplate = printTemplate.replaceAll("\\{LOCATION\\}", TPUtility.getFullAddress(printTicket) != null ? TPUtility.getFullAddress(printTicket) : "");
+
+                printTemplate = printTemplate.replaceAll("\\{VIOLATION\\}", TPUtility.escapeSpecialChars(violation.getViolationDesc() != null ? violation.getViolationDesc() : ""));
+                printTemplate = printTemplate.replaceAll("\\{PLATE\\}", printTicket.getPlate() != null ? printTicket.getPlate() : "");
+                printTemplate = printTemplate.replaceAll("\\{EXPDATE\\}", printTicket.getExpiration() != null ? printTicket.getExpiration() : "");
+                printTemplate = printTemplate.replaceAll("\\{VIN\\}", printTicket.getVin() != null ? printTicket.getVin() : "");
+                printTemplate = printTemplate.replaceAll("\\{STATE_CODE\\}", printTicket.getStateCode() != null ? printTicket.getStateCode() : "");
+                printTemplate = printTemplate.replaceAll("\\{MAKE_CODE\\}", printTicket.getMakeCode() != null ? printTicket.getMakeCode() : "");
+                printTemplate = printTemplate.replaceAll("\\{BODY_CODE\\}", printTicket.getBodyCode() != null ? printTicket.getBodyCode() : "");
+                printTemplate = printTemplate.replaceAll("\\{COLOR_CODE\\}", printTicket.getColorCode() != null ? printTicket.getColorCode() : "");
 
                 if (!StringUtil.isEmpty(printTicket.getStateCode())) {
                     State state = State.getStateByName(printTicket.getStateCode());
@@ -196,19 +206,20 @@ public class PrintTokenParser {
                 printTemplate = printTemplate.replaceAll("\\{COMMENT1\\}", "");
                 printTemplate = printTemplate.replaceAll("\\{COMMENT2\\}", "");
 
-                if (printTicket.isVoided()) {
+                ArrayList<PrintMacro> macros1 = PrintMacro.getPrintMacros();
+                if (printTicket.isVoided() && !macros1.isEmpty()) {
                     printTemplate = printTemplate.replaceAll("\\{VOIDMSG\\}", PrintMacro.getPrintMacroMessageByName("VOIDMSG"));
                 } else {
                     printTemplate = printTemplate.replaceAll("\\{VOIDMSG\\}", "");
                 }
 
-                if ((isPreviousTicket && printTicket.isWarn()) || (!isPreviousTicket && violation.isWarning())) {
+                if ((isPreviousTicket && printTicket.isWarn()) || (!isPreviousTicket && violation.isWarning()) && !macros1.isEmpty()) {
                     printTemplate = printTemplate.replaceAll("\\{WARNMSG\\}", PrintMacro.getPrintMacroMessageByName("WARNMSG"));
                 } else {
                     printTemplate = printTemplate.replaceAll("\\{WARNMSG\\}", "");
                 }
 
-                if (printTicket.getTicketPictures().size() > 0) {
+                if (!printTicket.getTicketPictures().isEmpty() && !macros1.isEmpty()) {
                     printTemplate = printTemplate.replaceAll("\\{PHOTOMSG\\}", PrintMacro.getPrintMacroMessageByName("PHOTOMSG"));
                 } else {
                     printTemplate = printTemplate.replaceAll("\\{PHOTOMSG\\}", "");

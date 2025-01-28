@@ -60,6 +60,7 @@ import com.ticketpro.util.TPUtility;
 
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
@@ -145,7 +146,7 @@ public class TicketViewActivity extends BaseActivityImpl implements HotListHandl
                             progressDialog.dismiss();
                         }
                         if (tickets!=null && tickets.size()>0) {
-                           ticketCounter.setText((ticketIndex + 1) + "/" + tickets.size());
+                            ticketCounter.setText((ticketIndex + 1) + "/" + tickets.size());
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -174,7 +175,7 @@ public class TicketViewActivity extends BaseActivityImpl implements HotListHandl
             webSettings.setAllowContentAccess(true);
             webSettings.setAllowFileAccess(true);
             webSettings.setAllowFileAccessFromFileURLs(true);
-         //   webSettings.setAppCacheEnabled(true);
+            webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
             webSettings.setDomStorageEnabled(true);
             webSettings.setUseWideViewPort(true);
             webSettings.setLoadWithOverviewMode(true);
@@ -272,7 +273,7 @@ public class TicketViewActivity extends BaseActivityImpl implements HotListHandl
             webSettings.setAllowContentAccess(true);
             webSettings.setAllowFileAccess(true);
             webSettings.setAllowFileAccessFromFileURLs(true);
-           // webSettings.setAppCacheEnabled(true);
+            webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
             webSettings.setDomStorageEnabled(true);
             webSettings.setUseWideViewPort(true);
             webSettings.setLoadWithOverviewMode(true);
@@ -344,34 +345,14 @@ public class TicketViewActivity extends BaseActivityImpl implements HotListHandl
         builder.setItems(choiceList, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                    if (which == 0) {
-                        if(!isServiceAvailable)
+                if (which == 0) {
+                    if(!isServiceAvailable)
+                    {
+                        if(!checkNetworkAndAction(activeTicket))
                         {
-                            if(!checkNetworkAndAction(activeTicket))
-                            {
-                                checckNetworkAndActionAlert("Voiding");
-                            }
-                            else{
-                                 if (Feature.isSystemFeatureAllowed(Feature.UPDATE_CUTOFF_PERIOD)) {
-                                    String cutOffTime = Feature.getFeatureValue(Feature.UPDATE_CUTOFF_PERIOD);
-                                    if (cutOffTime != null && !cutOffTime.equals("") && activeTicket.getTicketDate() != null) {
-                                        try {
-                                            int cutOffMins = Integer.parseInt(cutOffTime);
-                                            long milliseconds = (new Date().getTime() - activeTicket.getTicketDate().getTime());
-                                            int minutes = (int) ((milliseconds / (1000 * 60)) % 60);
-                                            if (minutes > cutOffMins) {
-                                                displayErrorMessage("No update allowed. Cutoff time exceeded.");
-                                                return;
-                                            }
-                                        } catch (Exception e) {
-                                            e.printStackTrace();
-                                        }
-                                    }
-                                }
-                                voidTicket();
-                            }
+                            checckNetworkAndActionAlert("Voiding");
                         }
-                       else {
+                        else{
                             if (Feature.isSystemFeatureAllowed(Feature.UPDATE_CUTOFF_PERIOD)) {
                                 String cutOffTime = Feature.getFeatureValue(Feature.UPDATE_CUTOFF_PERIOD);
                                 if (cutOffTime != null && !cutOffTime.equals("") && activeTicket.getTicketDate() != null) {
@@ -388,71 +369,69 @@ public class TicketViewActivity extends BaseActivityImpl implements HotListHandl
                                     }
                                 }
                             }
-
                             voidTicket();
                         }
-                    } else if (which == 1) {
-                        if (!Feature.isFeatureAllowed(Feature.EDIT_TICKET_PICTURES)) {
-                            Toast.makeText(TicketViewActivity.this, "This feature is disabled.", Toast.LENGTH_LONG).show();
-                            return;
+                    }
+                    else {
+                        if (Feature.isSystemFeatureAllowed(Feature.UPDATE_CUTOFF_PERIOD)) {
+                            String cutOffTime = Feature.getFeatureValue(Feature.UPDATE_CUTOFF_PERIOD);
+                            if (cutOffTime != null && !cutOffTime.equals("") && activeTicket.getTicketDate() != null) {
+                                try {
+                                    int cutOffMins = Integer.parseInt(cutOffTime);
+                                    long milliseconds = (new Date().getTime() - activeTicket.getTicketDate().getTime());
+                                    int minutes = (int) ((milliseconds / (1000 * 60)) % 60);
+                                    if (minutes > cutOffMins) {
+                                        displayErrorMessage("No update allowed. Cutoff time exceeded.");
+                                        return;
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
                         }
 
-                        Intent i = new Intent();
-                        i.setClass(TicketViewActivity.this, PhotosActivity.class);
-                        i.putExtra("SharedTicket", true);
-                        i.putExtra("EditTicketPictures", true);
-
-                        TPApp.setSharedTicket(activeTicket);
-
-                        startActivityForResult(i, 0);
+                        voidTicket();
+                    }
+                } else if (which == 1) {
+                    if (!Feature.isFeatureAllowed(Feature.EDIT_TICKET_PICTURES)) {
+                        Toast.makeText(TicketViewActivity.this, "This feature is disabled.", Toast.LENGTH_LONG).show();
                         return;
-                    } else if (which == 2) {
-                        if (!Feature.isFeatureAllowed(Feature.EDIT_TICKET_COMMENTS)) {
-                            Toast.makeText(TicketViewActivity.this, "This feature is disabled.", Toast.LENGTH_LONG).show();
-                            return;
-                        }
+                    }
 
-                        TPApp.setSharedTicket(activeTicket);
+                    Intent i = new Intent();
+                    i.setClass(TicketViewActivity.this, PhotosActivity.class);
+                    i.putExtra("SharedTicket", true);
+                    i.putExtra("EditTicketPictures", true);
 
-                        Intent i = new Intent();
-                        i.setClass(TicketViewActivity.this, ViolationsActivity.class);
-                        i.putExtra("EditCommentsOnly", true);
-                        startActivityForResult(i, 0);
+                    TPApp.setSharedTicket(activeTicket);
+
+                    startActivityForResult(i, 0);
+                    return;
+                } else if (which == 2) {
+                    if (!Feature.isFeatureAllowed(Feature.EDIT_TICKET_COMMENTS)) {
+                        Toast.makeText(TicketViewActivity.this, "This feature is disabled.", Toast.LENGTH_LONG).show();
                         return;
-                    } else if (which == 3) {
-                        sendSupportEmail();
+                    }
 
-                    } else if (which == 4) {
-                        if(!isServiceAvailable)
+                    TPApp.setSharedTicket(activeTicket);
+
+                    Intent i = new Intent();
+                    i.setClass(TicketViewActivity.this, ViolationsActivity.class);
+                    i.putExtra("EditCommentsOnly", true);
+                    startActivityForResult(i, 0);
+                    return;
+                } else if (which == 3) {
+                    sendSupportEmail();
+
+                } else if (which == 4) {
+                    if(!isServiceAvailable)
+                    {
+
+                        if(!checkNetworkAndAction(activeTicket))
                         {
-
-                                if(!checkNetworkAndAction(activeTicket))
-                                {
-                                    checckNetworkAndActionAlert("Warning");
-                                }
-                                else{
-                                    AlertDialog.Builder confirmBuilder = new AlertDialog.Builder(TicketViewActivity.this);
-                                    confirmBuilder.setTitle("Warn Ticket")
-                                            .setMessage("Are you sure you want to make this ticket a warning?").setCancelable(true)
-                                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                                                @Override
-                                                public void onClick(DialogInterface dialog, int which) {
-
-                                                }
-                                            }).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                                                @Override
-                                                public void onClick(DialogInterface dialog, int which) {
-                                                    dialog.dismiss();
-                                                    warnTicket();
-                                                }
-                                            });
-
-                                    AlertDialog confirmAlert = confirmBuilder.create();
-                                    confirmAlert.show();
-                                }
-
+                            checckNetworkAndActionAlert("Warning");
                         }
-                        else {
+                        else{
                             AlertDialog.Builder confirmBuilder = new AlertDialog.Builder(TicketViewActivity.this);
                             confirmBuilder.setTitle("Warn Ticket")
                                     .setMessage("Are you sure you want to make this ticket a warning?").setCancelable(true)
@@ -472,10 +451,32 @@ public class TicketViewActivity extends BaseActivityImpl implements HotListHandl
                             AlertDialog confirmAlert = confirmBuilder.create();
                             confirmAlert.show();
                         }
-                    } else if (which == 5) {
-                        hotListAction();
 
                     }
+                    else {
+                        AlertDialog.Builder confirmBuilder = new AlertDialog.Builder(TicketViewActivity.this);
+                        confirmBuilder.setTitle("Warn Ticket")
+                                .setMessage("Are you sure you want to make this ticket a warning?").setCancelable(true)
+                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                    }
+                                }).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                        warnTicket();
+                                    }
+                                });
+
+                        AlertDialog confirmAlert = confirmBuilder.create();
+                        confirmAlert.show();
+                    }
+                } else if (which == 5) {
+                    hotListAction();
+
+                }
 
 
             }
@@ -688,35 +689,35 @@ public class TicketViewActivity extends BaseActivityImpl implements HotListHandl
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Select Void Reason");
             builder.setItems(choiceList, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    try {
-                        // Show Dialog only for void reason other case
-                        if (reasons.get(which).getTitle().equalsIgnoreCase("OTHER")) {
-                            if (Feature.isFeatureAllowed(Feature.VOID_TICKET_OTHER_COMMENT)) {
-                                try {
-                                    otherVoidReasonPopup(which, reasons);
-                                } catch (Exception e) {
-                                    e.printStackTrace();
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            try {
+                                // Show Dialog only for void reason other case
+                                if (reasons.get(which).getTitle().equalsIgnoreCase("OTHER")) {
+                                    if (Feature.isFeatureAllowed(Feature.VOID_TICKET_OTHER_COMMENT)) {
+                                        try {
+                                            otherVoidReasonPopup(which, reasons);
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+                                    } else {
+                                        updateTicket(which, reasons);
+                                    }
+                                } else {
+                                    updateTicket(which, reasons);
                                 }
-                            } else {
-                                updateTicket(which, reasons);
+
+                            } catch (Exception e) {
+                                log.error(TPUtility.getPrintStackTrace(e));
                             }
-                        } else {
-                            updateTicket(which, reasons);
                         }
-
-                    } catch (Exception e) {
-                        log.error(TPUtility.getPrintStackTrace(e));
-                    }
-                }
-            })
+                    })
                     .setCancelable(true).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
 
-                }
-            });
+                        }
+                    });
             AlertDialog alert = builder.create();
             alert.show();
 
@@ -729,11 +730,11 @@ public class TicketViewActivity extends BaseActivityImpl implements HotListHandl
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete Confirmation").setMessage("Are you sure you want to delete this ticket?")
                 .setCancelable(true).setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
-            }
-        })
+                    }
+                })
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -796,26 +797,41 @@ public class TicketViewActivity extends BaseActivityImpl implements HotListHandl
 
     private String getPrintPreviewTemplate() {
         String html = "";
+        InputStream is = null;
         try {
+            // Try fetching the template from the database
             PrintTemplate template = PrintTemplate.getPrintTemplateByName("PrintPreview");
             if (template != null) {
-                return template.getTemplateData();
+                return template.getTemplateData(); // Return the template data if found
             }
 
-            InputStream is = getAssets().open("previewTemplate.html");
+            // If not found, fallback to loading the asset file
+            is = getAssets().open("previewTemplate.html");
             int size = is.available();
-
             byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
 
+            // Read the content from the file into the buffer
+            is.read(buffer);
+
+            // Convert the buffer into a String and assign it to 'html'
             html = new String(buffer);
         } catch (Exception e) {
+            // Log the exception stack trace for debugging
             log.error(TPUtility.getPrintStackTrace(e));
+        } finally {
+            // Ensure the InputStream is closed properly
+            if (is != null) {
+                try {
+                    is.close();
+                } catch (IOException e) {
+                    log.error("Error closing InputStream: " + TPUtility.getPrintStackTrace(e));
+                }
+            }
         }
 
         return html;
     }
+
 
     @Override
     public void handleVoiceInput(String text) {
@@ -1117,7 +1133,7 @@ public class TicketViewActivity extends BaseActivityImpl implements HotListHandl
 
     @Override
     public void hotListHandler(boolean result) {
-            Toast.makeText(this, "HotList added successfully.", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "HotList added successfully.", Toast.LENGTH_LONG).show();
     }
 
     private class CustomeGestureDetector extends SimpleOnGestureListener {
@@ -1232,32 +1248,32 @@ public class TicketViewActivity extends BaseActivityImpl implements HotListHandl
                     }
                     TPUtility.hideSoftKeyboard(TicketViewActivity.this);
 
-                   // closeKeyboard();
+                    // closeKeyboard();
                     AlertDialog.Builder builder = new AlertDialog.Builder(TicketViewActivity.this);
                     builder.setTitle("Confirmation").setMessage("Are you sure you want to add this plate as HotList?")
                             .setCancelable(false).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    }).setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            // process ticket to server or offline
-                            if (!commentEditText.getText().toString().trim().isEmpty()) {
-                                addNewHotList(activeTicket.getPlate().trim(),
-                                        activeTicket.getStateCode(),
-                                        commentEditText.getText().toString().trim(),
-                                        beginDate.getText().toString().trim(),
-                                        endDate.getText().toString().trim());
-                                emailDialog.dismiss();
-                                TPUtility.hideSoftKeyboard(TicketViewActivity.this);
-                                //closeKeyboard();
-                            } else
-                                TPUtility.showErrorToast(TicketViewActivity.this,
-                                        "Please provide your comment");
-                        }
-                    });
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            }).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // process ticket to server or offline
+                                    if (!commentEditText.getText().toString().trim().isEmpty()) {
+                                        addNewHotList(activeTicket.getPlate().trim(),
+                                                activeTicket.getStateCode(),
+                                                commentEditText.getText().toString().trim(),
+                                                beginDate.getText().toString().trim(),
+                                                endDate.getText().toString().trim());
+                                        emailDialog.dismiss();
+                                        TPUtility.hideSoftKeyboard(TicketViewActivity.this);
+                                        //closeKeyboard();
+                                    } else
+                                        TPUtility.showErrorToast(TicketViewActivity.this,
+                                                "Please provide your comment");
+                                }
+                            });
                     AlertDialog alert = builder.create();
                     alert.show();
                 }
@@ -1319,7 +1335,7 @@ public class TicketViewActivity extends BaseActivityImpl implements HotListHandl
                 Toast.makeText(this, "HotList saved successfully.", Toast.LENGTH_LONG).show();
                 //DatabaseHelper.getInstance().insertOrReplace(syncHotListData.getContentValues(), "sync_data");
             }
-                // This code is changed by mohit 01/03/2023
+            // This code is changed by mohit 01/03/2023
            /* if (!result) {
                 try {
                     Toast.makeText(this, "HotList saved successfully.", Toast.LENGTH_LONG).show();

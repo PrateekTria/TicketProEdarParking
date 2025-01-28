@@ -111,7 +111,7 @@ public class PhotosActivity extends BaseActivityImpl {
                 }
             });
 
-            if (activeTicket.getTicketPictures().size() == 0) {
+            if (activeTicket.getTicketPictures().isEmpty()) {
                 takeNewPicture(null);
             } else {
                 displayPictures();
@@ -175,7 +175,7 @@ public class PhotosActivity extends BaseActivityImpl {
                         TPApplication.getInstance().stickyPhoto = isChecked;
 
                     }else {
-                        if (TPApp.getLastPhotos().size()>0) {
+                        if (!TPApp.getLastPhotos().isEmpty()) {
                             TicketPicture ticketPicture = activeTicket.getTicketPictures().get(pictureIndex);
                             ticketPicture.setPhotoSp(false);
                             preference.putBoolean(TPConstant.PREFS_KEY_STICKY_PHOTO, false);
@@ -190,7 +190,7 @@ public class PhotosActivity extends BaseActivityImpl {
 
                 ImageView imgView = (ImageView) rowView.findViewById(R.id.photo_row_view_image);
                 try {
-                  //  File previewImg = new File(picture.getImagePath());
+                    //  File previewImg = new File(picture.getImagePath());
                     File previewImg = new File(activeTicket.getTicketPictures().get(index).getImagePath());
                     if (previewImg.exists()) {
                         sp.setVisibility(View.VISIBLE);
@@ -322,7 +322,8 @@ public class PhotosActivity extends BaseActivityImpl {
                                                     ArrayList<TicketPicture> tp = new ArrayList<>();
                                                     tp.add(picture);
                                                     CSVUtility.writePictureCSV(tp);
-                                                    TPUtility.removeFile(picture.getImagePath());
+                                                    CSVUtility.writeTicketCSV(activeTicket);
+                                                    // TPUtility.removeFile(picture.getImagePath());
                                                     TicketPicture.removePictureById(picture.getS_no());
                                                     ArrayList<TicketPicture> ticketPictures = TicketPicture.getTicketPicturesByCitation(activeTicket.getCitationNumber());
 
@@ -382,7 +383,7 @@ public class PhotosActivity extends BaseActivityImpl {
                         deletePicture.setVisibility(View.INVISIBLE);
                     } else {
                         if (Feature.isFeatureAllowed(Feature.PARK_STICKY_PHOTO)){
-                            if (TPApp.getLastPhotos().size()>0){
+                            if (!TPApp.getLastPhotos().isEmpty()){
                                 retakePicture.setVisibility(View.GONE);
                                 deletePicture.setVisibility(View.GONE);
                             }else {
@@ -452,7 +453,7 @@ public class PhotosActivity extends BaseActivityImpl {
                 }
             }
 
-            if (activeTicket.getTicketPictures().size() == 0) {
+            if (activeTicket.getTicketPictures().isEmpty()) {
                 backAction(null);
             }
 
@@ -497,14 +498,15 @@ public class PhotosActivity extends BaseActivityImpl {
                 try {
 
                     maxPhotos = Integer.parseInt(value);
-                    if (activeTicket.getPhoto_count() > 0) {
-                        maxPhotos = maxPhotos + activeTicket.getPhoto_count();
+                    // This code has been changed by Prateek on 10/5/2024
+                    if (activeTicket.getTicketPictures().size() < maxPhotos ) {
+                        maxPhotos = maxPhotos + activeTicket.getPhotoCount();
                     }
                     if (activeTicket.isLPR()) {
                         maxPhotos = maxPhotos + 1;
                     }
                 } catch (Exception e) {
-//					e.printStackTrace();
+                    e.printStackTrace();
                 }
             }
 

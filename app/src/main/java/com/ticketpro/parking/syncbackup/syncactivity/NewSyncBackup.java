@@ -214,7 +214,7 @@ public class NewSyncBackup extends BaseActivityImpl {
         param.setCsvinfo(CsvModels);
         param.setDeviceid(TPApp.deviceId);
         param.setModule("Parking_Edar");
-        jsonRpc.setJsonrpc("2.o");
+        jsonRpc.setJsonrpc("2.0");
         jsonRpc.setMethod("uploadCsvInsideDiagnostics");
         jsonRpc.setId("82F85DB43CBF6");
         jsonRpc.setParams(param);
@@ -301,7 +301,7 @@ public class NewSyncBackup extends BaseActivityImpl {
         param.setDbinfo(dbModels);
         param.setDeviceid(TPApp.deviceId);
         param.setModule("Parking_Edar");
-        jsonRpc.setJsonrpc("2.o");
+        jsonRpc.setJsonrpc("2.0");
         jsonRpc.setMethod("uploadDatabase");
         jsonRpc.setId("82F85DB43CBF6");
         jsonRpc.setParams(param);
@@ -385,7 +385,7 @@ public class NewSyncBackup extends BaseActivityImpl {
         param.setCsvinfo(debugModels);
         param.setDeviceid(String.valueOf(TPApp.deviceId));
         param.setModule("Parking_Edar");
-        jsonRpc.setJsonrpc("2.o");
+        jsonRpc.setJsonrpc("2.0");
         jsonRpc.setMethod("uploadDebugLog");
         jsonRpc.setId("82F85DB43CBF6");
         jsonRpc.setParams(param);
@@ -586,7 +586,7 @@ public class NewSyncBackup extends BaseActivityImpl {
         param.setCsvinfo(debugModels);
         param.setDeviceid(String.valueOf(TPApp.deviceId));
         param.setModule("Parking_Edar");
-        jsonRpc.setJsonrpc("2.o");
+        jsonRpc.setJsonrpc("2.0");
         jsonRpc.setMethod("uploadDebugLog");
         jsonRpc.setId("82F85DB43CBF6");
         jsonRpc.setParams(param);

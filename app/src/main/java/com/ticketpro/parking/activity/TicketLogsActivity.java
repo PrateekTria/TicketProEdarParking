@@ -54,7 +54,6 @@ public class TicketLogsActivity extends BaseActivityImpl {
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
         try {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.ticket_logs);
@@ -97,14 +96,16 @@ public class TicketLogsActivity extends BaseActivityImpl {
 
     private void initDatagrid() {
         try {
-            if (tickets == null) {
-                return;
+            // Check if tickets list is null or empty before accessing it
+            if (tickets == null || tickets.isEmpty()) {
+                voidedTextView.setText("T=0 V=0 W=0");
+                return; // Exit early if no tickets are available
             }
 
             tableLayout.removeAllViews();
             LayoutInflater inflater = LayoutInflater.from(this);
 
-            // adding Header
+            // Adding Header
             View headerRow = inflater.inflate(R.layout.table_row_ticketlog, null);
 
             TextView citationColumn = ((TextView) headerRow.findViewById(R.id.tr_header1));
@@ -113,20 +114,20 @@ public class TicketLogsActivity extends BaseActivityImpl {
             citationColumn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View arg0) {
-                    Collections.sort(tickets, new Ticket.PlateComparator());
-
-                    // Update Sorting Order
-                    if (sortBy != 1) {
-                        sortOrder = ASC_ORDER;
-                    } else if (sortOrder == ASC_ORDER) {
-                        sortOrder = DESC_ORDER;
-                        Collections.reverse(tickets);
-                    } else {
-                        sortOrder = ASC_ORDER;
+                    if (tickets != null && !tickets.isEmpty()) {
+                        Collections.sort(tickets, new Ticket.PlateComparator());
+                        // Update Sorting Order
+                        if (sortBy != 1) {
+                            sortOrder = ASC_ORDER;
+                        } else if (sortOrder == ASC_ORDER) {
+                            sortOrder = DESC_ORDER;
+                            Collections.reverse(tickets);
+                        } else {
+                            sortOrder = ASC_ORDER;
+                        }
+                        sortBy = 1;
+                        initDatagrid(); // Refresh the table after sorting
                     }
-
-                    sortBy = 1;
-                    initDatagrid();
                 }
             });
 
@@ -136,21 +137,20 @@ public class TicketLogsActivity extends BaseActivityImpl {
             timeColumn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View arg0) {
-                    Collections.sort(tickets, new Ticket.DateComparator());
-
-
-                    // Update Sorting Order
-                    if (sortBy != 2) {
-                        sortOrder = ASC_ORDER;
-                    } else if (sortOrder == ASC_ORDER) {
-                        sortOrder = DESC_ORDER;
-                        Collections.reverse(tickets);
-                    } else {
-                        sortOrder = ASC_ORDER;
+                    if (tickets != null && !tickets.isEmpty()) {
+                        Collections.sort(tickets, new Ticket.DateComparator());
+                        // Update Sorting Order
+                        if (sortBy != 2) {
+                            sortOrder = ASC_ORDER;
+                        } else if (sortOrder == ASC_ORDER) {
+                            sortOrder = DESC_ORDER;
+                            Collections.reverse(tickets);
+                        } else {
+                            sortOrder = ASC_ORDER;
+                        }
+                        sortBy = 2;
+                        initDatagrid(); // Refresh the table after sorting
                     }
-
-                    sortBy = 2;
-                    initDatagrid();
                 }
             });
 
@@ -160,45 +160,23 @@ public class TicketLogsActivity extends BaseActivityImpl {
             plateColumn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View arg0) {
-                    Collections.sort(tickets, new Ticket.PlateComparator());
-
-                    // Update Sorting Order
-                    if (sortBy != 3) {
-                        sortOrder = ASC_ORDER;
-                    } else if (sortOrder == ASC_ORDER) {
-                        sortOrder = DESC_ORDER;
-                        Collections.reverse(tickets);
-                    } else {
-                        sortOrder = ASC_ORDER;
+                    if (tickets != null && !tickets.isEmpty()) {
+                        Collections.sort(tickets, new Ticket.PlateComparator());
+                        // Update Sorting Order
+                        if (sortBy != 3) {
+                            sortOrder = ASC_ORDER;
+                        } else if (sortOrder == ASC_ORDER) {
+                            sortOrder = DESC_ORDER;
+                            Collections.reverse(tickets);
+                        } else {
+                            sortOrder = ASC_ORDER;
+                        }
+                        sortBy = 3;
+                        initDatagrid(); // Refresh the table after sorting
                     }
-
-                    sortBy = 3;
-                    initDatagrid();
                 }
             });
 
-           /* TextView vinColumn = ((TextView) headerRow.findViewById(R.id.tr_header4));
-            vinColumn.setText("Vin#");
-            vinColumn.setClickable(true);
-            vinColumn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View arg0) {
-                    Collections.sort(tickets, new Ticket.VinComparator());
-
-                    // Update Sorting Order
-                    if (sortBy != 4) {
-                        sortOrder = ASC_ORDER;
-                    } else if (sortOrder == ASC_ORDER) {
-                        sortOrder = DESC_ORDER;
-                        Collections.reverse(tickets);
-                    } else {
-                        sortOrder = ASC_ORDER;
-                    }
-
-                    sortBy = 4;
-                    initDatagrid();
-                }
-            });*/
             switch (sortBy) {
                 case 1:
                     if (sortOrder == ASC_ORDER)
@@ -218,19 +196,13 @@ public class TicketLogsActivity extends BaseActivityImpl {
                     else
                         plateColumn.setText("Plate# \u25B2");
                     break;
-
-               /* case 4:
-                    if (sortOrder == ASC_ORDER)
-                        vinColumn.setText("Vin# \u25BC");
-                    else
-                        vinColumn.setText("Vin# \u25B2");
-                    break;*/
             }
 
             tableLayout.addView(headerRow);
 
             int i = 0, voided = 0, warning = 0;
             for (Ticket ticket : tickets) {
+                if (ticket == null) continue; // Skip null tickets
 
                 String value = "";
 
@@ -267,12 +239,11 @@ public class TicketLogsActivity extends BaseActivityImpl {
 
                 final String plate = ticket.getPlate();
                 final TextView plateVin = (TextView) tableRow.findViewById(R.id.tr_header3);
-                if (plate!=null && !TextUtils.isEmpty(plate)){
+                if (plate != null && !TextUtils.isEmpty(plate)) {
                     plateVin.setText(plate);
-                }else {
+                } else {
                     plateVin.setText(ticket.getVin());
                 }
-                //((TextView) tableRow.findViewById(R.id.tr_header4)).setText(ticket.getVin());
 
                 if ((i % 2) == 0) {
                     tableRow.setBackgroundResource(R.drawable.tablerow_even);
@@ -293,7 +264,6 @@ public class TicketLogsActivity extends BaseActivityImpl {
                         i.putExtra("CitationNumber", citationNumber);
                         i.putExtra("TicketIndex", ticketIndex);
                         startActivityForResult(i, 0);
-                        return;
                     }
                 });
 
@@ -303,17 +273,14 @@ public class TicketLogsActivity extends BaseActivityImpl {
 
                 if (ticket.isVoided()) {
                     voided++;
-
                     tableRow.setBackgroundResource(R.drawable.tablerow_expired);
                 }
 
                 if (ticket.isWarn()) {
                     warning++;
-
                     ((TextView) tableRow.findViewById(R.id.tr_header1)).setTextColor(Color.BLACK);
                     ((TextView) tableRow.findViewById(R.id.tr_header2)).setTextColor(Color.BLACK);
                     ((TextView) tableRow.findViewById(R.id.tr_header3)).setTextColor(Color.BLACK);
-
                     tableRow.setBackgroundResource(R.drawable.tablerow_warned);
                 }
 
@@ -333,7 +300,12 @@ public class TicketLogsActivity extends BaseActivityImpl {
         if (resultCode == RESULT_OK) {
             try {
                 tickets = ((CommonBLProcessor) screenBLProcessor).getTickets();
-                dataLoadingHandler.sendEmptyMessage(1);
+                // Check if tickets list is valid
+                if (tickets != null && !tickets.isEmpty()) {
+                    dataLoadingHandler.sendEmptyMessage(1);
+                } else {
+                    dataLoadingHandler.sendEmptyMessage(0); // Notify error handler if tickets are empty
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -347,94 +319,39 @@ public class TicketLogsActivity extends BaseActivityImpl {
                 public void run() {
                     try {
                         tickets = ((CommonBLProcessor) screenBLProcessor).getTickets();
-                        dataLoadingHandler.sendEmptyMessage(1);
+                        // Check if tickets list is valid
+                        if (tickets != null && !tickets.isEmpty()) {
+                            dataLoadingHandler.sendEmptyMessage(1);
+                        } else {
+                            dataLoadingHandler.sendEmptyMessage(0); // Notify error handler if tickets are empty
+                        }
                     } catch (TPException ae) {
-                        log.error(ae.getMessage());
                         errorHandler.sendEmptyMessage(0);
                     }
                 }
             }.start();
-
         } catch (Exception e) {
-            log.error(TPUtility.getPrintStackTrace(e));
+            e.printStackTrace();
         }
     }
 
     @Override
-    public void onClick(View v) {
+    public void handleVoiceInput(String text) throws Exception {
 
-    }
-
-    @Override
-    public void onBackPressed() {
-        backAction(null);
-    }
-
-    public void backAction(View view) {
-        finish();
-    }
-
-    public void backAction1(View view) {
-        __showPendingTickets();
-    }
-
-    private void __showPendingTickets() {
-        boolean b = Ticket.checkOlderTickets(TPApplication.getInstance().userId);
-        AlertDialog.Builder confirmBuilder = new AlertDialog.Builder(TicketLogsActivity.this);
-        confirmBuilder.setCancelable(false);
-        if (b){
-            confirmBuilder.setTitle("Alert")
-                    .setMessage(R.string.clear_ticket_msg).setCancelable(true)
-                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    }).setPositiveButton("Continue", (dialog, which) -> {
-                        Ticket.removeOlderTickets(TPApplication.getInstance().userId);
-                        try {
-                            Thread.sleep(2000);
-                            ArrayList<TicketPicture> lastPhotos = TPApp.getLastPhotos();
-                            if (lastPhotos.size()>0) {
-                                lastPhotos.clear();
-                            }
-                            bindDataAtLoadingTime();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    });
-
-            AlertDialog confirmAlert = confirmBuilder.create();
-            confirmAlert.show();
-        }else {
-            confirmBuilder.setTitle("Alert").setMessage(R.string.no_tickets_found).setCancelable(true)
-                    .setNegativeButton("Ok", (dialog, which) -> dialog.dismiss());
-
-
-            AlertDialog confirmAlert = confirmBuilder.create();
-            confirmAlert.show();
-        }
-    }
-
-    @Override
-    public void handleVoiceInput(String text) {
-        if (text == null)
-            return;
-
-        Toast.makeText(this, text, Toast.LENGTH_LONG).show();
-        if (text.contains("BACK") || text.contains("GO BACK") || text.contains("CLOSE")) {
-            backAction(null);
-        }
     }
 
     @Override
     public void handleVoiceMode(boolean voiceMode) {
-        // TODO Auto-generated method stub
 
     }
 
     @Override
     public void handleNetworkStatus(boolean connected, boolean isFastConnection) {
-        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

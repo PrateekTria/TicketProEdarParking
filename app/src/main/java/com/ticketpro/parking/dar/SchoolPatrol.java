@@ -602,7 +602,7 @@ public class SchoolPatrol extends BaseActivityImpl implements Schoolitemlistner,
         aList.add(school);
         paramSchool.setDetails(aList);
         paramSchool.setCustId(TPApp.custId);
-        schoolJson_rpc.setJsonrpc("2.o");
+        schoolJson_rpc.setJsonrpc("2.0");
         schoolJson_rpc.setMethod("insertDarSchoolForm");
         schoolJson_rpc.setId("82F85DB43CBF6");
         schoolJson_rpc.setParams(paramSchool);

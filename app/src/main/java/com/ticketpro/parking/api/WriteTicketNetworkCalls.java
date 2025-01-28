@@ -107,9 +107,9 @@ public class WriteTicketNetworkCalls {
                 if ("Y".equalsIgnoreCase(picture.getLprNotification())) {
                     continue;
                 }
-                if (!picture.getImagePath().contains("VLPR")) {
+               // if (!picture.getImagePath().contains("VLPR")) {
                     uploadImages.add(picture);
-                }
+              //  }
                 String[] path = picture.getImagePath().split("/");
                 picture.setImagePath(path[path.length - 1]);
                 ticketPictures.add(picture);
@@ -214,13 +214,13 @@ public class WriteTicketNetworkCalls {
             boolean uploadFlag = false;
             for (TicketPicture ticketPicture : images) {
                 try {
-                    if (!ticketPicture.getImagePath().contains("VLPR")) {
+                 //   if (!ticketPicture.getImagePath().contains("VLPR")) {
                         uploadFlag = TPUtility.uploadFile(ticketPicture.getImagePath(),
                                 TPConstant.FILE_UPLOAD + "/uploadfile",
                                 TPApplication.getInstance().getCustId());
                         __updateTicketPictureImageStatus(ticketPicture.getS_no(), citationNumber, uploadFlag);
 
-                    }
+                //    }
 
                 } catch (Exception e) {
                     log.error(TPUtility.getPrintStackTrace(e));
@@ -234,12 +234,12 @@ public class WriteTicketNetworkCalls {
     private void syncTicketImage(long citationNumber, final ArrayList<String> images) {
         for (String imagePath : images) {
             try {
-                if (!imagePath.contains("VLPR")) {
+           //     if (!imagePath.contains("VLPR")) {
 
                     File file = new File(imagePath);
                     RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
 
-                }
+            //    }
                 // __updateTicketPictureImageStatus(citationNumber, uploadFlag);
 
             } catch (Exception e) {
@@ -279,6 +279,9 @@ public class WriteTicketNetworkCalls {
 
 
     public static void syncDevices(ArrayList<DeviceInfo> deviceInfo,String name) {
+        if(deviceInfo == null || deviceInfo.isEmpty()){
+            return;
+        }
         Params params = new Params();
         params.setDevices(deviceInfo);
         RequestPOJO requestPOJO = new RequestPOJO();
@@ -320,11 +323,11 @@ public class WriteTicketNetworkCalls {
             boolean uploadFlag = true;
             for (String imagePath : images) {
                 try {
-                    if (!imagePath.contains("VLPR")) {
+                //    if (!imagePath.contains("VLPR")) {
                         uploadFlag = TPUtility.uploadFile(imagePath,
                                 TPConstant.FILE_UPLOAD + "/uploadfile",
                                 TPApplication.getInstance().getCustId());
-                    }
+               //     }
                     if (!uploadFlag) {
                         TPUtility.markPendingImage(imagePath);
                     }

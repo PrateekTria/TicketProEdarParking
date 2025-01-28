@@ -442,7 +442,7 @@ public class ScheduleShift extends BaseActivityImpl {
         param.setCustId(TPApp.custId);
         param.setDetails(aList);
         param.setIsOverride("Y");
-        jsonRpc.setJsonrpc("2.o");
+        jsonRpc.setJsonrpc("2.0");
         jsonRpc.setMethod("insertMileage");
         jsonRpc.setId("82F85DB43CBF6");
         jsonRpc.setParams(param);

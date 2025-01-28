@@ -70,9 +70,9 @@ public class SplashActivity extends Activity implements CountDownDialog.versionc
         } else {
             int where = sharedpreferences.getInt("where", 0);
             if (where == 1) {
-                FILE_UPLOAD = "https://tpwebservicesdev24.ticketproweb.com/index.php/api";
-                SERVICE_URL = "https://tpwebservicesdev24.ticketproweb.com/index.php/api/";
-                RX_SERVICE_URL = "https://tpwebservicesdev24.ticketproweb.com/index.php/api/";
+                FILE_UPLOAD = "https://tpwebservicesdev24.ticketproweb.com/index.php/service";
+                SERVICE_URL = "https://tpwebservicesdev24.ticketproweb.com/index.php/service/genericv1";
+                RX_SERVICE_URL = "https://tpwebservicesdev24.ticketproweb.com/index.php/";
                 ASSETS_URL = "https://tpwebservicesdev24.ticketproweb.com/assets/customers";
                 UPDATE_URL = "https://tpwebservicesdev24.ticketproweb.com/updates";
                 IMAGES_URL = "https://tpwebservicesdev24.ticketproweb.com/images/customers";
@@ -81,19 +81,19 @@ public class SplashActivity extends Activity implements CountDownDialog.versionc
                 IS_DEVELOPMENT_BUILD = true;
             }
             if (where == 2) {
-                FILE_UPLOAD = "https://tpwebservicestage.ticketproweb.com/public/index.php/service";
-                SERVICE_URL = "https://tpwebservicestage.ticketproweb.com/public/index.php/service/genericv1";
-                RX_SERVICE_URL = "https://tpwebservicestage.ticketproweb.com/public/index.php/";
-                ASSETS_URL = "https://tpwebservicestage.ticketproweb.com/public/assets/customers";
-                UPDATE_URL = "https://tpwebservicestage.ticketproweb.com/public/updates";
-                IMAGES_URL = "https://tpwebservicestage.ticketproweb.com/public/images/customers";
+                FILE_UPLOAD = "https://tpwebservicesstage24.ticketproweb.com/public/index.php/service";
+                SERVICE_URL = "https://tpwebservicesstage24.ticketproweb.com/public/index.php/service/genericv1";
+                RX_SERVICE_URL = "https://tpwebservicesstage24.ticketproweb.com/public/index.php/";
+                ASSETS_URL = "https://tpwebservicesstage24.ticketproweb.com/public/assets/customers";
+                UPDATE_URL = "https://tpwebservicesstage24.ticketproweb.com/public/updates";
+                IMAGES_URL = "https://tpwebservicesstage24.ticketproweb.com/public/images/customers";
                 LPR_URL = "http://lprdev.ticketproweb.com/LPRWcfService/LPRService.svc?wsdl";
                 FIREBASE_DB_URL = "http://trackerdev.ticketproweb.com:8081/api/";
                 IS_STAGING_BUILD = true;
                 IS_DEVELOPMENT_BUILD = false;
             }
             progressBar.setVisibility(View.VISIBLE);
-        //    TPUtility.createTxtFile();
+            TPUtility.createTxtFile();
 
             final SplashActivity splashActivity = this;
             try {
@@ -163,9 +163,10 @@ public class SplashActivity extends Activity implements CountDownDialog.versionc
 
         SharedPreferences.Editor editor = sharedpreferences.edit();
         if (BuildType == DEVELOPMENT) {
-            FILE_UPLOAD = "https://tpwebservicesdev24.ticketproweb.com/index.php/api";
-            SERVICE_URL = "https://tpwebservicesdev24.ticketproweb.com/index.php/api/";
-            RX_SERVICE_URL = "https://tpwebservicesdev24.ticketproweb.com/index.php/api/";
+            FILE_UPLOAD = "https://tpwebservicesdev24.ticketproweb.com/index.php/service";
+            //= "https://tpwebservicesdev.ticketproweb.com/public/index.php/service";
+            SERVICE_URL = "https://tpwebservicesdev24.ticketproweb.com/index.php/service/genericv1";
+            RX_SERVICE_URL = "https://tpwebservicesdev24.ticketproweb.com/index.php/";
             ASSETS_URL = "https://tpwebservicesdev24.ticketproweb.com/assets/customers";
             UPDATE_URL = "https://tpwebservicesdev24.ticketproweb.com/updates";
             IMAGES_URL = "https://tpwebservicesdev24.ticketproweb.com/images/customers";
@@ -177,12 +178,12 @@ public class SplashActivity extends Activity implements CountDownDialog.versionc
         }
 
         if (BuildType == STAGING) {
-            FILE_UPLOAD = "https://tpwebservicestage.ticketproweb.com/public/index.php/service";
-            SERVICE_URL = "https://tpwebservicestage.ticketproweb.com/public/index.php/service/genericv1";
-            RX_SERVICE_URL = "https://tpwebservicestage.ticketproweb.com/public/index.php/";
-            ASSETS_URL = "https://tpwebservicestage.ticketproweb.com/public/assets/customers";
-            UPDATE_URL = "https://tpwebservicestage.ticketproweb.com/public/updates";
-            IMAGES_URL = "https://tpwebservicestage.ticketproweb.com/public/images/customers";
+            FILE_UPLOAD = "https://tpwebservicesstage24.ticketproweb.com/public/index.php/service";
+            SERVICE_URL = "https://tpwebservicesstage24.ticketproweb.com/public/index.php/service/genericv1";
+            RX_SERVICE_URL = "https://tpwebservicesstage24.ticketproweb.com/public/index.php/";
+            ASSETS_URL = "https://tpwebservicesstage24.ticketproweb.com/public/assets/customers";
+            UPDATE_URL = "https://tpwebservicesstage24.ticketproweb.com/public/updates";
+            IMAGES_URL = "https://tpwebservicesstage24.ticketproweb.com/public/images/customers";
             LPR_URL = "http://lprdev.ticketproweb.com/LPRWcfService/LPRService.svc?wsdl";
             FIREBASE_DB_URL = "http://trackerdev.ticketproweb.com:8081/api/";
             IS_STAGING_BUILD = true;

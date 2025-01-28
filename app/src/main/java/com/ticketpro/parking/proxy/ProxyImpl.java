@@ -37,7 +37,6 @@ import com.ticketpro.parking.dar.model.Dar22500DisposionDropDownElement;
 import com.ticketpro.parking.dar.model.Dar22500DisposionDropDownElementResponse;
 import com.ticketpro.parking.dar.model.DarAdminDropdown;
 import com.ticketpro.parking.dar.model.DarAdminDropdownResponse;
-import com.ticketpro.parking.dar.model.DarAssignmentLocation;
 import com.ticketpro.parking.dar.model.DarAssignmentLocationResponse;
 import com.ticketpro.parking.dar.model.DarAssignmentResponse;
 import com.ticketpro.parking.dar.model.DarAuthorityResponse;
@@ -164,7 +163,7 @@ public class ProxyImpl implements Proxy {
     private static final String TAG = "PROXYIMPL";
     Logger log = Logger.getLogger("ProxyImpl");
     boolean syncStatus = true;
-    boolean observable1 = false, observable2 = false, observable3 = false, observable4 = false, observable5 = false, observable6 = false, observable7=false, observable8=false;;
+    boolean observable1 = false, observable2 = false, observable3 = false, observable4 = false, observable5 = false, observable6 = false, observable7=false, observable8=false;
     private ServiceHandler service;
 
     public ProxyImpl() throws Exception {
@@ -759,9 +758,6 @@ public class ProxyImpl implements Proxy {
             e.printStackTrace();
         }*/
         try {
-            if(hotlists == null){
-                return;
-            }
             ApiRequest apiRequest = ServiceGenerator.createRxService(ApiRequest.class);
             ActivityRequest_Rpc requestPOJO = new ActivityRequest_Rpc();
             requestPOJO.setMethod("updateHotListReports");
@@ -829,7 +825,7 @@ public class ProxyImpl implements Proxy {
                 boolean hasUploaded = false;
                 for (String memo : voiceMemos) {
                     hasUploaded = TPUtility.uploadFile(TPUtility.getVoiceMemosFolder() + memo,
-                            TPConstant.FILE_UPLOAD + "/v1/common/uploadfile", custId);
+                            TPConstant.FILE_UPLOAD + "/uploadfile", custId);
                     if (!hasUploaded) {
                         TPUtility.markPendingVoiceComment(memo);
                     }
@@ -2052,19 +2048,16 @@ public class ProxyImpl implements Proxy {
         RequestPOJO requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getCustomers");
-
         Observable<CustomerResponse> customers = api.getCustomers(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getClientInfo");
-
         Observable<ClientInfoResponse> clientInfo = api.getClientInfo(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getUsers");
-
         Log.i("Customer API", new Gson().toJson(requestPOJO));
         Call<UserResponse> users = api.getUsers(requestPOJO);
         Call<UserResponse> users1 = api.getUsers1(requestPOJO);
@@ -2072,242 +2065,202 @@ public class ProxyImpl implements Proxy {
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getUserSettings");
-
         Observable<UserSettingResponse> userSetting = api.getUserSettings(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getMessages");
-
         Observable<MessageResponse> messages = api.getMessages(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getBodies");
-
         Observable<BodyResponse> bodies = api.getBodies(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getLprBodyMap");
-
         Observable<LprBodyResponse> lprBodies = api.getLPRBodies(requestPOJO);
 
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getContacts");
-
         Observable<ContactResponse> contacts = api.getContacts(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getColors");
-
         Observable<ColorResponse> colors = api.getColors(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getComments");
-
         Observable<CommentResponse> comments = api.getComments(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDirections");
-
         Observable<DirectionResponse> directions = api.getDirections(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDurations");
-
         Observable<DurationResponse> durations = api.getDurations(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDuties");
-
         Observable<DutyResponse> duties = api.getDuties(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getFeatures");
-
         Observable<FeatureResponse> features = api.getFeatures(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getGPSLocations");
-
         Observable<GPSLocationResponse> gpsLocations = api.getGPSLocations(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getSpecialActivitiesLocation");
-
         Observable<SpecialActivitiesLocationResponse> specialActivitiesLocation = api.getSpecialActivitiesLocation(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getHotlist");
-
         Observable<HotlistResponse> hotlist = api.getHotlist(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getLocations");
-
         Observable<LocationResponse> locations = api.getLocations(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getRepeatOffenders");
-
         Observable<RepeatOffenderResponse> repeatOffenders = api.getRepeatOffenders(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getModelsAndMakes");
-
         Observable<MakeAndModelResponse> makesAndModels = api.getMakesAndModels(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getMeters");
-
         Observable<MeterResponse> meters = api.getMeters(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getPermits");
-
         Observable<PermitResponse> permits = api.getPermits(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getStates");
-
         Observable<StateResponse> states = api.getStates(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getStreetPrefixes");
-
         Observable<StreetPrefixResponse> streetPrefixes = api.getStreetPrefixes(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getStreetSuffixes");
-
         Observable<StreetSuffixResponse> streetSuffixes = api.getStreetSuffixes(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getViolations");
-
         Observable<ViolationResponse> violations = api.getViolations(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getZones");
-
         Observable<ZoneResponse> zones = api.getZones(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDeviceGroup");
-
         Observable<DeviceGroupResponse> deviceGroup = api.getDeviceGroup(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getVoidTicketReasons");
-
         Observable<VoidTicketReasonResponse> voidTicketReasons = api.getVoidTicketReasons(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getSpecialActivities");
-
         Observable<SpecialActivityResponse> specialActivities = api.getSpecialActivities(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getSpecialActivityDispositions");
-
         Observable<SpecialActivityDispositionResponse> specialActivityDispositions = api.getSpecialActivityDispositions(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getPrintMacros");
-
         Observable<PrintMacroResponse> printMacros = api.getPrintMacros(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getPrintTemplates");
-
         Observable<PrintTemplateResponse> printTemplates = api.getPrintTemplates(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getCallInList");
-
         final Observable<CallInListResponse> callInList = api.getCallInList(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getLocationGroups");
-
         Observable<LocationGroupResponse> locationGroups = api.getLocationGroups(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getLocationGroupLocations");
-
         Observable<LocationGroupLocationResponse> locationGroupLocations = api.getLocationGroupLocations(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getCommentGroups");
-
         Observable<CommentGroupResponse> commentGroups = api.getCommentGroups(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getCommentGroupComments");
-
         Observable<CommentGroupCommentResponse> commentGroupComments = api.getCommentGroupComments(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getViolationGroups");
-
         Observable<ViolationGroupResponse> violationGroups = api.getViolationGroups(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getViolationGroupViolations");
-
         Observable<ViolationGroupViolationResponse> violationGroupViolations = api.getViolationGroupViolations(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getVendors");
-
         Observable<VendorResponse> vendors = api.getVendors(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getVendorServices");
-
         Observable<VendorServiceResponse> vendorServices = api.getVendorServices(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getVendorItems");
-
         Observable<VendorItemResponse> vendorItems = api.getVendorItems(requestPOJO);
 
         requestPOJO = new RequestPOJO();
@@ -2318,19 +2271,16 @@ public class ProxyImpl implements Proxy {
         params1.setUserId(userId);
         requestPOJO.setParams(params1);
         requestPOJO.setMethod("getVendorServiceRegistrations");
-
         Observable<VendorServiceRegistrationResponse> vendorServiceRegistrations = api.getVendorServiceRegistrations(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getModules");
-
         Observable<ModuleResponse> modules = api.getModules(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getCustomerModules");
-
         Observable<CustomerModuleResponse> customerModules = api.getCustomerModules(requestPOJO);
 
         requestPOJO = new RequestPOJO();
@@ -2340,23 +2290,20 @@ public class ProxyImpl implements Proxy {
         params2.setUpdateDeviceId(true);
         requestPOJO.setParams(params2);
         requestPOJO.setMethod("getDeviceInfo");
-
         Observable<DeviceInfoResponse> deviceInfo = api.getDeviceInfo(requestPOJO);
 
         //Dar Service Imp
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDarEquipments");
-
         Observable<DarEquipmentsResponse> darEquipments = api.getDarEquipments(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDarAssignments");
-
         Observable<DarAssignmentResponse> darAssignments = api.getDarAssignments(requestPOJO);
 
-        /*requestPOJO = new RequestPOJO();
+       /* requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDarAssignmentLocation");
         Observable<DarAssignmentLocationResponse> darAssignmentLocation = api.getDarAssignmentLocation(requestPOJO);*/
@@ -2364,141 +2311,118 @@ public class ProxyImpl implements Proxy {
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDarLocationActivityTask");
-
         Observable<DarLocationActivityTaskResponse> darLocationActivityTask = api.getDarLocationActivityTask(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDarTaskAndAction");
-
         Observable<DarTaskAndActionResponse> darTaskAndAction = api.getDarTaskAndAction(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDarVehicleTask");
-
         Observable<DarVechicleTaskResponse> darVehicleTask = api.getDarVehicleTask(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDarSeniorDutiesElements");
-
         Observable<DarSeniorDutiesElementsResponse> darSeniorDutiesElements = api.getDarSeniorDutiesElements(requestPOJO);
 
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDarOffsiteDropdownElements");
-
         Observable<DarOffsiteDropdownElementsResponse> darOffsiteDropdownElementsResponseObservable = api.getDarOffsiteDropdownElements(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDarChildEquipments");
-
         Observable<DarChildEquipmentsResponse> darChildEquipmentsObservable = api.getDarChildEquipments(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDar22500DisposionDropDownElement");
-
         Observable<Dar22500DisposionDropDownElementResponse> dar22500DropDownObservable = api.getDar22500Dropdown(requestPOJO);
 
         requestPOJO = new RequestPOJO();
 
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDarVehicleTypes");
-
         Observable<DarVehicleListResponse> darVehicleListResponseObservable = api.getDarVehicleList(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDarVdrElements");
-
         Observable<DarVdrElementsResponse> darVdrElementsResponseObservable = api.getVDR(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDarDisinfectingElements");
-
         Observable<DarDisinfectingElementsResponse> darDisinfectingElementsResponseObservable = api.getDarDisinfecting(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDarAdminDropdown");
-
         Observable<DarAdminDropdownResponse> darAdminDropdownResponseObservable = api.getAdminDropdown(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDarSchoolDropDownElement");
-
         Observable<DarSchoolDropDownElementRes> darSchoolDropdownResponseObservable = api.getSchoolDropdown(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDarFieldContactDropdown");
-
         Observable<DarFieldContactDropdownResponse> darFieldContactDropdownResponseObservable = api.getFieldContactDropdown(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDarbreakandlunchDropDownElement");
-
         Observable<DarBreakAndLunchDropDownElementRes> darBandLObservable = api.getBanL(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDarsign_checkDropDownElement");
-
         Observable<DarSignCheckResponse> darSignCheckObservable = api.getSignCheck(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDarPPZDropdownElement");
-
         Observable<DarPPZDropdownResponse> darPPZObservable = api.getPPZ(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getdarServiceRequestDownElement");
-
         Observable<DarServiceRequestDropDownResponse> darServiceRequestObservable = api.getServiceReq(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getdarOffStreetPatrolDropDownElement");
-
         Observable<DarOffStreetPatrolDropDownResponse> darOffStreetPatrolObservable = api.getOffStreetPatrol(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDarOffsiteTrainerDropdownElements");
-
         Observable<DarOffsiteTrainerDropdownResponse> darOffSiteTrainerDwObservable = api.getTrainerDw(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDarOffsiteDistrictDropdownElements");
-
         Observable<DarOffsiteDistrictDropdownResponse> darDistrictDwObservable = api.getDistrictDw(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getdarTowCompanyDownElement");
-
         Observable<DarTowCompnyDwResponse> darTowCompanyObservable = api.getTowCompanyDw(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getdarTowReasonDropDownElement");
-
         Observable<DarTowReasonDropDownRes> darTowReasonObservable = api.getTowReasonDw(requestPOJO);
 
         requestPOJO = new RequestPOJO();
         requestPOJO.setParams(params);
         requestPOJO.setMethod("getDarAuthorityDropdown");
-
         Observable<DarAuthorityResult> darAuthorityResult = api.getDarAuthorityResult(requestPOJO);
 
 
@@ -2507,44 +2431,75 @@ public class ProxyImpl implements Proxy {
         Observable.zip(
 
 
-                customers.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-                    syncStatus = false;
-                    log.error(TPUtility.getPrintStackTrace(throwable) + " getCustomers api");
-                    return null;
-                }), clientInfo.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-                    syncStatus = false;
-                    log.error(TPUtility.getPrintStackTrace(throwable) + " getClientInfo api");
-                    return null;
-                }), violationGroups.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-                    syncStatus = false;
-                    log.error(TPUtility.getPrintStackTrace(throwable) + " getViolationGroups API");
-                    return null;
-                }), colors.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-                    syncStatus = false;
-                    log.error(TPUtility.getPrintStackTrace(throwable) + " getColors API");
-                    return null;
-                }), lprBodies.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-                    syncStatus = false;
-                    log.error(TPUtility.getPrintStackTrace(throwable) + " getlprBodies api");
-                    return null;
-                }), userSetting.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-                    syncStatus = false;
-                    log.error(TPUtility.getPrintStackTrace(throwable) + " getUserSettings API");
-                    return null;
-                }), deviceInfo.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-                    syncStatus = false;
-                    log.error(TPUtility.getPrintStackTrace(throwable) + "getDeviceInfo API");
-                    return null;
-                }), contacts.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-                    syncStatus = false;
-                    log.error(TPUtility.getPrintStackTrace(throwable) + " getContacts API");
-                    return null;
+                customers
+                        .subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in customers Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in customers Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), clientInfo
+                        .subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in clientInfo Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in clientInfo Observable: " + throwable.getMessage());
+                            return null;
+                        }),
 
-                }), comments.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-                    syncStatus = false;
-                    log.error(TPUtility.getPrintStackTrace(throwable) + " getComments API");
-                    return null;
-                }), (customerResponse, clientInfoResponse, violationGroupResponse, colorResponse, lprBodyResponse, userSettingResponse, deviceInfoResponse, contactResponse, commentResponse) -> {
+                violationGroups
+                        .subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in violationGroups Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in violationGroups Observable: " + throwable.getMessage());
+                            return null;
+                        }),
+
+                colors
+                        .subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in colors Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in colors Observable: " + throwable.getMessage());
+                            return null;
+                        }),
+
+                lprBodies
+                        .subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in lprBodies Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in lprBodies Observable: " + throwable.getMessage());
+                            return null;
+                        }),
+
+                userSetting
+                        .subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in userSetting Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in userSetting Observable: " + throwable.getMessage());
+                            return null;
+                        }),
+
+                deviceInfo
+                        .subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in deviceInfo Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in deviceInfo Observable: " + throwable.getMessage());
+                            return null;
+                        }),
+
+                contacts
+                        .subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in contacts Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in contacts Observable: " + throwable.getMessage());
+                            return null;
+                        }),
+
+                comments
+                        .subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in comments Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in comments Observable: " + throwable.getMessage());
+                            return null;
+                        }),(customerResponse, clientInfoResponse, violationGroupResponse, colorResponse, lprBodyResponse, userSettingResponse, deviceInfoResponse, contactResponse, commentResponse) -> {
                     if (fullSync) {
 
                         CustomerInfo.removeAll(custid);
@@ -2692,6 +2647,18 @@ public class ProxyImpl implements Proxy {
                         syncStatus = false;
                         log.error(TPUtility.getPrintStackTrace(e));
                     }
+
+                    Gson gson = new Gson();
+                    Log.i(TAG, "customerResponse: " + gson.toJson(customerResponse));
+                    Log.i(TAG, "clientInfoResponse: " + gson.toJson(clientInfoResponse));
+                    Log.i(TAG, "violationGroupResponse: " + gson.toJson(violationGroupResponse));
+                    Log.i(TAG, "colorResponse: " + gson.toJson(colorResponse));
+                    Log.i(TAG, "lprBodyResponse: " + gson.toJson(lprBodyResponse));
+                    Log.i(TAG, "userSettingResponse: " + gson.toJson(userSettingResponse));
+                    Log.i(TAG, "deviceInfoResponse: " + gson.toJson(deviceInfoResponse));
+                    Log.i(TAG, "contactResponse: " + gson.toJson(contactResponse));
+                    Log.i(TAG, "commentResponse: " + gson.toJson(commentResponse));
+
                     List<Object> list = new ArrayList<>();
                     list.add(customerResponse);
                     list.add(violationGroupResponse);
@@ -2714,14 +2681,17 @@ public class ProxyImpl implements Proxy {
 
             @Override
             public void onNext(@io.reactivex.annotations.NonNull List<Object> objects) {
-
+                Log.i(TAG, "onNext: Received data: " + objects);
+                // You can further iterate and print each item in the list if needed
+                for (Object object : objects) {
+                    Log.i(TAG, "onNext: Item1: " + object);
+                }
             }
 
             @Override
             public void onError(@io.reactivex.annotations.NonNull Throwable e) {
                 log.error(TPUtility.getPrintStackTrace(e));
                 syncStatus = false;
-
                 observable1 = true;
                 sendCallbackForSync(callback);
                 Log.e(TAG, "onError: " + e.getMessage());
@@ -2735,43 +2705,62 @@ public class ProxyImpl implements Proxy {
             }
         });
 
-        Observable.zip(meters.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), permits.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), states.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), streetPrefixes.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), streetSuffixes.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), violations.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), zones.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), deviceGroup.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), voidTicketReasons.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), (meterResponse, permitResponse, stateResponse, streetPrefixResponse, streetSuffixResponse, violationResponse, zoneResponse, deviceGroupResponse, voidTicketReasonResponse) -> {
+        Observable.zip(
+                meters
+                        .subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in meters Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in meters Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }),
+                permits.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in permits Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in permits Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }),
+                states.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in states Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in states Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }),
+                streetPrefixes.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in streetPrefixes Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in streetPrefixes Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }),
+                streetSuffixes.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in streetSuffixes Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in streetSuffixes Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }),
+                violations.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in violations Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in violations Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }),
+                zones.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in zones Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in zones Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }),
+                deviceGroup.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in deviceGroup Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in deviceGroup Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }),
+                voidTicketReasons.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in voidTicketReasons Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in voidTicketReasons Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), (meterResponse, permitResponse, stateResponse, streetPrefixResponse, streetSuffixResponse, violationResponse, zoneResponse, deviceGroupResponse, voidTicketReasonResponse) -> {
             if (fullSync) {
                 Meter.removeAll();
                 Permit.removeAll();
@@ -2937,6 +2926,21 @@ public class ProxyImpl implements Proxy {
                 syncStatus = false;
                 log.error(TPUtility.getPrintStackTrace(e));
             }
+
+
+            Gson gson = new Gson();
+
+            // Logging each response with Gson for pretty print in JSON format
+            Log.i(TAG, "meterResponse: " + gson.toJson(meterResponse));
+            Log.i(TAG, "permitResponse: " + gson.toJson(permitResponse));
+            Log.i(TAG, "stateResponse: " + gson.toJson(stateResponse));
+            Log.i(TAG, "streetPrefixResponse: " + gson.toJson(streetPrefixResponse));
+            Log.i(TAG, "streetSuffixResponse: " + gson.toJson(streetSuffixResponse));
+            Log.i(TAG, "violationResponse: " + gson.toJson(violationResponse));
+            Log.i(TAG, "zoneResponse: " + gson.toJson(zoneResponse));
+            Log.i(TAG, "deviceGroupResponse: " + gson.toJson(deviceGroupResponse));
+            Log.i(TAG, "voidTicketReasonResponse: " + gson.toJson(voidTicketReasonResponse));
+
             List<Object> list = new ArrayList<>();
             list.add(meterResponse);
             list.add(permitResponse);
@@ -2991,43 +2995,54 @@ public class ProxyImpl implements Proxy {
             }
         });
 
-        Observable.zip(specialActivities.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), specialActivityDispositions.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), printMacros.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), printTemplates.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), callInList.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), locationGroups.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), commentGroupComments.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), locationGroupLocations.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), commentGroups.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), (specialActivityResponse, specialActivityDispositionResponse, printMacroResponse, printTemplateResponse, callInListResponse, locationGroupResponse, commentGroupCommentResponse, locationGroupLocationResponse, commentGroupResponse) -> {
+        Observable.zip(
+                specialActivities.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in specialActivities Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in specialActivities Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }),
+                specialActivityDispositions.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in specialActivityDispositions Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in specialActivityDispositions Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), printMacros.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in printMacros Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in printMacros Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), printTemplates.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in printTemplates Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in printTemplates Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), callInList.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in callInList Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in callInList Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), locationGroups.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in voidTicketReasons Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in voidTicketReasons Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), commentGroupComments.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in commentGroupComments Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in commentGroupComments Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), locationGroupLocations.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in locationGroupLocations Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in locationGroupLocations Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), commentGroups.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in commentGroups Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in commentGroups Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), (specialActivityResponse, specialActivityDispositionResponse, printMacroResponse, printTemplateResponse, callInListResponse, locationGroupResponse, commentGroupCommentResponse, locationGroupLocationResponse, commentGroupResponse) -> {
             if (fullSync) {
                 SpecialActivity.removeAll();
                 SpecialActivityDisposition.removeAll();
@@ -3192,6 +3207,21 @@ public class ProxyImpl implements Proxy {
                 syncStatus = false;
                 log.error(TPUtility.getPrintStackTrace(e));
             }
+
+            Gson gson = new Gson();
+
+            // Logging responses with Gson to get a better formatted JSON output
+            Log.i(TAG, "specialActivityResponse: " + gson.toJson(specialActivityResponse));
+            Log.i(TAG, "specialActivityDispositionResponse: " + gson.toJson(specialActivityDispositionResponse));
+            Log.i(TAG, "printMacroResponse: " + gson.toJson(printMacroResponse));
+            Log.i(TAG, "printTemplateResponse: " + gson.toJson(printTemplateResponse));
+            Log.i(TAG, "callInListResponse: " + gson.toJson(callInListResponse));
+            Log.i(TAG, "locationGroupResponse: " + gson.toJson(locationGroupResponse));
+            Log.i(TAG, "commentGroupCommentResponse: " + gson.toJson(commentGroupCommentResponse));
+            Log.i(TAG, "locationGroupResponse: " + gson.toJson(locationGroupResponse));
+            Log.i(TAG, "commentGroupResponse: " + gson.toJson(commentGroupResponse));
+
+
             List<Object> list = new ArrayList<>();
             list.add(specialActivityResponse);
             list.add(specialActivityDispositionResponse);
@@ -3247,43 +3277,53 @@ public class ProxyImpl implements Proxy {
             }
         });
 
-        Observable.zip(violationGroupViolations.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), vendors.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), vendorServices.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), vendorItems.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), vendorServiceRegistrations.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), modules.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), customerModules.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), messages.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), bodies.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), (violationGroupViolationResponse, vendorResponse, vendorServiceResponse, vendorItemResponse, vendorServiceRegistrationResponse, moduleResponse, customerModuleResponse, messageResponse, bodyResponse) -> {
+        Observable.zip(
+                violationGroupViolations.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in violationGroupViolations Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in violationGroupViolations Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), vendors.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in vendors Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in specialActivities Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), vendorServices.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in vendorServices Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in vendorServices Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), vendorItems.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in vendorItems Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in vendorItems Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), vendorServiceRegistrations.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in voidTicketReasons Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in vendorServiceRegistrations Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), modules.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in modules Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in modules Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), customerModules.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in customerModules Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in customerModules Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), messages.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in messages Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in messages Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), bodies.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in bodies Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in bodies Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), (violationGroupViolationResponse, vendorResponse, vendorServiceResponse, vendorItemResponse, vendorServiceRegistrationResponse, moduleResponse, customerModuleResponse, messageResponse, bodyResponse) -> {
             if (fullSync) {
                 Vendor.removeAll();
                 VendorService.removeAll();
@@ -3451,6 +3491,21 @@ public class ProxyImpl implements Proxy {
                 syncStatus = false;
                 log.error(TPUtility.getPrintStackTrace(e));
             }
+
+
+            Gson gson = new Gson();
+
+            // Logging responses with Gson to get a better formatted JSON output
+            Log.i(TAG, "violationGroupViolationResponse: " + gson.toJson(violationGroupViolationResponse));
+            Log.i(TAG, "vendorResponse: " + gson.toJson(vendorResponse));
+            Log.i(TAG, "vendorServiceResponse: " + gson.toJson(vendorServiceResponse));
+            Log.i(TAG, "vendorItemResponse: " + gson.toJson(vendorItemResponse));
+            Log.i(TAG, "vendorServiceRegistrationResponse: " + gson.toJson(vendorServiceRegistrationResponse));
+            Log.i(TAG, "moduleResponse: " + gson.toJson(moduleResponse));
+            Log.i(TAG, "customerModuleResponse: " + gson.toJson(customerModuleResponse));
+            Log.i(TAG, "messageResponse: " + gson.toJson(messageResponse));
+            Log.i(TAG, "bodyResponse: " + gson.toJson(bodyResponse));
+
             List<Object> list = new ArrayList<>();
             list.add(violationGroupViolationResponse);
             list.add(vendorResponse);
@@ -3499,44 +3554,54 @@ public class ProxyImpl implements Proxy {
             }
         });
 
-        Observable.zip(directions.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), durations.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), duties.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), features.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), gpsLocations.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), specialActivitiesLocation.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), locations.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), repeatOffenders.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), makesAndModels.subscribeOn(Schedulers.io()).onErrorReturn(throwable -> {
-            syncStatus = false;
-            log.error(TPUtility.getPrintStackTrace(throwable));
-            return null;
-        }), (directionResponse, durationResponse, dutyResponse, featureResponse, gpsLocationResponse, specialActivitiesLocationResponse, locationResponse, repeatOffenderResponse, makeAndModelResponse) -> {
-            List<Object> list = new ArrayList<>();
+        Observable.zip(
+                directions.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in directions Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in directions Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), durations.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in durations Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in durations Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), duties.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in duties Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in duties Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), features.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in features Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in features Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), gpsLocations.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in gpsLocations Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in gpsLocations Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), specialActivitiesLocation.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in specialActivitiesLocation Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in specialActivitiesLocation Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), locations.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in locations Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in locations Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), repeatOffenders.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in repeatOffenders Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in repeatOffenders Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), makesAndModels.subscribeOn(Schedulers.io())
+                        .doOnError(throwable -> log.error("Error in makesAndModels Observable: " + throwable.getMessage()))
+                        .onErrorReturn(throwable -> {
+                            log.error("Error in makesAndModels Observable: " + throwable.getMessage());
+                            return null; // Returning null to prevent breaking the flow
+                        }), (directionResponse, durationResponse, dutyResponse, featureResponse, gpsLocationResponse, specialActivitiesLocationResponse, locationResponse, repeatOffenderResponse, makeAndModelResponse) -> {
+
             if (fullSync) {
                 Direction.removeAll();
                 Duration.removeAll();
@@ -3705,6 +3770,20 @@ public class ProxyImpl implements Proxy {
                 log.error(TPUtility.getPrintStackTrace(e));
             }
 
+            Gson gson = new Gson();
+
+            // Logging responses with Gson to get a better formatted JSON output
+            Log.i(TAG, "directionResponse: " + gson.toJson(directionResponse));
+            Log.i(TAG, "durationResponse: " + gson.toJson(durationResponse));
+            Log.i(TAG, "dutyResponse: " + gson.toJson(dutyResponse));
+            Log.i(TAG, "featureResponse: " + gson.toJson(featureResponse));
+            Log.i(TAG, "gpsLocationResponse: " + gson.toJson(gpsLocationResponse));
+            Log.i(TAG, "specialActivitiesLocationResponse: " + gson.toJson(specialActivitiesLocationResponse));
+            Log.i(TAG, "locationResponse: " + gson.toJson(locationResponse));
+            Log.i(TAG, "repeatOffenderResponse: " + gson.toJson(repeatOffenderResponse));
+            Log.i(TAG, "makeAndModelResponse: " + gson.toJson(makeAndModelResponse));
+
+            List<Object> list = new ArrayList<>();
             list.add(directionResponse);
             list.add(durationResponse);
             list.add(dutyResponse);
@@ -3754,7 +3833,7 @@ public class ProxyImpl implements Proxy {
 
         Observer<List<Object>> darListObserver = Observable.zip(
 
-                darAssignments.subscribeOn(Schedulers.io()), darEquipments.subscribeOn(Schedulers.io()), darLocationActivityTask.subscribeOn(Schedulers.io()), darTaskAndAction.subscribeOn(Schedulers.io()), darVehicleTask.subscribeOn(Schedulers.io()), darSeniorDutiesElements.subscribeOn(Schedulers.io()), darOffsiteDropdownElementsResponseObservable.subscribeOn(Schedulers.io()), darChildEquipmentsObservable.subscribeOn(Schedulers.io()), (darAssignmentResponse, darEquipmentsResponse, darLocationActivityTaskResponse, darTaskAndActionResponse, darVechicleTaskResponse, darSeniorDutiesElementsResponse, darOffsiteDropdownElementsResponse, darChildEquipmentsResponse) -> {
+                darAssignments.subscribeOn(Schedulers.io()), darEquipments.subscribeOn(Schedulers.io()),  darLocationActivityTask.subscribeOn(Schedulers.io()), darTaskAndAction.subscribeOn(Schedulers.io()), darVehicleTask.subscribeOn(Schedulers.io()), darSeniorDutiesElements.subscribeOn(Schedulers.io()), darOffsiteDropdownElementsResponseObservable.subscribeOn(Schedulers.io()), darChildEquipmentsObservable.subscribeOn(Schedulers.io()), (darAssignmentResponse, darEquipmentsResponse, darLocationActivityTaskResponse, darTaskAndActionResponse, darVechicleTaskResponse, darSeniorDutiesElementsResponse, darOffsiteDropdownElementsResponse, darChildEquipmentsResponse) -> {
                     List<Object> list = new ArrayList<>();
                     if (fullSync) {
                         Equipments.removeAll();
@@ -3887,6 +3966,19 @@ public class ProxyImpl implements Proxy {
                     } catch (Exception e) {
                         log.error(TPUtility.getPrintStackTrace(e));
                     }
+                    Gson gson = new Gson();
+
+                    // Logging responses with Gson to get better formatted JSON output
+                    Log.i(TAG, "darEquipmentsResponse: " + gson.toJson(darEquipmentsResponse));
+                    Log.i(TAG, "darAssignmentResponse: " + gson.toJson(darAssignmentResponse));
+                    Log.i(TAG, "darLocationActivityTaskResponse: " + gson.toJson(darLocationActivityTaskResponse));
+                    Log.i(TAG, "darTaskAndActionResponse: " + gson.toJson(darTaskAndActionResponse));
+                    Log.i(TAG, "darVechicleTaskResponse: " + gson.toJson(darVechicleTaskResponse));
+                    Log.i(TAG, "darSeniorDutiesElementsResponse: " + gson.toJson(darSeniorDutiesElementsResponse));
+                    Log.i(TAG, "darOffsiteDropdownElementsResponse: " + gson.toJson(darOffsiteDropdownElementsResponse));
+                    Log.i(TAG, "darChildEquipmentsResponse: " + gson.toJson(darChildEquipmentsResponse));
+
+
                     list.add(darEquipmentsResponse);
                     list.add(darAssignmentResponse);
                     /*     list.add(darAssignmentLocationResponse);*/
@@ -4065,6 +4157,19 @@ public class ProxyImpl implements Proxy {
                     } catch (Exception e) {
                         log.error(TPUtility.getPrintStackTrace(e));
                     }
+
+                    Gson gson = new Gson();
+
+                    // Log each response in a readable JSON format
+                    Log.i(TAG, "dar22500DisposionDropDownElementResponse: " + gson.toJson(dar22500DisposionDropDownElementResponse));
+                    Log.i(TAG, "darVehicleListResponse: " + gson.toJson(darVehicleListResponse));
+                    Log.i(TAG, "darVdrElementsResponse: " + gson.toJson(darVdrElementsResponse));
+                    Log.i(TAG, "darDisinfectingElementsResponse: " + gson.toJson(darDisinfectingElementsResponse));
+                    Log.i(TAG, "darAdminDropdownResponse: " + gson.toJson(darAdminDropdownResponse));
+                    Log.i(TAG, "darSchoolDropDownElementRes: " + gson.toJson(darSchoolDropDownElementRes));
+                    Log.i(TAG, "darFieldContactDropdownResponse: " + gson.toJson(darFieldContactDropdownResponse));
+                    Log.i(TAG, "darBreakAndLunchDropDownElementRes: " + gson.toJson(darBreakAndLunchDropDownElementRes));
+
 
                     list.add(dar22500DisposionDropDownElementResponse);
                     list.add(darVehicleListResponse);
@@ -4246,6 +4351,19 @@ public class ProxyImpl implements Proxy {
                     } catch (Exception e) {
                         log.error(TPUtility.getPrintStackTrace(e));
                     }
+
+                    Gson gson = new Gson();
+
+                    // Log each response in a readable JSON format
+                    Log.i(TAG, "darServiceRequestDropDownResponse: " + gson.toJson(darServiceRequestDropDownResponse));
+                    Log.i(TAG, "darPPZDropdownResponse: " + gson.toJson(darPPZDropdownResponse));
+                    Log.i(TAG, "darOffStreetPatrolDropDownResponse: " + gson.toJson(darOffStreetPatrolDropDownResponse));
+                    Log.i(TAG, "darOffsiteTrainerDropdownResponse: " + gson.toJson(darOffsiteTrainerDropdownResponse));
+                    Log.i(TAG, "darOffsiteDistrictDropdownResponse: " + gson.toJson(darOffsiteDistrictDropdownResponse));
+                    Log.i(TAG, "darTowCompnyDwResponse: " + gson.toJson(darTowCompnyDwResponse));
+                    Log.i(TAG, "darTowReasonDropDownRes: " + gson.toJson(darTowReasonDropDownRes));
+                    Log.i(TAG, "darEquipmentsResponse: " + gson.toJson(darEquipmentsResponse));
+
 
                     list.add(darServiceRequestDropDownResponse);
                     list.add(darPPZDropdownResponse);
@@ -4615,7 +4733,7 @@ public class ProxyImpl implements Proxy {
                     boolean hasUploaded = false;
                     for (int i = 0; i < voiceMemos.size(); i++) {
                         hasUploaded = TPUtility.uploadFile(TPUtility.getVoiceMemosFolder() + voiceMemos.get(i),
-                                TPConstant.SERVICE_URL + "/v1/common/uploadfile", custId);
+                                TPConstant.SERVICE_URL + "/uploadfile", custId);
                         if (!hasUploaded) {
                             TPUtility.markPendingVoiceComment(voiceMemos.get(i));
                         }
@@ -4862,7 +4980,7 @@ public class ProxyImpl implements Proxy {
                         boolean hasUploaded = false;
                         for (int i = 0; i < voiceMemos.size(); i++) {
                             hasUploaded = TPUtility.uploadFile(TPUtility.getVoiceMemosFolder() + voiceMemos.get(i),
-                                    TPConstant.FILE_UPLOAD + "/v1/common/uploadfile", custId);
+                                    TPConstant.FILE_UPLOAD + "/uploadfile", custId);
                             if (!hasUploaded) {
                                 TPUtility.markPendingVoiceComment(voiceMemos.get(i));
                             }
@@ -6038,11 +6156,7 @@ public class ProxyImpl implements Proxy {
         }
     }
 
-    /**
-     * This code is changed by mohit for searchMeterHistory 3/04/2023.
-     *
-     * @param meter
-     */
+
     @Override
     public void searchMeterHistory1(String meter, MeterHandler context) throws TPException {
         try {
@@ -6098,12 +6212,7 @@ public class ProxyImpl implements Proxy {
         }
     }
 
-    /**
-     * This code is changed by mohit for searchPermitHistory 4/04/2023.
-     *
-     * @param permit
-     * @param PermitHandler
-     */
+
     @Override
     public void searchPermitHistory1(String permit, PermitHandler context) throws TPException {
         try {
@@ -6215,13 +6324,7 @@ public class ProxyImpl implements Proxy {
         }
     }
 
-    /**
-     * This code is changed by mohit for searchVinHistory  5/04/2023.
-     *
-     * @param vin
-     * @param state
-     * @param SearchVinHistoryHandler
-     */
+
 
     @Override
     public void searchVinHistory1(String vin, String state, SearchVinHistoryHandler context) throws TPException {
@@ -6278,13 +6381,7 @@ public class ProxyImpl implements Proxy {
         }
     }
 
-    /**
-     * This code is changed by mohit for searchPermitVinHistory  4/04/2023.
-     *
-     * @param vin
-     * @param state
-     * @param PermitHandler
-     */
+
 
     @Override
     public void searchPermitVinHistory1(String vin, String state, PermitHandler context) throws TPException {
@@ -6888,13 +6985,7 @@ public class ProxyImpl implements Proxy {
         return false;
     }
 
-    /**
-     * This code is changed by mohit for update Ticket Picture1 from ticket 11/04/2023.
-     *
-     * @param citationNumber
-     * @param TicketPicture
-     * @return
-     */
+
     @Override
     public boolean updateTicketPicture1(long citationNumber, TicketPicture picture) {
         if (picture == null) {
@@ -6911,7 +7002,7 @@ public class ProxyImpl implements Proxy {
             params.setCustId(TPApplication.getInstance().getCustId());
             params.setticketPicture(picture);
             requestPOJO.setParams(params);
-            System.out.println("RequestObj**"+new Gson().toJson(requestPOJO));
+            //  System.out.println("RequestObj**"+new Gson().toJson(requestPOJO));
             apiRequest.updateTicketPicture(requestPOJO).enqueue(new Callback<ResponseBody>() {
                 @Override
                 public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
@@ -6978,9 +7069,6 @@ public class ProxyImpl implements Proxy {
             ActivityRequest params = new ActivityRequest();
             JSONArray dutyReports = new JSONArray();
             dutyReports.put(report.getJSONObject());
-            if (dutyReports == null) {
-                return;
-            }
             // params.setDutyReport(report);
             requestPOJO.setDutyReportParams(report);
             System.out.println("RequestObj**" + new Gson().toJson(requestPOJO));
@@ -7637,10 +7725,6 @@ public class ProxyImpl implements Proxy {
 
         // This method modify by mohit 6/03/2023
         try {
-            if (activityReports == null){
-                return  false;
-            }
-            log.info("test-1"+activityReports.toString());
             ApiRequest apiRequest = ServiceGenerator.createRxService(ApiRequest.class);
             ActivityRequest_Rpc requestPOJO = new ActivityRequest_Rpc();
             requestPOJO.setMethod("updateSpecialActivityReports");
@@ -7777,7 +7861,7 @@ public class ProxyImpl implements Proxy {
         ParamFieldContact param = new ParamFieldContact();
         param.setCustId(TPApplication.getInstance().custId);
         param.setDetails(aList);
-        jsonRpc.setJsonrpc("2.o");
+        jsonRpc.setJsonrpc("2.0");
         jsonRpc.setMethod("dar_FieldContactInsert");
         jsonRpc.setId("82F85DB43CBF6");
         jsonRpc.setParams(param);
@@ -7799,7 +7883,7 @@ public class ProxyImpl implements Proxy {
         ParamSchool paramSchool = new ParamSchool();
         paramSchool.setDetails(aSchoolList);
         paramSchool.setCustId(TPApplication.getInstance().custId);
-        schoolJson_rpc.setJsonrpc("2.o");
+        schoolJson_rpc.setJsonrpc("2.0");
         schoolJson_rpc.setMethod("insertDarSchoolForm");
         schoolJson_rpc.setId("82F85DB43CBF6");
         schoolJson_rpc.setParams(paramSchool);
@@ -7964,47 +8048,47 @@ public class ProxyImpl implements Proxy {
                             result = ticketResponseFieldContact.getResult();
                             if (result!=null){
 
-                                appId = result.getAppId();
-                                if (appId != null && appId.size() > 0) {
-                                    for (int i = 0; i < appId.size(); i++) {
-                                        try {
-                                            FieldContactDetails.removeById(appId.get(i).intValue());
-                                        } catch (Exception e) {
-                                            e.printStackTrace();
-                                        }
+                            appId = result.getAppId();
+                            if (appId != null && appId.size() > 0) {
+                                for (int i = 0; i < appId.size(); i++) {
+                                    try {
+                                        FieldContactDetails.removeById(appId.get(i).intValue());
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
                                     }
-                                }}
+                                }
+                            }}
 
                             //3
                             result = ticketResponseLunchBreak.getResult();
                             if (result!=null){
 
-                                appId = result.getAppId();
-                                if (appId != null && appId.size() > 0) {
-                                    for (int i = 0; i < appId.size(); i++) {
-                                        try {
-                                            LunchBreakModel.removeById(appId.get(i).intValue());
-                                        } catch (Exception e) {
-                                            e.printStackTrace();
-                                        }
+                            appId = result.getAppId();
+                            if (appId != null && appId.size() > 0) {
+                                for (int i = 0; i < appId.size(); i++) {
+                                    try {
+                                        LunchBreakModel.removeById(appId.get(i).intValue());
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
                                     }
                                 }
+                            }
                             }
 
                             //4
                             result = ticketResponseSchool.getResult();
                             if (result!=null){
 
-                                appId = result.getAppId();
-                                if (appId != null && appId.size() > 0) {
-                                    for (int i = 0; i < appId.size(); i++) {
-                                        try {
-                                            School.removeById(appId.get(i).intValue());
-                                        } catch (Exception e) {
-                                            e.printStackTrace();
-                                        }
+                            appId = result.getAppId();
+                            if (appId != null && appId.size() > 0) {
+                                for (int i = 0; i < appId.size(); i++) {
+                                    try {
+                                        School.removeById(appId.get(i).intValue());
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
                                     }
-                                }}
+                                }
+                            }}
                             //5
                             result = ticketResponseSignCheck.getResult();
                             if (result != null) {
@@ -8040,16 +8124,16 @@ public class ProxyImpl implements Proxy {
                             if (result!=null){
 
 
-                                appId = result.getAppId();
-                                if (appId != null && appId.size() > 0) {
-                                    for (int i = 0; i < appId.size(); i++) {
-                                        try {
-                                            PPZModel.removeById(appId.get(i).intValue());
-                                        } catch (Exception e) {
-                                            e.printStackTrace();
-                                        }
+                            appId = result.getAppId();
+                            if (appId != null && appId.size() > 0) {
+                                for (int i = 0; i < appId.size(); i++) {
+                                    try {
+                                        PPZModel.removeById(appId.get(i).intValue());
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
                                     }
                                 }
+                            }
                             }
                             //8
                             result = ticketResponseOffStreet.getResult();
@@ -8070,16 +8154,16 @@ public class ProxyImpl implements Proxy {
                             result = ticketResponseServiceRequest.getResult();
                             if (result!=null){
 
-                                appId = result.getAppId();
-                                if (appId != null && appId.size() > 0) {
-                                    for (int i = 0; i < appId.size(); i++) {
-                                        try {
-                                            ServiceRequestModel.removeById(appId.get(i).intValue());
-                                        } catch (Exception e) {
-                                            e.printStackTrace();
-                                        }
+                            appId = result.getAppId();
+                            if (appId != null && appId.size() > 0) {
+                                for (int i = 0; i < appId.size(); i++) {
+                                    try {
+                                        ServiceRequestModel.removeById(appId.get(i).intValue());
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
                                     }
-                                }}
+                                }
+                            }}
 
                    /* if (fullSync) {
                         DarServiceRequestDropDown.removeAll();

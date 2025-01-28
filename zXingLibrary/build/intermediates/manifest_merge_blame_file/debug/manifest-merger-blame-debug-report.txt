@@ -21,392 +21,392 @@
 21    android:versionName="4.3.2" >
 22
 23    <uses-sdk
-23-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:33:3-44
+23-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:33:3-44
 24        android:minSdkVersion="7"
-24-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:33:3-44
+24-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:33:3-44
 25        android:targetSdkVersion="10" />
-25-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:33:13-42
+25-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:33:13-42
 26
 27    <uses-permission android:name="android.permission.CAMERA" />
-27-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:23:3-62
-27-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:23:20-60
+27-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:23:3-62
+27-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:23:20-60
 28    <uses-permission android:name="android.permission.INTERNET" />
-28-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:24:3-64
-28-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:24:20-62
+28-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:24:3-64
+28-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:24:20-62
 29    <uses-permission android:name="android.permission.VIBRATE" />
-29-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:25:3-63
-29-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:25:20-61
+29-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:25:3-63
+29-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:25:20-61
 30    <uses-permission android:name="android.permission.FLASHLIGHT" />
-30-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:26:3-66
-30-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:26:20-64
+30-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:26:3-66
+30-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:26:20-64
 31    <uses-permission android:name="android.permission.READ_CONTACTS" />
-31-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:27:3-69
-31-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:27:20-67
+31-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:27:3-69
+31-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:27:20-67
 32    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
-32-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:28:3-90
-32-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:28:20-88
+32-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:28:3-90
+32-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:28:20-88
 33    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-33-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:29:3-78
-33-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:29:20-76
+33-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:29:3-78
+33-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:29:20-76
 34    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-34-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:30:3-73
-34-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:30:20-71
+34-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:30:3-73
+34-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:30:20-71
 35    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-35-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:31:3-73
-35-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:31:20-71
+35-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:31:3-73
+35-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:31:20-71
 36
 37    <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
 38    <uses-feature
-38-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:36:3-82
+38-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:36:3-82
 39        android:name="android.hardware.camera"
-39-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:36:17-55
+39-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:36:17-55
 40        android:required="false" />
-40-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:36:56-80
+40-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:36:56-80
 41    <uses-feature
-41-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:37:3-88
+41-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:37:3-88
 42        android:name="android.hardware.camera.front"
-42-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:37:17-61
+42-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:37:17-61
 43        android:required="false" />
-43-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:37:62-86
+43-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:37:62-86
 44    <!-- TODO replace above two with next line after Android 4.2 -->
 45    <!-- <uses-feature android:name="android.hardware.camera.any"/> -->
 46    <uses-feature
-46-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:40:3-92
+46-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:40:3-92
 47        android:name="android.hardware.camera.autofocus"
-47-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:40:17-65
+47-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:40:17-65
 48        android:required="false" />
-48-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:40:66-90
+48-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:40:66-90
 49    <uses-feature
-49-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:41:3-88
+49-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:41:3-88
 50        android:name="android.hardware.camera.flash"
-50-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:41:17-61
+50-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:41:17-61
 51        android:required="false" />
-51-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:41:62-86
+51-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:41:62-86
 52    <uses-feature android:name="android.hardware.screen.landscape" />
-52-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:42:3-67
-52-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:42:17-65
+52-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:42:3-67
+52-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:42:17-65
 53    <uses-feature
-53-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:43:3-80
+53-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:43:3-80
 54        android:name="android.hardware.wifi"
-54-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:43:17-53
+54-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:43:17-53
 55        android:required="false" />
-55-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:43:54-78
+55-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:43:54-78
 56    <!-- This excludes Google TV, which is unfortunately included by virtue of not requiring a camera -->
 57    <uses-feature android:name="android.hardware.touchscreen" />
-57-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:45:3-62
-57-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:45:17-60
+57-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:45:3-62
+57-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:45:17-60
 58    <!-- TODO make this not required again after android.hardware.camera.any is available -->
 59
 60
 61    <!-- Donut-specific flags which allow us to run on any dpi screens. -->
 62    <supports-screens
-62-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:49:3-53:48
+62-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:49:3-53:48
 63        android:anyDensity="true"
-63-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:53:21-46
+63-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:53:21-46
 64        android:largeScreens="true"
-64-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:50:21-48
+64-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:50:21-48
 65        android:normalScreens="true"
-65-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:51:21-49
+65-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:51:21-49
 66        android:smallScreens="true"
-66-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:52:21-48
+66-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:52:21-48
 67        android:xlargeScreens="true" />
-67-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:49:21-49
+67-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:49:21-49
 68
 69    <application
-69-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:55:3-168:17
+69-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:55:3-168:17
 70        android:allowBackup="true"
-70-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:59:16-42
+70-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:59:16-42
 71        android:hardwareAccelerated="true"
-71-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:58:16-50
+71-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:58:16-50
 72        android:icon="@drawable/launcher_icon"
-72-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:55:16-54
+72-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:55:16-54
 73        android:label="@string/app_name"
-73-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:57:16-48
+73-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:57:16-48
 74        android:logo="@drawable/launcher_icon" >
-74-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:56:16-54
+74-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:56:16-54
 75        <activity
-75-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:60:5-102:16
+75-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:60:5-102:16
 76            android:name="com.google.zxing.client.android.ScanBarcodeActivity"
-76-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:60:15-50
+76-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:60:15-50
 77            android:clearTaskOnLaunch="true"
-77-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:62:15-47
+77-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:62:15-47
 78            android:configChanges="orientation|keyboardHidden"
-78-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:64:15-65
+78-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:64:15-65
 79            android:screenOrientation="landscape"
-79-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:61:15-52
+79-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:61:15-52
 80            android:stateNotNeeded="true"
-80-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:63:15-44
+80-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:63:15-44
 81            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-81-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:65:15-73
+81-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:65:15-73
 82            android:windowSoftInputMode="stateAlwaysHidden" >
-82-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:66:15-62
+82-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:66:15-62
 83            <intent-filter>
-83-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:67:7-70:23
+83-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:67:7-70:23
 84                <action android:name="android.intent.action.MAIN" />
-84-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:68:9-60
-84-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:68:17-58
+84-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:68:9-60
+84-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:68:17-58
 85
 86                <category android:name="android.intent.category.DEFAULT" />
-86-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
-86-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
+86-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
+86-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
 87            </intent-filter>
 88            <intent-filter>
-88-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:71:7-74:23
+88-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:71:7-74:23
 89                <action android:name="com.google.zxing.client.android.SCAN" />
-89-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:72:9-70
-89-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:72:17-68
+89-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:72:9-70
+89-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:72:17-68
 90
 91                <category android:name="android.intent.category.DEFAULT" />
-91-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
-91-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
+91-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
+91-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
 92            </intent-filter>
 93            <!-- Allow web apps to launch Barcode Scanner by linking to http://zxing.appspot.com/scan. -->
 94            <intent-filter>
-94-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:76:7-81:23
+94-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:76:7-81:23
 95                <action android:name="android.intent.action.VIEW" />
-95-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:77:9-60
-95-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:77:17-58
+95-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:77:9-60
+95-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:77:17-58
 96
 97                <category android:name="android.intent.category.DEFAULT" />
-97-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
-97-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
+97-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
+97-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
 98                <category android:name="android.intent.category.BROWSABLE" />
-98-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:79:9-69
-98-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:79:19-67
+98-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:79:9-69
+98-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:79:19-67
 99
 100                <data
-100-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:80:9-92
+100-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:80:9-92
 101                    android:host="zxing.appspot.com"
-101-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:80:37-69
+101-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:80:37-69
 102                    android:path="/scan"
-102-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:80:70-90
+102-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:80:70-90
 103                    android:scheme="http" />
-103-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:80:15-36
+103-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:80:15-36
 104            </intent-filter>
 105            <!-- We also support a Google Product Search URL. -->
 106            <intent-filter>
-106-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:83:7-88:23
+106-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:83:7-88:23
 107                <action android:name="android.intent.action.VIEW" />
-107-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:77:9-60
-107-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:77:17-58
+107-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:77:9-60
+107-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:77:17-58
 108
 109                <category android:name="android.intent.category.DEFAULT" />
-109-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
-109-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
+109-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
+109-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
 110                <category android:name="android.intent.category.BROWSABLE" />
-110-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:79:9-69
-110-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:79:19-67
+110-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:79:9-69
+110-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:79:19-67
 111
 112                <data
-112-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:80:9-92
+112-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:80:9-92
 113                    android:host="www.google.com"
-113-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:80:37-69
+113-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:80:37-69
 114                    android:path="/m/products/scan"
-114-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:80:70-90
+114-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:80:70-90
 115                    android:scheme="http" />
-115-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:80:15-36
+115-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:80:15-36
 116            </intent-filter>
 117            <!-- And the UK version. -->
 118            <intent-filter>
-118-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:90:7-95:23
+118-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:90:7-95:23
 119                <action android:name="android.intent.action.VIEW" />
-119-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:77:9-60
-119-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:77:17-58
+119-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:77:9-60
+119-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:77:17-58
 120
 121                <category android:name="android.intent.category.DEFAULT" />
-121-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
-121-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
+121-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
+121-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
 122                <category android:name="android.intent.category.BROWSABLE" />
-122-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:79:9-69
-122-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:79:19-67
+122-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:79:9-69
+122-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:79:19-67
 123
 124                <data
-124-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:80:9-92
+124-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:80:9-92
 125                    android:host="www.google.co.uk"
-125-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:80:37-69
+125-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:80:37-69
 126                    android:path="/m/products/scan"
-126-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:80:70-90
+126-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:80:70-90
 127                    android:scheme="http" />
-127-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:80:15-36
+127-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:80:15-36
 128            </intent-filter>
 129            <intent-filter>
-129-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:96:7-101:23
+129-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:96:7-101:23
 130                <action android:name="android.intent.action.VIEW" />
-130-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:77:9-60
-130-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:77:17-58
+130-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:77:9-60
+130-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:77:17-58
 131
 132                <category android:name="android.intent.category.DEFAULT" />
-132-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
-132-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
+132-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
+132-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
 133                <category android:name="android.intent.category.BROWSABLE" />
-133-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:79:9-69
-133-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:79:19-67
+133-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:79:9-69
+133-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:79:19-67
 134
 135                <data
-135-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:80:9-92
+135-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:80:9-92
 136                    android:host="scan"
-136-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:80:37-69
+136-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:80:37-69
 137                    android:path="/"
-137-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:80:70-90
+137-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:80:70-90
 138                    android:scheme="zxing" />
-138-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:80:15-36
+138-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:80:15-36
 139            </intent-filter>
 140        </activity>
 141        <activity
-141-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:103:5-106:16
+141-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:103:5-106:16
 142            android:name="com.google.zxing.client.android.PreferencesActivity"
-142-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:103:15-50
+142-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:103:15-50
 143            android:label="@string/preferences_name"
-143-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:104:15-55
+143-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:104:15-55
 144            android:stateNotNeeded="true" >
-144-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:105:15-44
+144-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:105:15-44
 145        </activity>
 146        <activity
-146-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:107:5-123:16
+146-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:107:5-123:16
 147            android:name="com.google.zxing.client.android.encode.EncodeActivity"
-147-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:107:15-52
+147-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:107:15-52
 148            android:stateNotNeeded="true" >
-148-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:108:15-44
+148-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:108:15-44
 149            <intent-filter>
-149-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:109:7-112:23
+149-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:109:7-112:23
 150                <action android:name="com.google.zxing.client.android.ENCODE" />
-150-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:110:9-72
-150-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:110:17-70
+150-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:110:9-72
+150-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:110:17-70
 151
 152                <category android:name="android.intent.category.DEFAULT" />
-152-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
-152-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
+152-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
+152-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
 153            </intent-filter>
 154            <intent-filter>
-154-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:113:7-117:23
+154-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:113:7-117:23
 155                <action android:name="android.intent.action.SEND" />
-155-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:114:9-60
-155-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:114:17-58
+155-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:114:9-60
+155-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:114:17-58
 156
 157                <category android:name="android.intent.category.DEFAULT" />
-157-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
-157-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
+157-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
+157-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
 158
 159                <data android:mimeType="text/x-vcard" />
-159-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:80:9-92
-159-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:116:15-46
+159-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:80:9-92
+159-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:116:15-46
 160            </intent-filter>
 161            <intent-filter>
-161-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:118:7-122:23
+161-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:118:7-122:23
 162                <action android:name="android.intent.action.SEND" />
-162-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:114:9-60
-162-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:114:17-58
+162-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:114:9-60
+162-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:114:17-58
 163
 164                <category android:name="android.intent.category.DEFAULT" />
-164-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
-164-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
+164-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
+164-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
 165
 166                <data android:mimeType="text/plain" />
-166-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:80:9-92
-166-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:116:15-46
+166-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:80:9-92
+166-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:116:15-46
 167            </intent-filter>
 168        </activity>
 169        <activity
-169-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:124:5-133:16
+169-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:124:5-133:16
 170            android:name="com.google.zxing.client.android.book.SearchBookContentsActivity"
-170-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:124:15-62
+170-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:124:15-62
 171            android:configChanges="orientation|keyboardHidden"
-171-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:128:15-65
+171-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:128:15-65
 172            android:label="@string/sbc_name"
-172-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:125:15-47
+172-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:125:15-47
 173            android:screenOrientation="landscape"
-173-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:127:15-52
+173-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:127:15-52
 174            android:stateNotNeeded="true" >
-174-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:126:15-44
+174-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:126:15-44
 175            <intent-filter>
-175-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:129:7-132:23
+175-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:129:7-132:23
 176                <action android:name="com.google.zxing.client.android.SEARCH_BOOK_CONTENTS" />
-176-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:130:9-86
-176-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:130:17-84
+176-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:130:9-86
+176-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:130:17-84
 177
 178                <category android:name="android.intent.category.DEFAULT" />
-178-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
-178-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
+178-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
+178-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
 179            </intent-filter>
 180        </activity>
 181        <activity
-181-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:134:5-142:16
+181-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:134:5-142:16
 182            android:name="com.google.zxing.client.android.share.ShareActivity"
-182-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:134:15-50
+182-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:134:15-50
 183            android:screenOrientation="user"
-183-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:136:15-47
+183-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:136:15-47
 184            android:stateNotNeeded="true"
-184-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:135:15-44
+184-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:135:15-44
 185            android:theme="@android:style/Theme.Light" >
-185-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:137:15-57
+185-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:137:15-57
 186            <intent-filter>
-186-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:138:7-141:23
+186-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:138:7-141:23
 187                <action android:name="com.google.zxing.client.android.SHARE" />
-187-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:139:9-71
-187-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:139:17-69
+187-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:139:9-71
+187-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:139:17-69
 188
 189                <category android:name="android.intent.category.DEFAULT" />
-189-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
-189-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
+189-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
+189-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
 190            </intent-filter>
 191        </activity>
 192        <activity
-192-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:143:5-150:16
+192-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:143:5-150:16
 193            android:name="com.google.zxing.client.android.history.HistoryActivity"
-193-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:143:15-54
+193-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:143:15-54
 194            android:label="@string/history_title"
-194-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:144:15-52
+194-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:144:15-52
 195            android:stateNotNeeded="true" >
-195-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:145:15-44
+195-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:145:15-44
 196            <intent-filter>
-196-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:146:7-149:23
+196-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:146:7-149:23
 197                <action android:name="android.intent.action.VIEW" />
-197-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:77:9-60
-197-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:77:17-58
+197-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:77:9-60
+197-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:77:17-58
 198
 199                <category android:name="android.intent.category.DEFAULT" />
-199-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
-199-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
+199-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
+199-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
 200            </intent-filter>
 201        </activity>
 202        <activity
-202-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:151:5-158:16
+202-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:151:5-158:16
 203            android:name="com.google.zxing.client.android.share.BookmarkPickerActivity"
-203-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:151:15-59
+203-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:151:15-59
 204            android:label="@string/bookmark_picker_name"
-204-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:152:15-59
+204-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:152:15-59
 205            android:stateNotNeeded="true" >
-205-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:153:15-44
+205-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:153:15-44
 206            <intent-filter>
-206-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:154:7-157:23
+206-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:154:7-157:23
 207                <action android:name="android.intent.action.PICK" />
-207-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:155:9-60
-207-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:155:17-58
+207-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:155:9-60
+207-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:155:17-58
 208
 209                <category android:name="android.intent.category.DEFAULT" />
-209-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
-209-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
+209-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
+209-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
 210            </intent-filter>
 211        </activity>
 212        <activity
-212-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:159:5-167:16
+212-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:159:5-167:16
 213            android:name="com.google.zxing.client.android.share.AppPickerActivity"
-213-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:159:15-54
+213-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:159:15-54
 214            android:configChanges="orientation"
-214-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:162:15-50
+214-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:162:15-50
 215            android:label="@string/app_picker_name"
-215-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:160:15-54
+215-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:160:15-54
 216            android:stateNotNeeded="true" >
-216-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:161:15-44
+216-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:161:15-44
 217            <intent-filter>
-217-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:154:7-157:23
+217-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:154:7-157:23
 218                <action android:name="android.intent.action.PICK" />
-218-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:155:9-60
-218-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:155:17-58
+218-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:155:9-60
+218-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:155:17-58
 219
 220                <category android:name="android.intent.category.DEFAULT" />
-220-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
-220-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
+220-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:9-67
+220-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/zXingLibrary/src/main/AndroidManifest.xml:69:19-65
 221            </intent-filter>
 222        </activity>
 223    </application>

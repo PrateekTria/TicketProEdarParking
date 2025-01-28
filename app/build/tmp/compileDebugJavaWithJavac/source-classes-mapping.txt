@@ -2034,11 +2034,12 @@ com/ticketpro/parking/activity/handlers/NotificationHandler.java
  com.ticketpro.parking.activity.handlers.NotificationHandler
  com.ticketpro.parking.activity.handlers.NotificationHandler$1
  com.ticketpro.parking.activity.handlers.NotificationHandler$2
+ com.ticketpro.parking.activity.handlers.NotificationHandler$3
+com/ticketpro/parking/dar/model/params/ParamCallSign.java
+ com.ticketpro.parking.dar.model.params.ParamCallSign
 com/ticketpro/parking/activity/PlateLookupListAdapter.java
  com.ticketpro.parking.activity.PlateLookupListAdapter
  com.ticketpro.parking.activity.PlateLookupListAdapter$1
-com/ticketpro/parking/dar/model/params/ParamCallSign.java
- com.ticketpro.parking.dar.model.params.ParamCallSign
 com/ticketpro/model/DeviceGroup.java
  com.ticketpro.model.DeviceGroup
  com.ticketpro.model.DeviceGroup$InsertDeviceGroup
@@ -2827,7 +2828,6 @@ com/ticketpro/parking/activity/TicketLogsActivity.java
  com.ticketpro.parking.activity.TicketLogsActivity$5
  com.ticketpro.parking.activity.TicketLogsActivity$6
  com.ticketpro.parking.activity.TicketLogsActivity$7
- com.ticketpro.parking.activity.TicketLogsActivity$8
 com/ticketpro/parking/dao/AssignmentLocationReportDao.java
  com.ticketpro.parking.dao.AssignmentLocationReportDao
 com/ticketpro/vendors/CaleZoneActivity.java

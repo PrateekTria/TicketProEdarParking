@@ -414,7 +414,7 @@ public class DarVehicleListAndTask extends BaseActivityImpl implements Validator
         aList.add(details);
         param.setCustId(TPApp.custId);
         param.setDetails(aList);
-        jsonRpc.setJsonrpc("2.o");
+        jsonRpc.setJsonrpc("2.0");
         jsonRpc.setMethod("insertMileage");
         jsonRpc.setId("82F85DB43CBF6");
         jsonRpc.setParams(param);
@@ -519,7 +519,7 @@ public class DarVehicleListAndTask extends BaseActivityImpl implements Validator
         param.setCustId(TPApp.custId);
         param.setIsOverride("Y");
         param.setDetails(aList);
-        jsonRpc.setJsonrpc("2.o");
+        jsonRpc.setJsonrpc("2.0");
         jsonRpc.setMethod("insertMileage");
         jsonRpc.setId("82F85DB43CBF6");
         jsonRpc.setParams(param);

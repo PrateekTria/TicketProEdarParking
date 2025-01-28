@@ -32,9 +32,9 @@ public class ServiceGenerator {
     private static final HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor()
             .setLevel(HttpLoggingInterceptor.Level.BODY);
     private static final OkHttpClient.Builder httpClient = new OkHttpClient.Builder()
-            .readTimeout(7, TimeUnit.MINUTES)
-            .connectTimeout(7, TimeUnit.MINUTES)
-            .writeTimeout(7, TimeUnit.MINUTES)
+            .readTimeout(30, TimeUnit.MINUTES)
+            .connectTimeout(30, TimeUnit.MINUTES)
+            .writeTimeout(30, TimeUnit.MINUTES)
             .addInterceptor(new Interceptor() {
                 @NonNull
                 @Override
@@ -47,9 +47,9 @@ public class ServiceGenerator {
             .connectionSpecs(Collections.singletonList(ConnectionSpec.COMPATIBLE_TLS));
 
     private static final OkHttpClient.Builder httpClient1 = new OkHttpClient.Builder()
-            .readTimeout(120, TimeUnit.SECONDS)
-            .connectTimeout(120, TimeUnit.SECONDS)
-            .writeTimeout(120, TimeUnit.SECONDS)
+            .readTimeout(250, TimeUnit.SECONDS)
+            .connectTimeout(250, TimeUnit.SECONDS)
+            .writeTimeout(250, TimeUnit.SECONDS)
             .addInterceptor(loggingInterceptor);
 
 
@@ -129,9 +129,9 @@ public class ServiceGenerator {
         final HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         final OkHttpClient client = new OkHttpClient.Builder()
-                .readTimeout(120, TimeUnit.SECONDS)
-                .connectTimeout(120, TimeUnit.SECONDS)
-                .writeTimeout(120, TimeUnit.SECONDS)
+                .readTimeout(250, TimeUnit.SECONDS)
+                .connectTimeout(250, TimeUnit.SECONDS)
+                .writeTimeout(250, TimeUnit.SECONDS)
                 .addInterceptor(interceptor)
                 .build();
         Retrofit.Builder builder_rx =
@@ -149,9 +149,9 @@ public class ServiceGenerator {
         final HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         final OkHttpClient client = new OkHttpClient.Builder()
-                .readTimeout(120, TimeUnit.SECONDS)
-                .connectTimeout(120, TimeUnit.SECONDS)
-                .writeTimeout(120, TimeUnit.SECONDS)
+                .readTimeout(250, TimeUnit.SECONDS)
+                .connectTimeout(250, TimeUnit.SECONDS)
+                .writeTimeout(250, TimeUnit.SECONDS)
                 .addInterceptor(interceptor)
                 .build();
         Retrofit.Builder builder_rx =
@@ -200,7 +200,7 @@ import com.ticketpro.util.TPConstant;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Collections;
+import java.util.Collections;implementation 'com.squareup.okhttp3:logging-interceptor:4.0.0-alpha02'
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.ConnectionSpec;

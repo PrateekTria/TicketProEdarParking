@@ -1040,7 +1040,7 @@ public class DarAssignmentActivity extends BaseActivityImpl implements Assignmen
         aList.add(details);
         param.setCustId(Integer.parseInt(Mileage_index));
         param.setDetails(aList);
-        jsonRpc.setJsonrpc("2.o");
+        jsonRpc.setJsonrpc("2.0");
         jsonRpc.setMethod("updateMileage");
         jsonRpc.setId("82F85DB43CBF6");
         jsonRpc.setParams(param);

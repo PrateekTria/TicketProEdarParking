@@ -662,12 +662,12 @@ public class TakePictureActivity extends BaseActivityImpl {
                                /* DatabaseHelper.getInstance().openWritableDatabase();
                                 DatabaseHelper.getInstance().insertOrReplace(picture.getContentValues(), "ticket_pictures");*/
 
-                                if (Ticket.isTicketPending(citationNumber)){
-                                    picture.setSyncStatus("null");
-
-                                }else {
+//                                if (Ticket.isTicketPending(citationNumber)){
+//                                    picture.setSyncStatus("null");
+//
+//                                }else {
                                     picture.setSyncStatus("P");
-                                }
+                              //  }
                                 TicketPicture.insertTicketPicture(picture);
                                 Thread.sleep(200);
                                 boolean result = false;
@@ -702,6 +702,7 @@ public class TakePictureActivity extends BaseActivityImpl {
 
                         } else {
                             activeTicket.getTicketPictures().add(picture);
+                            activeTicket.setPhoto_count(activeTicket.getPhoto_count()+1);
                             if (Feature.isFeatureAllowed(Feature.PARK_RECOVERY_DATA)) {
                                 TicketPictureTemp.insertTicketPictureTemp(temp);
                             }

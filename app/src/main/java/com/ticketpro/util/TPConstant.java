@@ -92,26 +92,15 @@ public class TPConstant {
     //public static String IMAGES_URL="http://216.237.9.107/public/images/customers";
 
     //Production URL
-    public static String FILE_UPLOAD = "https://tpwebservices24.ticketproweb.com/public/index.php/api";
-    public static String  SERVICE_URL = "https://tpwebservices24.ticketproweb.com/public/index.php/api/";
-    public static String RX_SERVICE_URL = "https://tpwebservices24.ticketproweb.com/public/index.php/api/";
-    public static String  ASSETS_URL = "https://tpwebservices24.ticketproweb.com/public/assets/customers";
+    public static String FILE_UPLOAD = "https://tpwebservices24.ticketproweb.com/public/index.php/service";
+    public static String SERVICE_URL = "https://tpwebservices24.ticketproweb.com/public/index.php/service/genericv1";
+    public static String RX_SERVICE_URL = "https://tpwebservices24.ticketproweb.com/public/index.php/";
+    public static String ASSETS_URL = "https://tpwebservices24.ticketproweb.com/public/assets/customers";
     public static String UPDATE_URL = "https://tpwebservices24.ticketproweb.com/public/updates";
-    public static String  IMAGES_URL = "https://tpwebservices24.ticketproweb.com/public/images/customers";
+    public static String IMAGES_URL = "https://tpwebservices24.ticketproweb.com/public/images/customers";
     public static String LPR_URL = "http://lpr.ticketproweb.com/LPRWcfService/LPRService.svc?wsdl";
     public static String FIREBASE_DB_URL = "http://tracker.ticketproweb.com:8081/api/";
     public static boolean IS_DEVELOPMENT_BUILD = false;
-
-   /* //Production URL
-    public static String FILE_UPLOAD = "https://tpwebservices.ticketproweb.com/public/index.php/service";
-    public static String SERVICE_URL = "https://tpwebservices.ticketproweb.com/public/index.php/service/genericv1";
-    public static String RX_SERVICE_URL = "https://tpwebservices.ticketproweb.com/public/index.php/";
-    public static String ASSETS_URL = "https://tpwebservices.ticketproweb.com/public/assets/customers";
-    public static String UPDATE_URL = "https://tpwebservices.ticketproweb.com/public/updates";
-    public static String IMAGES_URL = "https://tpwebservices.ticketproweb.com/public/images/customers";
-    public static String LPR_URL = "http://lpr.ticketproweb.com/LPRWcfService/LPRService.svc?wsdl";
-    public static String FIREBASE_DB_URL = "http://tracker.ticketproweb.com:8081/api/";
-    public static boolean IS_DEVELOPMENT_BUILD = false;*/
 
     //Development URL
     /*public static String RX_SERVICE_URL="https://tpwebservicesdev.ticketproweb.com/public/index.php/";

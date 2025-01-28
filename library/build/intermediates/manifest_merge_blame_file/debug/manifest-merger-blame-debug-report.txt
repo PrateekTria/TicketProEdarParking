@@ -6,11 +6,11 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="4"
-8-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/library/src/main/AndroidManifest.xml
+8-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/library/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="4" />
-9-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/library/src/main/AndroidManifest.xml
+9-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/library/src/main/AndroidManifest.xml
 10
 11    <application />
-11-->/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/library/src/main/AndroidManifest.xml:7:5-20
+11-->/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/library/src/main/AndroidManifest.xml:7:5-20
 12
 13</manifest>

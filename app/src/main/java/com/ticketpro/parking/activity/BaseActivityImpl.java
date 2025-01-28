@@ -1,7 +1,6 @@
 package com.ticketpro.parking.activity;
 
 import static com.ticketpro.util.TPConstant.ASSETS_URL;
-import static com.ticketpro.util.TPConstant.FILE_UPLOAD;
 import static com.ticketpro.util.TPConstant.FIREBASE_DB_URL;
 import static com.ticketpro.util.TPConstant.IMAGES_URL;
 import static com.ticketpro.util.TPConstant.IS_DEVELOPMENT_BUILD;
@@ -698,7 +697,7 @@ public abstract class BaseActivityImpl extends Activity
     }
     public void canPingInternetConnection() throws IOException {
 
-        Observable.fromCallable(new Callable<Boolean>() {
+       Observable.fromCallable(new Callable<Boolean>() {
                     @Override
                     public Boolean call() throws Exception {
                         if (InetAddress.getByName("www.google.com").isReachable(3000)) {
@@ -864,9 +863,8 @@ public abstract class BaseActivityImpl extends Activity
         try {
             int where = sharedpreferences.getInt("where", 0);
             if (where == 1) {
-                FILE_UPLOAD = "https://tpwebservicesdev24.ticketproweb.com/index.php/api";
-                SERVICE_URL = "https://tpwebservicesdev24.ticketproweb.com/index.php/api/";
-                RX_SERVICE_URL = "https://tpwebservicesdev24.ticketproweb.com/index.php/api/";
+                SERVICE_URL = "https://tpwebservicesdev24.ticketproweb.com/index.php/service";
+                RX_SERVICE_URL = "https://tpwebservicesdev24.ticketproweb.com/index.php/";
                 ASSETS_URL = "https://tpwebservicesdev24.ticketproweb.com/assets/customers";
                 UPDATE_URL = "https://tpwebservicesdev24.ticketproweb.com/updates";
                 IMAGES_URL = "https://tpwebservicesdev24.ticketproweb.com/images/customers";
@@ -875,11 +873,11 @@ public abstract class BaseActivityImpl extends Activity
                 IS_DEVELOPMENT_BUILD = true;
             }
             if (where == 2) {
-                SERVICE_URL = "https://tpwebservicestage.ticketproweb.com/public/index.php/service";
-                RX_SERVICE_URL = "https://tpwebservicestage.ticketproweb.com/public/index.php/";
-                ASSETS_URL = "https://tpwebservicestage.ticketproweb.com/public/assets/customers";
-                UPDATE_URL = "https://tpwebservicestage.ticketproweb.com/public/updates";
-                IMAGES_URL = "https://tpwebservicestage.ticketproweb.com/public/images/customers";
+                SERVICE_URL = "https://tpwebservicesstage24.ticketproweb.com/public/index.php/service";
+                RX_SERVICE_URL = "https://tpwebservicesstage24.ticketproweb.com/public/index.php/";
+                ASSETS_URL = "https://tpwebservicesstage24.ticketproweb.com/public/assets/customers";
+                UPDATE_URL = "https://tpwebservicesstage24.ticketproweb.com/public/updates";
+                IMAGES_URL = "https://tpwebservicesstage24.ticketproweb.com/public/images/customers";
                 LPR_URL = "http://lprdev.ticketproweb.com/LPRWcfService/LPRService.svc?wsdl";
                 FIREBASE_DB_URL = "http://trackerdev.ticketproweb.com:8081/api/";
                 IS_STAGING_BUILD = true;

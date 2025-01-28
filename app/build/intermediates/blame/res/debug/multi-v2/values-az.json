@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-az/values-az.xml",
+            "outputFile": "/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-az/values-az.xml",
             "map": [
                 {
                     "source": "/home/tspl/.gradle/caches/transforms-2/files-2.1/1506f6349f71d5c746461196564fd3ef/jetified-firebase-messaging-22.0.0/res/values-az/values.xml",

@@ -876,6 +876,8 @@ public class TPUtility {
         return timeout * 1000;
     }
 
+
+
     public static String getURLResponse(String url) throws IOException {
         HttpGet request = new HttpGet(url);
         SSLHttpClient httpClient = new SSLHttpClient();
@@ -1855,7 +1857,7 @@ public class TPUtility {
                 } catch (Exception e) {
                 }
 
-                if (ticket.getTicketPictures().size() > 0) {
+                if (!ticket.getTicketPictures().isEmpty()) {
                     if (ticket.isLPR()) {
                         template = template.replaceAll("\\{LPR_IMAGE\\}",
                                 "<img src=\"file://" + ticket.getTicketPictures().get(0).getImagePath() + "\"/>");
@@ -1935,21 +1937,19 @@ public class TPUtility {
         try {
             String template = templateHTML;
             template = template.replaceAll("\\{CITE\\}", TPUtility.prefixZeros(ticket.getCitationNumber(), 8));
-            template = template.replaceAll("\\{DATE\\}", DateUtil.getStringFromDate(ticket.getTicketDate()) + "");
-            template = template.replaceAll("\\{CITE_DATE\\}",
-                    DateUtil.getDateStringFromDate(ticket.getTicketDate()) + "");
-            template = template.replaceAll("\\{CITE_TIME\\}",
-                    DateUtil.getTimeStringFromDate(ticket.getTicketDate()) + "");
-            template = template.replaceAll("\\{METER\\}", ticket.getMeter() + "");
-            template = template.replaceAll("\\{LOCATION\\}", TPUtility.getFullAddress(ticket) + "");
+            template = template.replaceAll("\\{DATE\\}", ticket.getTicketDate() != null ? DateUtil.getStringFromDate(ticket.getTicketDate()) : "");
+            template = template.replaceAll("\\{CITE_DATE\\}", ticket.getTicketDate() != null ? DateUtil.getDateStringFromDate(ticket.getTicketDate()) : "");
+            template = template.replaceAll("\\{CITE_TIME\\}", ticket.getTicketDate() != null ? DateUtil.getTimeStringFromDate(ticket.getTicketDate()) : "");
+            template = template.replaceAll("\\{METER\\}", ticket.getMeter() != null ? ticket.getMeter().toString() : "");
+            template = template.replaceAll("\\{LOCATION\\}", TPUtility.getFullAddress(ticket) != null ? TPUtility.getFullAddress(ticket) : "");
             template = template.replaceAll("\\{VIOLATION\\}", TPUtility.escapeSpecialChars(ticket.getViolation()));
-            template = template.replaceAll("\\{PLATE\\}", ticket.getPlate() + "");
-            template = template.replaceAll("\\{EXPDATE\\}", ticket.getExpiration() + "");
-            template = template.replaceAll("\\{VIN\\}", ticket.getVin() + "");
-            template = template.replaceAll("\\{STATE_CODE\\}", ticket.getStateCode() + "");
-            template = template.replaceAll("\\{MAKE_CODE\\}", ticket.getMakeCode() + "");
-            template = template.replaceAll("\\{BODY_CODE\\}", ticket.getBodyCode() + "");
-            template = template.replaceAll("\\{COLOR_CODE\\}", ticket.getColorCode() + "");
+            template = template.replaceAll("\\{PLATE\\}", ticket.getPlate() != null ? ticket.getPlate().toString() : "");
+            template = template.replaceAll("\\{EXPDATE\\}", ticket.getExpiration() != null ? ticket.getExpiration().toString() : "");
+            template = template.replaceAll("\\{VIN\\}", ticket.getVin() != null ? ticket.getVin().toString() : "");
+            template = template.replaceAll("\\{STATE_CODE\\}", ticket.getStateCode() != null ? ticket.getStateCode().toString() : "");
+            template = template.replaceAll("\\{MAKE_CODE\\}", ticket.getMakeCode() != null ? ticket.getMakeCode().toString() : "");
+            template = template.replaceAll("\\{BODY_CODE\\}", ticket.getBodyCode() != null ? ticket.getBodyCode().toString() : "");
+            template = template.replaceAll("\\{COLOR_CODE\\}", ticket.getColorCode() != null ? ticket.getColorCode().toString() : "");
 
             if (ticket.getStateCode() != null && !ticket.getStateCode().equals("")) {
                 State state = State.getStateByName(ticket.getStateCode());
@@ -2031,21 +2031,31 @@ public class TPUtility {
             template = template.replaceAll("\\{COMMENT1\\}", "");
             template = template.replaceAll("\\{COMMENT2\\}", "");
 
-            if (ticket.isVoided()) {
+            ArrayList<PrintMacro> macros1 = PrintMacro.getPrintMacros();
+            if (ticket.isVoided() && !macros1.isEmpty()) {
                 String voidMsg = PrintMacro.getPrintMacroMessageByName("VOIDMSG");
                 template = template.replaceAll("\\{VOIDMSG\\}", voidMsg);
             } else {
                 template = template.replaceAll("\\{VOIDMSG\\}", "");
             }
 
-            if (ticket.isWarn()) {
+            if (ticket.isWarn() && !macros1.isEmpty()) {
                 String warnMsg = PrintMacro.getPrintMacroMessageByName("WARNMSG");
-                template = template.replaceAll("\\{WARNMSG\\}", warnMsg);
+
+                // Log the value of warnMsg for debugging
+                Log.d("TicketParsing", "WARNMSG: " + warnMsg);
+
+                if (warnMsg != null) {
+                    template = template.replaceAll("\\{WARNMSG\\}", warnMsg);
+                } else {
+                    template = template.replaceAll("\\{WARNMSG\\}", "");
+                }
             } else {
                 template = template.replaceAll("\\{WARNMSG\\}", "");
             }
 
-            if (ticket.getTicketPictures().size() > 0) {
+
+            if (!ticket.getTicketPictures().isEmpty() && !macros1.isEmpty()) {
                 String photoMsg = PrintMacro.getPrintMacroMessageByName("PHOTOMSG");
                 template = template.replaceAll("\\{PHOTOMSG\\}", photoMsg);
             } else {
@@ -3780,7 +3790,7 @@ public class TPUtility {
     }
 
     public static String readExistingDeviceName() {
-        File file = new File(TPUtility.getDataFolder() + "deviceName.txt");
+        File  file = new File(TPUtility.getDataFolder() + "deviceName.txt");
         StringBuilder st = new StringBuilder();
         try {
             FileReader fr = new FileReader(file);

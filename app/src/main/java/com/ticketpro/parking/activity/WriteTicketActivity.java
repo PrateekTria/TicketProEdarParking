@@ -433,6 +433,9 @@ public class WriteTicketActivity extends BaseActivityImpl implements MyTracker.A
             e.printStackTrace();
         }
         setActiveScreen(this);
+
+        // This code has been added by Prateek on 10/5/2024
+        audioPlayer = new MediaPlayer();
         isNetworkInfoRequired = true;
         preference = Preference.getInstance(this);
         mPreferences = getSharedPreferences(getPackageName(), MODE_PRIVATE);
@@ -1461,8 +1464,7 @@ public class WriteTicketActivity extends BaseActivityImpl implements MyTracker.A
         });
 
         photosBtn.setOnLongClickListener(v -> {
-            Intent i = new Intent();
-            i.setClass(WriteTicketActivity.this, PhotosActivity.class);
+            Intent i = new Intent(WriteTicketActivity.this, PhotosActivity.class);
             startActivityForResult(i, REQUEST_TAKE_PICTURE);
             return true;
         });
@@ -2393,7 +2395,7 @@ public class WriteTicketActivity extends BaseActivityImpl implements MyTracker.A
             violationBtn.setBackgroundResource(R.drawable.btn_yellow);
         }
 
-        photosBtn.setText("(" + activeTicket.getTicketPictures().size() + ")");
+        photosBtn.setText("(" + activeTicket.getPhoto_count() + ")");
 
         // Mark value updates completed
         isUpdatingResult = false;
@@ -2406,7 +2408,7 @@ public class WriteTicketActivity extends BaseActivityImpl implements MyTracker.A
             permitEditText.setText(StringUtil.getDisplayString(ticket.getPermit()));
             violationBtn.setText("V (" + activeTicket.getTicketViolations().size() + ")");
 
-            if (activeTicket.getTicketViolations().size() > 0) {
+            if (!activeTicket.getTicketViolations().isEmpty()) {
                 violationDescText.setText(activeTicket.getTicketViolations().get(0).getViolationDisplay());
             } else {
                 violationDescText.setText("");
@@ -2455,7 +2457,12 @@ public class WriteTicketActivity extends BaseActivityImpl implements MyTracker.A
                             picture.setCitationNumber(activeTicket.getCitationNumber());
                             picture.setCustId(activeTicket.getCustId());
                             picture.setImagePath(chalkPicture.getImagePath());
-                            picture.setDownloadImageUrl(chalkPicture.getDownloadImage());
+                            if(chalkPicture.getDownloadImage().contains("https://s3.amazonaws.com")){
+                                picture.setDownloadImageUrl("");
+                            }else{
+                                picture.setDownloadImageUrl(chalkPicture.getDownloadImage());
+                            }
+
                             picture.setImageResolution(chalkPicture.getImageResolution());
                             picture.setImageSize(chalkPicture.getImageSize());
                             //picture.setPictureId(ChalkPicture.getNextPrimaryId());
@@ -3054,7 +3061,7 @@ public class WriteTicketActivity extends BaseActivityImpl implements MyTracker.A
                 }
 
                 case REQUEST_TAKE_PICTURE: {
-                    photosBtn.setText("(" + activeTicket.getTicketPictures().size() + ")");
+                    photosBtn.setText("(" + activeTicket.getTicketPictures().size()+ ")");
                     break;
                 }
 
@@ -3628,9 +3635,9 @@ public class WriteTicketActivity extends BaseActivityImpl implements MyTracker.A
             try {
                 maxPhotos = Integer.parseInt(value);
 
-                if (activeTicket.getPhoto_count() > 0) {
-                    maxPhotos = maxPhotos + activeTicket.getPhoto_count();
-                }
+//                if (activeTicket.getPhoto_count() > 0) {
+//                    maxPhotos = maxPhotos + activeTicket.getPhoto_count();
+//                }
                 if (activeTicket.isLPR()) {
                     maxPhotos = maxPhotos + 1;
                 }
@@ -3638,10 +3645,16 @@ public class WriteTicketActivity extends BaseActivityImpl implements MyTracker.A
             }
         }
 
-        if (maxPhotos > 0 && activeTicket.getTicketPictures().size() >= maxPhotos) {
+// Ensure that maxPhotos doesn't exceed the current number of photos in the active ticket
+//        if (maxPhotos > activeTicket.getPhoto_count()) {
+//            maxPhotos = activeTicket.getPhoto_count();
+//        }
+
+        if (maxPhotos > 0 && activeTicket.getPhoto_count() >= maxPhotos) {
             displayErrorMessage("Exceeded max photos limit.");
             return;
         }
+
 
         if (this.flashCamera != null) {
             this.flashCamera.stopPreview();
@@ -4210,11 +4223,11 @@ public class WriteTicketActivity extends BaseActivityImpl implements MyTracker.A
                         }
                     }
 
-                    if (activeTicket.isLPR() && activeTicket.getTicketPictures().size() > 0) {
-                        activeTicket.setPhotoCount(activeTicket.getTicketPictures().size() - 1);
-                    } else {
+//                    if (activeTicket.isLPR() && !activeTicket.getTicketPictures().isEmpty()) {
+//                        activeTicket.setPhotoCount(activeTicket.getTicketPictures().size() - 1);
+//                    } else {
                         activeTicket.setPhotoCount(activeTicket.getTicketPictures().size());
-                    }
+                 //   }
                     for (TicketViolation violation : activeTicket.getTicketViolations()) {
                         if (!Ticket.checkDuplicateRecordsPlates(activeTicket.getPlate(), violation.getViolationId(), activeTicket.getTicketDate(), activeTicket.getLocation())) {
                             //Checking previous ticket data with current ticket data.
@@ -7012,7 +7025,7 @@ public class WriteTicketActivity extends BaseActivityImpl implements MyTracker.A
                 }
                 activeTicket.setTicketPictures(TPApp.getLastPhotos());
             }
-            if (activeTicket.getTicketPictures().size() > 0) {
+            if (!activeTicket.getTicketPictures().isEmpty()) {
                 photosBtn.setText("(" + activeTicket.getTicketPictures().size() + ")");
             } else {
                 photosBtn.setText("(0)");
@@ -7942,7 +7955,7 @@ public class WriteTicketActivity extends BaseActivityImpl implements MyTracker.A
     private void playRecording(String audioFile) {
         playerHandler = new Handler();
         try {
-            audioPlayer = new MediaPlayer();
+          //  audioPlayer = new MediaPlayer();
             audioPlayer.setDataSource(TPUtility.getVoiceMemosFolder() + audioFile);
             audioPlayer.prepare();
             audioPlayer.start();

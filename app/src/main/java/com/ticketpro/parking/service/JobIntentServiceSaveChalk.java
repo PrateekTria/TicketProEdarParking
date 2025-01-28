@@ -60,17 +60,17 @@ public class JobIntentServiceSaveChalk extends JobIntentService {
 
         try {
             ArrayList<ChalkVehicle> pendingChalkedVehicle = ChalkVehicle.getPendingChalkedVehicle();
-            if (pendingChalkedVehicle != null && pendingChalkedVehicle.size() > 0) {
+            if (pendingChalkedVehicle != null && !pendingChalkedVehicle.isEmpty()) {
                 for (int i = 0; i < pendingChalkedVehicle.size(); i++) {
                     ChalkVehicle chalkVehicle = pendingChalkedVehicle.get(i);
                     saveChalkOnServer(chalkVehicle);
 
                 }
-            } else {}
+            }
 
             //Image is pending
             ArrayList<ChalkVehicle> pendingPIChalkedVehicle = ChalkVehicle.getPendingPIChalkedVehicle();
-            if (pendingPIChalkedVehicle.size() > 0) {
+            if (!pendingPIChalkedVehicle.isEmpty()) {
                 for (int i = 0; i < pendingPIChalkedVehicle.size(); i++) {
                     ChalkVehicle chalkVehicle = pendingPIChalkedVehicle.get(i);
                     /**
@@ -78,7 +78,7 @@ public class JobIntentServiceSaveChalk extends JobIntentService {
                      * uploaded and not the LPR because LPR images are already uploaded from server to Server
                      */
                     ArrayList<ChalkPicture> chalkPictures = ChalkPicture.getPendingChalkPicturesById(chalkVehicle.getChalkId());
-                    if (chalkPictures != null && chalkPictures.size() > 0) {
+                    if (chalkPictures != null && !chalkPictures.isEmpty()) {
                         final ArrayList<ChalkPicture> uploadImages = new ArrayList<>();
                         for (int j = 0; j < chalkPictures.size(); j++) {
                             ChalkPicture ticketPicture = chalkPictures.get(j);
@@ -92,7 +92,7 @@ public class JobIntentServiceSaveChalk extends JobIntentService {
                         ChalkVehicle.updateChalkStatus(chalkVehicle.getChalkId(),"S");                    }
 
                 }
-            }else {}
+            }
 
 
         } catch (Exception e) {
@@ -131,7 +131,7 @@ public class JobIntentServiceSaveChalk extends JobIntentService {
                     if (response.isSuccessful() && response.body() != null && response.body().getResult().getResult()) {
                         //long apkChalkId = response.body().getResult().getSuccess().getApkChalkId();
 
-                        if (chalkPictures1.size() > 0) {
+                        if (!chalkPictures1.isEmpty()) {
                             syncUploadImages(chalkVehicle.getChalkId(), ChalkPicture.getChalkPictures(chalkVehicle.getChalkId()));
 
                             ChalkVehicle.updateChalkStatus(chalkVehicle.getChalkId(),"PI");
@@ -169,14 +169,14 @@ public class JobIntentServiceSaveChalk extends JobIntentService {
             boolean uploadFlag = false;
             for (ChalkPicture ticketPicture : images) {
                 try {
-                    if (!ticketPicture.getImagePath().contains("VLPR")) {
+                 //   if (!ticketPicture.getImagePath().contains("VLPR")) {
                         uploadFlag = TPUtility.uploadFile(ticketPicture.getImagePath(),
                                 TPConstant.FILE_UPLOAD + "/uploadfile",
                                 TPApplication.getInstance().getCustId());
 
                         __updateChalkPictureImageStatus(ticketPicture.getPictureId(), citationNumber, uploadFlag);
 
-                    }
+                //    }
 
                 } catch (Exception e) {
                     log.error(TPUtility.getPrintStackTrace(e));
@@ -197,11 +197,11 @@ public class JobIntentServiceSaveChalk extends JobIntentService {
             boolean uploadFlag = true;
             for (String imagePath : images) {
                 try {
-                    if (!imagePath.contains("VLPR")) {
+               //     if (!imagePath.contains("VLPR")) {
                         uploadFlag = TPUtility.uploadFile(imagePath,
                                 TPConstant.FILE_UPLOAD + "/uploadfile",
                                 TPApplication.getInstance().getCustId());
-                    }
+                 //   }
                     if (!uploadFlag) {
                         TPUtility.markPendingImage(imagePath);
                     }

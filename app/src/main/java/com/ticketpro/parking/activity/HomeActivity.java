@@ -1989,7 +1989,7 @@ public class HomeActivity extends BaseActivityImpl {
         param.setCustId(TPApp.custId);
         param.setDeviceId(String.valueOf(TPApp.deviceId));
         param.setDetails(detailsList);
-        jsonRpc.setJsonrpc("2.o");
+        jsonRpc.setJsonrpc("2.0");
         jsonRpc.setMethod("darReportRequest");
         jsonRpc.setId("82F85DB43CBF6");
         jsonRpc.setParams(param);

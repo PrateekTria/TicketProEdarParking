@@ -53,7 +53,10 @@ public class ParkingTicketWorker extends Worker {
         try {
             ArrayList<DeviceInfo> deviceInfo = new ArrayList<>();
             deviceInfo.add(TPApplication.getInstance().getDeviceInfo());
-            syncDevices(deviceInfo, "ParkingTicketWorker");
+            if(TPApplication.getInstance().getDeviceInfo() != null){
+                syncDevices(deviceInfo, "ParkingTicketWorker");
+            }
+
 
             /**
              * ticket data is pending
@@ -108,6 +111,9 @@ public class ParkingTicketWorker extends Worker {
     }
 
     public static void syncDevices(ArrayList<DeviceInfo> deviceInfo, String name) {
+        if(deviceInfo == null || deviceInfo.isEmpty()){
+            return;
+        }
         Params params = new Params();
         params.setDevices(deviceInfo);
         RequestPOJO requestPOJO = new RequestPOJO();
@@ -263,13 +269,13 @@ public class ParkingTicketWorker extends Worker {
             boolean uploadFlag = false;
             for (TicketPicture ticketPicture : images) {
                 try {
-                    if (!ticketPicture.getImagePath().contains("VLPR")) {
+                  //  if (!ticketPicture.getImagePath().contains("VLPR")) {
                         uploadFlag = TPUtility.uploadFile(ticketPicture.getImagePath(),
                                 TPConstant.FILE_UPLOAD + "/uploadfile",
                                 TPApplication.getInstance().getCustId());
                         __updateTicketPictureImageStatus(ticketPicture.getS_no(), citationNumber, uploadFlag);
 
-                    }
+               //     }
 
                 } catch (Exception e) {
                     log.error(TPUtility.getPrintStackTrace(e));
@@ -283,12 +289,12 @@ public class ParkingTicketWorker extends Worker {
     private void syncTicketImage(long citationNumber, final ArrayList<String> images) {
         for (String imagePath : images) {
             try {
-                if (!imagePath.contains("VLPR")) {
+           //     if (!imagePath.contains("VLPR")) {
 
                     File file = new File(imagePath);
                     RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
 
-                }
+                //      }
                 // __updateTicketPictureImageStatus(citationNumber, uploadFlag);
 
             } catch (Exception e) {

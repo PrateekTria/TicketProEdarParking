@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pt-rBR/values-pt-rBR.xml",
+            "outputFile": "/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pt-rBR/values-pt-rBR.xml",
             "map": [
                 {
                     "source": "/home/tspl/.gradle/caches/transforms-2/files-2.1/bbfb38aac0e9b1aecf4b137aa96de8be/jetified-play-services-basement-18.0.0/res/values-pt-rBR/values.xml",
@@ -74,6 +74,23 @@
                     }
                 },
                 {
+                    "source": "/home/tspl/Desktop/DarParking_merge_30_09_2024/DarParking_zend_13012025/DarParking_merge_29_06_2024/library/build/intermediates/packaged_res/debug/values-pt-rBR/values-pt-rBR.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,131,204",
+                        "endColumns": "75,72,80",
+                        "endOffsets": "126,199,280"
+                    },
+                    "to": {
+                        "startLines": "106,107,108",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "10205,10281,10354",
+                        "endColumns": "75,72,80",
+                        "endOffsets": "10276,10349,10430"
+                    }
+                },
+                {
                     "source": "/home/tspl/.gradle/caches/transforms-2/files-2.1/8d3a0c1d3aad362064182c0c8d04e803/core-1.6.0/res/values-pt-rBR/values-pt-rBR.xml",
                     "from": {
                         "startLines": "2",
@@ -105,23 +122,6 @@
                         "startOffsets": "278,398,504,611,700,801,920,1005,1085,1176,1269,1364,1458,1558,1651,1746,1841,1932,2023,2108,2215,2326,2428,2536,2644,2754,2916,10435",
                         "endColumns": "119,105,106,88,100,118,84,79,90,92,94,93,99,92,94,94,90,90,84,106,110,101,107,107,109,161,99,85",
                         "endOffsets": "393,499,606,695,796,915,1000,1080,1171,1264,1359,1453,1553,1646,1741,1836,1927,2018,2103,2210,2321,2423,2531,2639,2749,2911,3011,10516"
-                    }
-                },
-                {
-                    "source": "/home/tspl/Desktop/Edar_laravel_23_12_2024/DarParking_merge_29_06/library/build/intermediates/packaged_res/debug/values-pt-rBR/values-pt-rBR.xml",
-                    "from": {
-                        "startLines": "2,3,4",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "55,131,204",
-                        "endColumns": "75,72,80",
-                        "endOffsets": "126,199,280"
-                    },
-                    "to": {
-                        "startLines": "106,107,108",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "10205,10281,10354",
-                        "endColumns": "75,72,80",
-                        "endOffsets": "10276,10349,10430"
                     }
                 }
             ]

@@ -197,15 +197,13 @@ import retrofit2.http.Url;
  */
 public interface ApiRequest {
 
+
     @GET
     Call<List<SpPlusModel>> spPlusPlate(@Url String url,
-                                        @Header("x-api-key") String authToken,
-                                        @Header("vendor-name") String vendorName);
-    @POST("v1/common/getGPSLocation")
-
+                                     @Header("x-api-key") String authToken,
+                                     @Header("vendor-name") String vendorName);
+    @POST("service/genericv1")
     Call<GpsResponse> getGpsLocation(@Body Location_Json_rpc jbj);
-
-    @GET
 
     @Multipart
     @POST("/uploadfile")
@@ -214,506 +212,18 @@ public interface ApiRequest {
                                            @Part MultipartBody.Part image);
 
     /**
+     *
+     * @param url
      * @return
      */
-
-    @POST("/v3/shared/access-tokens")
-    Call<com.ticketpro.vendors.passport2_model.TokenResponse> getTokenForPassportParking2(@Body TokenRequest tokenBody);
-
-    @GET
-    Call<Passport2Array> getPP2Space(@Url String url);
-
     @GET
     Call<ParkMobileZoneList> getZoneParkMobile(@Url String url);
 
     /**
-     * @param url
+     *
+
      * @return
      */
-    @GET
-    Call<ParkMobileSpace> getParkMobileSingleSpace(@Url String url);
-
-    @GET
-    Call<ArrayOfEnforcementZone> getZone(@Url String url);
-
-    @POST
-    Call<ResponseBody> getPhotoAlpr(@Url String url, @Body String image);
-
-    @GET
-    Call<ArrayOfPlaveSearch> _serchPlate(@Url String url);
-
-    @GET
-    Call<ArrayOfValidParkingData> _serchPlate2(@Url String url);
-
-    //CALE
-    @GET
-    Observable<ArrayOfPlaveSearch> _searchPlateCALEWithoutZero(@Url String url);
-
-    @GET
-    Observable<ArrayOfPlaveSearch> _searchPlateCALEWithZero(@Url String url);
-
-    @GET
-    Call<ArrayOfValidParkingData> _validateParking(@Url String url);
-
-    @GET("/token")
-    Call<ResponseBody> getAccessToken();
-
-    @GET
-    Call<LotwiseApi> _getDataBylotname(@Url String url);
-
-    @GET("/parkingsummary/{Lotname}")
-    Call<LotwiseApi> getDataBylotname(@Header("Authorization") String token, @Path("Lotname") String LotName);
-
-    @GET("parkingsummary/{purchasedate}/{expirydate}")
-    Call<LotwiseApi> getdatabydate(@Header("Authorization") String token, @Path("purchasedate") String purchasedate, @Path("expirydate") String expirydate);
-
-    @GET("parkingsummary/{Lotname}/{purchasedate}/{expirydate}")
-    Call<LotwiseApi> getdata_by_date_nd_lot(@Header("Authorization") String token, @Path("Lotname") String LotName, @Path("purchasedate") String purchasedate, @Path("expirydate") String expirydate);
-
-    @POST("Tracking/AddDeviceInfo/")
-    Call<FirebaseResponse> postDatatoFBDB(@Body FirebaseModel firebaseModel);
-
-    @GET("json")
-    Call<GeocodeLocation> getAddressfromLatLng(@Query("latlng") String latlng, @Query("key") String key);
-
-    @POST("Authentication/GetToken/")
-    Call<TokenResponse> getToken(@Body TokenBody tokenBody);
-
-//    @POST("service/genericv1")
-//    Observable<CustomerResponse> getCustomers(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getCustomers")
-    Observable<CustomerResponse> getCustomers(@Body RequestPOJO jbj);
-
-    //    @POST("service/genericv1")
-//    Observable<ClientInfoResponse> getClientInfo(@Body RequestPOJO jbj);
-    @POST("v1/common/getClientInfo")
-    Observable<ClientInfoResponse> getClientInfo(@Body RequestPOJO jbj);
-
-
-//    @POST("service/genericv1")
-//    Observable<DeviceInfoResponse> getDeviceInfo(@Body RequestPOJO jbj);
-
-    @POST("v1/parking/getDeviceInfo")
-    Observable<DeviceInfoResponse> getDeviceInfo(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Call<UserResponse> getUsers(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getUsers")
-    Call<UserResponse> getUsers(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getUsers")
-    Call<UserResponse> getUsers1(@Body RequestPOJO jbj);
-
-    @POST("v1/parking/updateGCMRegistrationId")
-    Call<ResponseBody> updateGCMRegistrationID(@Body RequestPOJO jbj);
-
-    //    @POST("service/genericv1")
-//    Observable<UserSettingResponse> getUserSettings(@Body RequestPOJO jbj);
-    @POST("v1/common/getUserSettings")
-    Observable<UserSettingResponse> getUserSettings(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<MessageResponse> getMessages(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getMessages")
-    Observable<MessageResponse> getMessages(@Body RequestPOJO jbj);
-
-    //    @POST("service/genericv1")
-//    Observable<BodyResponse> getBodies(@Body RequestPOJO jbj);
-    @POST("v1/common/getBodies")
-    Observable<BodyResponse> getBodies(@Body RequestPOJO jbj);
-
-    //    @POST("service/genericv1")
-//    Observable<LprBodyResponse> getLPRBodies(@Body RequestPOJO jbj);
-    @POST("v1/common/getLprBodyMap")
-    Observable<LprBodyResponse> getLPRBodies(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<ContactResponse> getContacts(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getContacts")
-    Observable<ContactResponse> getContacts(@Body RequestPOJO jbj);
-
-    //    @POST("service/genericv1")
-//    Observable<ColorResponse> getColors(@Body RequestPOJO jbj);
-    @POST("v1/common/getColors")
-    Observable<ColorResponse> getColors(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<CommentResponse> getComments(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getComments")
-    Observable<CommentResponse> getComments(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<DirectionResponse> getDirections(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getDirections")
-    Observable<DirectionResponse> getDirections(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<DurationResponse> getDurations(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getDurations")
-    Observable<DurationResponse> getDurations(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<DutyResponse> getDuties(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getDuties")
-    Observable<DutyResponse> getDuties(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<FeatureResponse> getFeatures(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getFeatures")
-    Observable<FeatureResponse> getFeatures(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<GPSLocationResponse> getGPSLocations(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getGPSLocations")
-    Observable<GPSLocationResponse> getGPSLocations(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<SpecialActivitiesLocationResponse> getSpecialActivitiesLocation(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getSpecialActivitiesLocation")
-    Observable<SpecialActivitiesLocationResponse> getSpecialActivitiesLocation(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<HotlistResponse> getHotlist(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getHotlist")
-    Observable<HotlistResponse> getHotlist(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<LocationResponse> getLocations(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getLocations")
-    Observable<LocationResponse> getLocations(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<RepeatOffenderResponse> getRepeatOffenders(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getRepeatOffenders")
-    Observable<RepeatOffenderResponse> getRepeatOffenders(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<MakeAndModelResponse> getMakesAndModels(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getModelsAndMakes")
-    Observable<MakeAndModelResponse> getMakesAndModels(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<MeterResponse> getMeters(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getMeters")
-    Observable<MeterResponse> getMeters(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<PermitResponse> getPermits(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getPermits")
-    Observable<PermitResponse> getPermits(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<StateResponse> getStates(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getStates")
-    Observable<StateResponse> getStates(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<StreetPrefixResponse> getStreetPrefixes(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getStreetPrefixes")
-    Observable<StreetPrefixResponse> getStreetPrefixes(@Body RequestPOJO jbj);
-
-    //    @POST("service/genericv1")
-//    Observable<StreetSuffixResponse> getStreetSuffixes(@Body RequestPOJO jbj);
-    @POST("v1/common/getStreetSuffixes")
-    Observable<StreetSuffixResponse> getStreetSuffixes(@Body RequestPOJO jbj);
-
-    //    @POST("service/genericv1")
-//    Observable<ViolationResponse> getViolations(@Body RequestPOJO jbj);
-    @POST("v1/common/getViolations")
-    Observable<ViolationResponse> getViolations(@Body RequestPOJO jbj);
-
-    //    @POST("service/genericv1")
-//    Observable<ZoneResponse> getZones(@Body RequestPOJO jbj);
-    @POST("v1/common/getZones")
-    Observable<ZoneResponse> getZones(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<DeviceGroupResponse> getDeviceGroup(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getDeviceGroup")
-    Observable<DeviceGroupResponse> getDeviceGroup(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<VoidTicketReasonResponse> getVoidTicketReasons(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getVoidTicketReasons")
-    Observable<VoidTicketReasonResponse> getVoidTicketReasons(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<SpecialActivityResponse> getSpecialActivities(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getSpecialActivities")
-    Observable<SpecialActivityResponse> getSpecialActivities(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<SpecialActivityDispositionResponse> getSpecialActivityDispositions(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getSpecialActivityDispositions")
-    Observable<SpecialActivityDispositionResponse> getSpecialActivityDispositions(@Body RequestPOJO jbj);
-
-
-//    @POST("service/genericv1")
-//    Observable<PrintMacroResponse> getPrintMacros(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getPrintMacros")
-    Observable<PrintMacroResponse> getPrintMacros(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<PrintTemplateResponse> getPrintTemplates(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getPrintTemplates")
-    Observable<PrintTemplateResponse> getPrintTemplates(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<CallInListResponse> getCallInList(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getCallInList")
-    Observable<CallInListResponse> getCallInList(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<LocationGroupResponse> getLocationGroups(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getLocationGroups")
-    Observable<LocationGroupResponse> getLocationGroups(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<LocationGroupLocationResponse> getLocationGroupLocations(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getLocationGroupLocations")
-    Observable<LocationGroupLocationResponse> getLocationGroupLocations(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<CommentGroupResponse> getCommentGroups(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getCommentGroups")
-    Observable<CommentGroupResponse> getCommentGroups(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<CommentGroupCommentResponse> getCommentGroupComments(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getCommentGroupComments")
-    Observable<CommentGroupCommentResponse> getCommentGroupComments(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<ViolationGroupResponse> getViolationGroups(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getViolationGroups")
-    Observable<ViolationGroupResponse> getViolationGroups(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<ViolationGroupViolationResponse> getViolationGroupViolations(@Body RequestPOJO jbj);
-
-
-    @POST("v1/common/getViolationGroupViolations")
-    Observable<ViolationGroupViolationResponse> getViolationGroupViolations(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<VendorResponse> getVendors(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getVendors")
-    Observable<VendorResponse> getVendors(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<VendorServiceResponse> getVendorServices(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getVendorServices")
-    Observable<VendorServiceResponse> getVendorServices(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<VendorItemResponse> getVendorItems(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getVendorItems")
-    Observable<VendorItemResponse> getVendorItems(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<VendorServiceRegistrationResponse> getVendorServiceRegistrations(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getVendorServiceRegistrations")
-    Observable<VendorServiceRegistrationResponse> getVendorServiceRegistrations(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<ModuleResponse> getModules(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getModules")
-    Observable<ModuleResponse> getModules(@Body RequestPOJO jbj);
-
-//    @POST("service/genericv1")
-//    Observable<CustomerModuleResponse> getCustomerModules(@Body RequestPOJO jbj);
-
-    @POST("v1/common/getCustomerModules")
-    Observable<CustomerModuleResponse> getCustomerModules(@Body RequestPOJO jbj);
-
-    @POST("v1/parking/updateTickets")
-    Call<TicketResponse> syncTickets(@Body RequestPOJO pojo);
-
-    @POST("v1/parking/updateDevices")
-    Call<ResponseBody> syncDevices(@Body RequestPOJO pojo);
-
-    @POST("v1/parking/sendEmail")
-    Call<ResponseBody> sendEmail(@Body RequestPOJO pojo);
-
-    @POST("v1/parking/updateChalkStatus")
-    Call<ResponseBody> updateChalkStatus(@Body RequestPOJO pojo);
-
-    @POST("v1/parking/genericv1")
-    Call<ResponseBody> sendErrorLogs(@Body RequestPOJO pojo);
-
-    @POST("v1/parking/lastUpDateRepeatOffenders")
-    Call<RepeatOffenderResponse> lastUpDateRepeatOffenders(@Body RequestPOJO pojo);
-
-    @POST("v1/parking/getlastUpDateRepeatOffenders")
-    Call<RepeatOffenderResponse> getlastRepeatOffenderService(@Body RequestPOJO pojo);
-
-    @POST("v1/parking/updateChalks")
-    Call<ChalkResponse> syncChalks(@Body RequestPOJO requestPOJO);
-
-    @POST("v1/parking/searchPlates")
-    Call<TicketsResponse> getPlateInfo(@Body RequestPOJO pojo);
-
-    @POST("v1/parking/searchHotlist")
-    Call<HotlistResponse> searchHotlist(@Body RequestPOJO pojo);
-
-    @POST("v1/parking/searchPermitsByPlate")
-    Call<PermitResponse> searchAllPermitByPlate(@Body RequestPOJO pojo);
-
-    @POST("v1/parking/getVersionUpdates")
-    Call<VersionUpdateResponse> getVersionUpdates(@Body RequestPOJO pojo);
-
-    @POST("v1/parking/verifyAndSyncTickets")
-    Call<VerifyAndSyncTicketsResponse> verifyAndSyncTickets(@Body RequestPOJO pojo);
-
-    @POST("v1/parking/saveDeviceFeatures")
-    Call<ResponseResult> saveDeviceFeatures1(@Body RequestPOJODeviceFeatures requestPOJO);
-
-    @POST("v1/parking/updateMobileNowLog")
-    Call<ResponseBody> updateMobileNowLog(@Body RequestPOJO pojo);
-
-    @POST("service/genericv1")
-    Call<TicketResponse> updatedeviceid(@Body RequestPOJO pojo);
-
-    @POST("v1/parking/updateDutyReports")
-    Call<ResponseBody> updateDutyReport(@Body RequestPOJO pojo);
-
-    @POST("v1/parking/getEula")
-    Call<EulaResult> getEula(@Body EulaReuest_Rpc pojo);
-
-    @POST("v1/parking/eulaAcceptance")
-    Call<EulaAcceptanceResult> getEulaAcceptance(@Body EulaAcceptanceRequest_Rpc pojo);
-
-    @POST("v1/parking/getValidTicket")
-    Call<ValidResult> getValidTicket(@Body ValidTicketRequest_Rpc pojo);
-
-
-    // This code is added by mohit 27/02/2023
-
-    @POST("v1/parking/updateRepeatOffendersCount")
-    Call<ResponseBody> updateRepeatOffendersCount(@Body RepeatOffender_Rpc pojo);
-
-    @POST("v1/parking/getRepeatOffendersLive")
-    Call<RepeatOffenderResponse> getRepeatOffendersLive(@Body RepeatOffendersLive_Rpc pojo);
-
-    @POST("v1/parking/deleteTicketComments")
-    Call<ResponseBody> deleteTicketComments(@Body RequestPOJO pojo);
-
-    @POST("v1/parking/deleteTicketPicture")
-    Call<ResponseBody> deleteTicketPicture(@Body RequestPOJO pojo);
-
-    @POST("v1/parking/getTicketHistory")
-    Call<TicketHistoryResponse> getTickeHistory(@Body RequestPOJO pojo);
-
-    @POST("v1/parking/updateTicketComments")
-    Call<ResponseBody> updateTicketComments(@Body TicketComment_Rpc pojo);
-
-
-    @POST("service/genericv1")
-    Call<ResponseBody> GetLicenseDetail(@Body RequestPOJO pojo);
-
-    @POST("v1/parking/newHotlist")
-    Call<ResponseBody> newHotlist(@Body HotList_Rpc pojo);
-
-    @POST("v1/parking/updateSpecialActivityReports")
-    Call<ResponseBody> updateSpecialActivityReports(@Body ActivityRequest_Rpc pojo);
-
-    @POST("v1/parking/updateSpecialActivityPictures")
-    Call<ResponseBody> updateSpecialActivityPictures(@Body ActivityRequest_Rpc pojo);
-
-    @POST("v1/parking/getSpecialActivityReports")
-    Call<SpecialActivityReportResponse> getSpecialActivityReports(@Body SpecialActivityReport_Rpc pojo);
-
-    @POST("v1/parking/updateDutyReports")
-    Call<ResponseBody> updateDutyReports(@Body ActivityRequest_Rpc pojo);
-
-    @POST("v1/parking/updateHotListReports")
-    Call<ResponseBody> updateHotListReports(@Body ActivityRequest_Rpc pojo);
-
-    @POST("v1/parking/searchMeters")
-    Call<MeterReponse> searchMeters(@Body MeterRequest_Rpc pojo);
-
-    @POST("v1/parking/searchPermits")
-    Call<PermitResponse> searchPermits(@Body PermitRequest_Rpc pojo);
-
-    @POST("v1/parking/searchPermitVins")
-    Call<PermitResponse> searchPermitVins(@Body PermitRequest_Rpc pojo);
-
-    @POST("v1/parking/searchVins")
-    Call<SearchVinResponse> searchVins(@Body PermitRequest_Rpc pojo);
-
-    @POST("v1/parking/updateTicketPicture")
-    Call<ResponseBody> updateTicketPicture(@Body TicketPicture_Rpc pojo);
-
-    @POST("v1/parking/getTicketViolations")
-    Call<TicketViolationResponse> getTicketViolations(@Body TicketViolation_Rpc pojo);
-
-    @POST("v1/parking/uploadDebugLog")
-    Call<UploadDebugResponse> uploadDebugLog(@Body SyncBackup_Json_rpc rpc);
-
-    @POST("v1/parking/uploadDatabase")
-    Call<UploadDebugResponse> uploadDbBackUp(@Body Dbinfo_Json_rpc rpc);
-
-    @POST("v1/parking/uploadCsvInsideDiagnostics")
-    Call<UploadDebugResponse> uploadCSVBackUp(@Body CSVinfo_Json_rpc rpc);
-
-    @POST("v1/parking/updateDutyReports")
-    Call<DarDutyResponseR> insertDutyReport(@Body DarDutyRequestJson_rpc pojo);// Insert duty report function using parking module
-
-    /*@Multipart
-    @POST("/uploadfile")
-    Observable<ResponseBody> updateProfile(@Part("custId") RequestBody id,
-                                           @Part("full_name") RequestBody fullName,
-                                           @Part MultipartBody.Part image);
-
-    *//**
-     *
-     * @param url
-     * @return
-     *//*
-    @GET
-    Call<ParkMobileZoneList> getZoneParkMobile(@Url String url);
-
-    *//**
-     *
-
-     * @return
-     *//*
 
     @POST("/v3/shared/access-tokens")
     Call<com.ticketpro.vendors.passport2_model.TokenResponse> getTokenForPassportParking2(@Body TokenRequest tokenBody);
@@ -1029,19 +539,6 @@ public interface ApiRequest {
     @POST("service/genericv1")
     Call<TicketViolationResponse> getTicketViolations(@Body TicketViolation_Rpc pojo);
 
-    @POST("service/genericv1")
-    Call<UploadDebugResponse> uploadDebugLog(@Body SyncBackup_Json_rpc rpc);
-
-    @POST("service/genericv1")
-    Call<UploadDebugResponse> uploadDbBackUp(@Body Dbinfo_Json_rpc rpc);
-
-    @POST("service/genericv1")
-    Call<UploadDebugResponse> uploadCSVBackUp(@Body CSVinfo_Json_rpc rpc);
-
-    @POST("service")
-    Call<DarDutyResponseR> insertDutyReport(@Body DarDutyRequestJson_rpc pojo);// Insert duty report function using parking module
-
-*/
 //********************************************E DAR*****************************************************//
 
     /**
@@ -1049,147 +546,162 @@ public interface ApiRequest {
      * @param requestPOJO
      * @return
      */
-    @POST("v1/edar/getDarEquipments")
+    @POST("service/edar")
     Observable<DarEquipmentsResponse> getDarEquipments(@Body RequestPOJO requestPOJO);
-    @POST("v1/edar/getDarChildEquipments")
+    @POST("service/edar")
     Observable<DarChildEquipmentsResponse> getDarChildEquipments(@Body RequestPOJO requestPOJO);
-    @POST("v1/edar/getDarAssignments")
+    @POST("service/edar")
     Observable<DarAssignmentResponse> getDarAssignments(@Body RequestPOJO requestPOJO);
-    /* @POST("service/edar")
-     Observable<DarAssignmentLocationResponse> getDarAssignmentLocation(@Body RequestPOJO requestPOJO);*/ // instead of assignment location we are using Duty
-    @POST("v1/edar/getDarLocationActivityTask")
+    @POST("service/edar")
+    Observable<DarAssignmentLocationResponse> getDarAssignmentLocation(@Body RequestPOJO requestPOJO);
+    @POST("service/edar")
     Observable<DarLocationActivityTaskResponse> getDarLocationActivityTask(@Body RequestPOJO requestPOJO);
-    @POST("v1/edar/getDarTaskAndAction")
+    @POST("service/edar")
     Observable<DarTaskAndActionResponse> getDarTaskAndAction(@Body RequestPOJO requestPOJO);
-    @POST("v1/edar/getDarVehicleTask")
+    @POST("service/edar")
     Observable<DarVechicleTaskResponse> getDarVehicleTask(@Body RequestPOJO requestPOJO);
-    @POST("v1/edar/getDarSeniorDutiesElements")
+    @POST("service/edar")
     Observable<DarSeniorDutiesElementsResponse> getDarSeniorDutiesElements(@Body RequestPOJO requestPOJO);
 
-    @POST("v1/edar/getDarOffsiteDropdownElements")
+    @POST("service/edar")
     Observable<DarOffsiteDropdownElementsResponse> getDarOffsiteDropdownElements(@Body RequestPOJO requestPOJO);
 
-    @POST("v1/edar/getDar22500DispositionDropDownElement")
+    @POST("service/edar")
     Observable<Dar22500DisposionDropDownElementResponse> getDar22500Dropdown(@Body RequestPOJO requestPOJO);
-    @POST("v1/edar/getDarVehicleTypes")
+    @POST("service/edar")
     Observable<DarVehicleListResponse> getDarVehicleList(@Body RequestPOJO requestPOJO);
-    @POST("v1/edar/getDarDisinfectingElements")
+    @POST("service/edar")
     Observable<DarDisinfectingElementsResponse> getDarDisinfecting(@Body RequestPOJO requestPOJO);
-    @POST("v1/edar/getDarVdrElements")
+    @POST("service/edar")
     Observable<DarVdrElementsResponse> getVDR(@Body RequestPOJO requestPOJO);
-    @POST("v1/edar/getDarAdminDropdown")
+    @POST("service/edar")
     Observable<DarAdminDropdownResponse> getAdminDropdown(@Body RequestPOJO requestPOJO);
-    @POST("v1/edar/getDarSchoolDropDownElement")
+    @POST("service/edar")
     Observable<DarSchoolDropDownElementRes> getSchoolDropdown(@Body RequestPOJO requestPOJO);
-    @POST("v1/edar/getDarFieldContactDropdown")
+    @POST("service/edar")
     Observable<DarFieldContactDropdownResponse> getFieldContactDropdown(@Body RequestPOJO requestPOJO);
-    @POST("v1/edar/getDarBreakAndLunchDropDownElement")
+    @POST("service/edar")
     Observable<DarBreakAndLunchDropDownElementRes> getBanL(@Body RequestPOJO requestPOJO);
-    @POST("v1/edar/getDarSignCheckDropDownElement")
+    @POST("service/edar")
     Observable<DarSignCheckResponse> getSignCheck(@Body RequestPOJO requestPOJO);
-    @POST("v1/edar/getDarPPZDropdownElement")
+    @POST("service/edar")
     Observable<DarPPZDropdownResponse> getPPZ(@Body RequestPOJO requestPOJO);
-    @POST("v1/edar/getDarServiceRequestDownElement")
+    @POST("service/edar")
     Observable<DarServiceRequestDropDownResponse> getServiceReq(@Body RequestPOJO requestPOJO);
-    @POST("v1/edar/getDarOffStreetPatrolDropDownElement")
+    @POST("service/edar")
     Observable<DarOffStreetPatrolDropDownResponse> getOffStreetPatrol(@Body RequestPOJO requestPOJO);
-    @POST("v1/edar/getDarOffsiteTrainerDropdownElements")
+    @POST("service/edar")
     Observable<DarOffsiteTrainerDropdownResponse> getTrainerDw(@Body RequestPOJO requestPOJO);
-    @POST("v1/edar/getDarOffsiteDistrictDropdownElements")
+    @POST("service/edar")
     Observable<DarOffsiteDistrictDropdownResponse> getDistrictDw(@Body RequestPOJO requestPOJO);
-    @POST("v1/edar/getDarTowReasonDropDownElement")
+    @POST("service/edar")
     Observable<DarTowReasonDropDownRes> getTowReasonDw(@Body RequestPOJO requestPOJO);
 
-    @POST("v1/edar/getDarAuthorityDropdown")
+     @POST("service/edar")
     Observable<DarAuthorityResult> getDarAuthorityResult(@Body RequestPOJO requestPOJO);
 
-    @POST("v1/edar/getDarTowCompanyDownElement")
+    @POST("service/edar")
     Observable<DarTowCompnyDwResponse> getTowCompanyDw(@Body RequestPOJO requestPOJO);
 
 
-    @POST("v1/edar/darOffSiteNonInforcementFormTrafficControlInsert")
+    @POST("service/edar")
     Call<DarTicketResponse> insertDarOffSiteNonInforcementForm(@Body DarOffSiteNonInforcementForm pojo);
-    @POST("v1/edar/dar22500Insert")
+    @POST("service/edar")
     Call<DarTicketResponse> insertFrom22500(@Body Task22500Jsonrpc pojo);
-    @POST("v1/edar/insertDarSchoolForm")
+    @POST("service/edar")
     Call<DarTicketResponse> insertSchool(@Body SchoolJson_rpc pojo);
-    @POST("v1/edar/darFieldContactInsert")
+    @POST("service/edar")
     Call<DarTicketResponse> insertFieldContact(@Body FieldContactJson_rpc pojo);
-    @POST("v1/edar/insertMileage")
+    @POST("service/edar")
     Call<DarInsertMieageRequest> insertMileage(@Body MileageJson_rpc pojo);
-    @POST("v1/edar/updateMileage")
+    @POST("service/edar")
     Call<EndMileageResponse> insertEndMileage(@Body EndMileageJson_rpc pojo);
-    @POST("v1/edar/darSignCheckDetailInsert")
+    @POST("service/edar")
     Call<DarTicketResponse> insertSignCheck(@Body SignCheckJson_rpc pojo);
-    @POST("v1/edar/darVehicleMaintenanceDetailInsert")
+    @POST("service/edar")
     Call<DarTicketResponse> insertvehmaintenace(@Body VehMaintenanceJson_rpc pojo);
-    @POST("v1/edar/darAdminDetailsInsert")
+    @POST("service/edar")
     Call<DarTicketResponse> insertAdmin(@Body AdminJson_rpc pojo);
-    @POST("v1/edar/darPpzDetailInsert")
+    @POST("service/edar")
     Call<DarTicketResponse> insertPPZ(@Body PPZJson_rpc pojo);
-    @POST("v1/edar/darOffStreetPatrolDetailInsert")
+    @POST("service/edar")
     Call<DarTicketResponse> insertOffStreetPatrol(@Body OffStreetJson_rpc pojo);
-    @POST("v1/edar/dar_breakAndLunch")
+    @POST("service/edar")
     Call<DarTicketResponse> insertBreakLunch(@Body LunchBreakJson_rpc pojo);
-    @POST("v1/edar/darServiceRequestInsert")
+    @POST("service/edar")
     Call<DarTicketResponse> insertServiceRequest(@Body ServiceRequestJson_rpc pojo);
-    @POST("v1/edar/OffSiteNonInforcementCommunityMeetingFormInsert")
+    @POST("service/edar")
     Call<DarTicketResponse> insertCommunityMeeting(@Body CommunityJSON_rpc pojo);
-    @POST("v1/edar/OffSiteNonInforcementFlyerFormInsert")
+    @POST("service/edar")
     Call<DarTicketResponse> insertFlayer(@Body FlayerJSON_rpc pojo);
-    @POST("v1/edar/OffSiteNonInforcementRideAlongFormInsert")
+    @POST("service/edar")
     Call<DarTicketResponse> insertRideAlong(@Body RideAlongJSON_rpc pojo);
-    @POST("v1/edar/OffSiteNonInforcementTrainingFormInsert")
+    @POST("service/edar")
     Call<DarTicketResponse> insertTraining(@Body TrainingJSON_rpc pojo);
-    @POST("v1/edar/OffSiteNonInforcementSeniorDutyFormInsert")
+    @POST("service/edar")
     Call<DarTicketResponse> insertSeniorDuties(@Body SeniorDutiesJSON_rpc pojo);
-    @POST("v1/edar/dar_assignment_report")
+    @POST("service/edar")
     Call<DarAssignmentreportResponse> insertAssignmentReport(@Body AssignmentReport_rpc pojo);
-    @POST("v1/edar/dar_assignment_location_report")
+    @POST("service/edar")
     Call<DarAssignmentLocationReportResponse> insertAssignmentLocationReport(@Body AssignmentLocationReport_rpc pojo);
-    @POST("v1/edar/dar_task_report")
+    @POST("service")
+    Call<DarDutyResponseR> insertDutyReport(@Body DarDutyRequestJson_rpc pojo);
+    @POST("service/edar")
     Call<DarTaskReportResponse> insertTaskReport(@Body TaskReport_rpc pojo);
-    /*  @POST("v1/service/edar")
-      Call<DarTicketResponse> insertCallSign(@Body CallSignJson_rpc pojo);*/ //Not used till 19-03-2024
-    @POST("v1/edar/sjpdFormInsert")
+    @POST("service/edar")
+    Call<DarTicketResponse> insertCallSign(@Body CallSignJson_rpc pojo);
+    @POST("service/edar")
     Call<SJPDResonse> insertSJPD(@Body SJPDJson_rpc pojo);
-    @POST("v1/edar/darTowDetailInsert")
+    @POST("service/edar")
     Call<DarTicketResponse> insertTow(@Body TowJson_rpc pojo);
 
     //Offline call
-    @POST("v1/edar/dar22500Insert")
+    @POST("service/edar")
     Observable<DarTicketResponse> insertFrom22500Obs(@Body Task22500Jsonrpc pojo);
-    @POST("v1/edar/darFieldContactInsert")
+    @POST("service/edar")
     Observable<DarTicketResponse> insertFieldContactObs(@Body FieldContactJson_rpc pojo);
-    @POST("v1/edar/darOffSiteNonInforcementFormTrafficControlInsert")
+    @POST("service/edar")
     Observable<DarTicketResponse> insertTrafficContObs(@Body DarOffSiteNonInforcementForm pojo);
-    @POST("v1/edar/insertDarSchoolForm")
+    @POST("service/edar")
     Observable<DarTicketResponse> insertSchoolObs(@Body SchoolJson_rpc pojo);
-    @POST("v1/edar/darSignCheckDetailInsert")
+    @POST("service/edar")
     Observable<DarTicketResponse> insertSignCheckObs(@Body SignCheckJson_rpc pojo);
-    @POST("v1/edar/darAdminDetailsInsert")
+    @POST("service/edar")
     Observable<DarTicketResponse> insertAdminObs(@Body AdminJson_rpc pojo);
-    @POST("v1/edar/darPpzDetailInsert")
+    @POST("service/edar")
     Observable<DarTicketResponse> insertPPZObs(@Body PPZJson_rpc pojo);
-    @POST("v1/edar/darOffStreetPatrolDetailInsert")
+    @POST("service/edar")
     Observable<DarTicketResponse> insertOffStreetPatrolObs(@Body OffStreetJson_rpc pojo);
-    @POST("v1/edar/dar_breakAndLunch")
+    @POST("service/edar")
     Observable<DarTicketResponse> insertBreakLunchObs(@Body LunchBreakJson_rpc pojo);
-    @POST("v1/edar/darServiceRequestInsert")
+    @POST("service/edar")
     Observable<DarTicketResponse> insertServiceRequestObs(@Body ServiceRequestJson_rpc pojo);
-    @POST("v1/edar/OffSiteNonInforcementCommunityMeetingFormInsert")
+    @POST("service/edar")
     Observable<DarTicketResponse> insertCommunityMeetingObs(@Body CommunityJSON_rpc pojo);
-    @POST("v1/edar/OffSiteNonInforcementFlyerFormInsert")
+    @POST("service/edar")
     Observable<DarTicketResponse> insertFlayerObs(@Body FlayerJSON_rpc pojo);
-    @POST("v1/edar/OffSiteNonInforcementRideAlongFormInsert")
+    @POST("service/edar")
     Observable<DarTicketResponse> insertRideAlongObs(@Body RideAlongJSON_rpc pojo);
-    @POST("v1/edar/OffSiteNonInforcementTrainingFormInsert")
+    @POST("service/edar")
     Observable<DarTicketResponse> insertTrainingObs(@Body TrainingJSON_rpc pojo);
-    @POST("v1/edar/OffSiteNonInforcementSeniorDutyFormInsert")
+    @POST("service/edar")
     Observable<DarTicketResponse> insertSeniorDutiesObs(@Body SeniorDutiesJSON_rpc pojo);
 
-    @POST("v1/edar/darReportRequest")
+    @POST("service/edar")
     Call<SyncReport_Response> syncReport(@Body SyncReport_Json_rpc rpc);
+
+    @POST("service/genericv1")
+    Call<UploadDebugResponse> uploadDebugLog(@Body SyncBackup_Json_rpc rpc);
+
+
+
+    @POST("service/genericv1")
+    Call<UploadDebugResponse> uploadDbBackUp(@Body Dbinfo_Json_rpc rpc);
+
+    @POST("service/genericv1")
+    Call<UploadDebugResponse> uploadCSVBackUp(@Body CSVinfo_Json_rpc rpc);
+
+
 
 }
 
