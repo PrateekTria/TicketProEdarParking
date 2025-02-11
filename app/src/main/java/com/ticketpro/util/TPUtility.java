@@ -2157,7 +2157,7 @@ public class TPUtility {
 
                 for (int i = 0; i < ticket.getTicketPictures().size(); i++) {
                     TicketPicture pic = ticket.getTicketPictures().get(i);
-                    if (!pic.getImagePath().contains("LPR")) {
+                    if (!pic.getImagePath().contains("LPR") && !pic.isSelfi()) {
                         template = template.replaceAll("\\{TICKET_IMAGE" + (i + 1) + "\\}",
                                 "<img src=\"file://" + pic.getImagePath() + "\"/>");
                     }

@@ -2690,7 +2690,7 @@ public class ProxyImpl implements Proxy {
 
             @Override
             public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                log.error(TPUtility.getPrintStackTrace(e));
+                log.error("Error in Observable.zip 1 onError: " + e.getMessage(), e);
                 syncStatus = false;
                 observable1 = true;
                 sendCallbackForSync(callback);
@@ -2974,7 +2974,7 @@ public class ProxyImpl implements Proxy {
             @Override
             public void onError(Throwable e) {
                 syncStatus = false;
-                log.error(TPUtility.getPrintStackTrace(e));
+                log.error("Error in Observable.zip 2 onError: " + e.getMessage(), e);
                 /*TPException appEx = new TPException();
                 appEx.setErrorMessage("Internal system error. Please try again");
                 try {
@@ -3256,7 +3256,7 @@ public class ProxyImpl implements Proxy {
             @Override
             public void onError(Throwable e) {
                 syncStatus = false;
-                log.error(TPUtility.getPrintStackTrace(e));
+                log.error("Error in Observable.zip 3 onError: " + e.getMessage(), e);
                 /*TPException appEx = new TPException();
                 appEx.setErrorMessage("Internal system error. Please try again");
                 try {
@@ -3533,7 +3533,7 @@ public class ProxyImpl implements Proxy {
             public void onError(Throwable e) {
                 syncStatus = false;
                 observable4 = true;
-                log.error(TPUtility.getPrintStackTrace(e));
+                log.error("Error in Observable.zip 4 onError: " + e.getMessage(), e);
                 sendCallbackForSync(callback);
                 /*TPException appEx = new TPException();
                 appEx.setErrorMessage("Internal system error. Please try again");
@@ -3809,7 +3809,7 @@ public class ProxyImpl implements Proxy {
             @Override
             public void onError(@NonNull Throwable e) {
                 syncStatus = false;
-                log.error(TPUtility.getPrintStackTrace(e));
+                log.error("Error in Observable.zip 5 onError: " + e.getMessage(), e);
                 /*TPException appEx = new TPException();
                 appEx.setErrorMessage("Internal system error. Please try again");
                 try {
@@ -4004,7 +4004,7 @@ public class ProxyImpl implements Proxy {
 
             @Override
             public void onError(Throwable e) {
-                log.error(TPUtility.getPrintStackTrace(e));
+                log.error("Error in Observable.zip 6 onError: " + e.getMessage(), e);
                 TPException appEx = new TPException();
                 appEx.setErrorMessage("Internal system error. Please try again");
                 try {
@@ -4196,7 +4196,7 @@ public class ProxyImpl implements Proxy {
 
             @Override
             public void onError(Throwable e) {
-                log.error(TPUtility.getPrintStackTrace(e));
+                log.error("Error in Observable.zip 7 onError: " + e.getMessage(), e);
                 TPException appEx = new TPException();
                 appEx.setErrorMessage("Internal system error. Please try again");
                 try {
@@ -4391,7 +4391,7 @@ public class ProxyImpl implements Proxy {
 
             @Override
             public void onError(Throwable e) {
-                log.error(TPUtility.getPrintStackTrace(e));
+                log.error("Error in Observable.zip 8 onError: " + e.getMessage(), e);
                 TPException appEx = new TPException();
                 appEx.setErrorMessage("Internal system error. Please try again");
                 try {
@@ -6734,6 +6734,9 @@ public class ProxyImpl implements Proxy {
     @Override
     public boolean updateGCMRegistrationId(String deviceName, String GCMRegId) throws TPException {
         try {
+            if(deviceName == null){
+                return false;
+            }
             RequestPOJO requestPOJO = new RequestPOJO();
             Params params = new Params();
             params.setDeviceIName(deviceName);

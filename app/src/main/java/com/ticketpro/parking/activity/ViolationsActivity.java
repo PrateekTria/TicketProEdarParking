@@ -175,6 +175,9 @@ public class ViolationsActivity extends BaseActivityImpl implements RepeatOffend
             expandListview.setAdapter(expandAdapter);
 
 
+
+
+
             expandListview.setOnGroupClickListener(new OnGroupClickListener() {
                 @Override
                 public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {

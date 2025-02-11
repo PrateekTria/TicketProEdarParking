@@ -3693,7 +3693,7 @@ public class WriteTicketActivity extends BaseActivityImpl implements MyTracker.A
         i.setClass(WriteTicketActivity.this, TakePictureActivity.class);
         i.putExtra("CitationNumber", activeTicket.getCitationNumber());
         i.putExtra("isSelfi", true);
-        startActivityForResult(i, REQUEST_TAKE_SELFI);
+        startActivityForResult(i, REQUEST_TAKE_PICTURE);
         return;
     }
 

@@ -1427,6 +1427,9 @@ public class ServiceHandlerImpl implements ServiceHandler {
 
     @Override
     public boolean updateGCMRegistrationId(String deviceName, String registrationId) throws Exception {
+        if(deviceName == null){
+            return false;
+        }
         JSONObject params = new JSONObject();
         try {
             params.putOpt("deviceName", deviceName);

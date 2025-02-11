@@ -3,7 +3,7 @@
     package="com.ticketpro.parking"
     android:targetSandboxVersion="2"
     android:versionCode="50"
-    android:versionName="8.0.3" >
+    android:versionName="8.0.4" >
 
     <uses-sdk
         android:minSdkVersion="26"

@@ -604,7 +604,7 @@ public class NotificationHandler {
         ticket.getTicketPictures().add(picture);
     }
 
-
+    // this code is mofified on 18 jan 2025 by prateek
     private void addLPRImage(Ticket ticket, ImageView photo1ImageView, String imageFile, Date pictureDate, String url) throws IOException {
         if (StringUtil.isEmpty(imageFile) || photo1ImageView == null) {
             return;
@@ -972,6 +972,8 @@ public class NotificationHandler {
         if (contentFolder == null || contentFolder.equals("")) {
             contentFolder = customerInfo.getCustId() + "";
         }
+
+        // this code is mofified on 18 jan 2025 by prateek
 
         if(filename.contains("http")){
             return filename;

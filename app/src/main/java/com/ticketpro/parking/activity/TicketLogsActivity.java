@@ -335,6 +335,52 @@ public class TicketLogsActivity extends BaseActivityImpl {
         }
     }
 
+    public void backAction(View view) {
+        finish();
+    }
+
+    public void backAction1(View view) {
+        __showPendingTickets();
+    }
+
+    private void __showPendingTickets() {
+        boolean b = Ticket.checkOlderTickets(TPApplication.getInstance().userId);
+        AlertDialog.Builder confirmBuilder = new AlertDialog.Builder(TicketLogsActivity.this);
+        confirmBuilder.setCancelable(false);
+        if (b){
+            confirmBuilder.setTitle("Alert")
+                    .setMessage(R.string.clear_ticket_msg).setCancelable(true)
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    }).setPositiveButton("Continue", (dialog, which) -> {
+                        Ticket.removeOlderTickets(TPApplication.getInstance().userId);
+                        try {
+                            Thread.sleep(2000);
+                            ArrayList<TicketPicture> lastPhotos = TPApp.getLastPhotos();
+                            if (lastPhotos.size()>0) {
+                                lastPhotos.clear();
+                            }
+                            bindDataAtLoadingTime();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    });
+
+            AlertDialog confirmAlert = confirmBuilder.create();
+            confirmAlert.show();
+        }else {
+            confirmBuilder.setTitle("Alert").setMessage(R.string.no_tickets_found).setCancelable(true)
+                    .setNegativeButton("Ok", (dialog, which) -> dialog.dismiss());
+
+
+            AlertDialog confirmAlert = confirmBuilder.create();
+            confirmAlert.show();
+        }
+    }
+
     @Override
     public void handleVoiceInput(String text) throws Exception {
 
