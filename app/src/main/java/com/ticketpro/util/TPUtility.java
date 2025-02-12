@@ -154,6 +154,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
@@ -717,6 +718,8 @@ public class TPUtility {
         return comments;
     }
 
+
+
     public static String getExpiration(String expString) {
         if (expString == null || expString.length() <= 2)
             return expString;
@@ -875,8 +878,6 @@ public class TPUtility {
         }
         return timeout * 1000;
     }
-
-
 
     public static String getURLResponse(String url) throws IOException {
         HttpGet request = new HttpGet(url);
@@ -1857,16 +1858,27 @@ public class TPUtility {
                 } catch (Exception e) {
                 }
 
-                if (!ticket.getTicketPictures().isEmpty()) {
+                if (ticket.getTicketPictures().size() > 0) {
                     if (ticket.isLPR()) {
-                        template = template.replaceAll("\\{LPR_IMAGE\\}",
-                                "<img src=\"file://" + ticket.getTicketPictures().get(0).getImagePath() + "\"/>");
+                        for (int i = 0; i < ticket.getTicketPictures().size(); i++) {
+                            TicketPicture pic = ticket.getTicketPictures().get(i);
+                            if (pic.getImagePath().contains("LPR")) {
+                                template = template.replaceAll("\\{LPR_IMAGE" + (i + 1) + "\\}",
+                                        "<img src=\"file://" + ticket.getTicketPictures().get(i).getImagePath() + "\"/>");
+                            }
+                        }
                         //"<img src=\"" + Uri.fromFile(new File(ticket.getTicketPictures().get(0).getImagePath())) + "\"/>");
                     }
-
+                    boolean u4524ImageIncluded = false;
                     for (int i = 0; i < ticket.getTicketPictures().size(); i++) {
                         TicketPicture pic = ticket.getTicketPictures().get(i);
-                        if (!pic.getImagePath().contains("LPR")) {
+                        if (pic.getImagePath().contains("U"+TPApp.userId ) && !u4524ImageIncluded) {
+                            // Add the U4524 image only once
+                            template = template.replaceAll("\\{TICKET_IMAGE" + (i + 1) + "\\}",
+                                    "<img src=\"file://" + pic.getImagePath() + "\"/>");
+                            u4524ImageIncluded = true; // Set the flag to true after adding the image
+                        } else if (!pic.getImagePath().contains("LPR") && !pic.getImagePath().contains("U4524")) {
+                            // Add the other images as normal, except for "LPR" and "U4524"
                             template = template.replaceAll("\\{TICKET_IMAGE" + (i + 1) + "\\}",
                                     "<img src=\"file://" + pic.getImagePath() + "\"/>");
                         }
@@ -1887,7 +1899,10 @@ public class TPUtility {
                 //template = template.replaceAll("\\{TICKET_IMAGE5\\}", "");
                 // template = template.replaceAll("\\{TICKET_IMAGE6\\}", "");
                 // Empty Tokens
-                template = template.replaceAll("\\{LPR_IMAGE\\}", "");
+                template = template.replaceAll("\\{LPR_IMAGE1\\}", "");
+                template = template.replaceAll("\\{LPR_IMAGE2\\}", "");
+                template = template.replaceAll("\\{LPR_IMAGE3\\}", "");
+                template = template.replaceAll("\\{LPR_IMAGE4\\}", "");
                 template = template.replaceAll("\\{TICKET_IMAGE1\\}", "");
                 template = template.replaceAll("\\{TICKET_IMAGE2\\}", "");
                 template = template.replaceAll("\\{TICKET_IMAGE3\\}", "");
@@ -1937,19 +1952,21 @@ public class TPUtility {
         try {
             String template = templateHTML;
             template = template.replaceAll("\\{CITE\\}", TPUtility.prefixZeros(ticket.getCitationNumber(), 8));
-            template = template.replaceAll("\\{DATE\\}", ticket.getTicketDate() != null ? DateUtil.getStringFromDate(ticket.getTicketDate()) : "");
-            template = template.replaceAll("\\{CITE_DATE\\}", ticket.getTicketDate() != null ? DateUtil.getDateStringFromDate(ticket.getTicketDate()) : "");
-            template = template.replaceAll("\\{CITE_TIME\\}", ticket.getTicketDate() != null ? DateUtil.getTimeStringFromDate(ticket.getTicketDate()) : "");
-            template = template.replaceAll("\\{METER\\}", ticket.getMeter() != null ? ticket.getMeter().toString() : "");
-            template = template.replaceAll("\\{LOCATION\\}", TPUtility.getFullAddress(ticket) != null ? TPUtility.getFullAddress(ticket) : "");
+            template = template.replaceAll("\\{DATE\\}", DateUtil.getStringFromDate(ticket.getTicketDate()) + "");
+            template = template.replaceAll("\\{CITE_DATE\\}",
+                    DateUtil.getDateStringFromDate(ticket.getTicketDate()) + "");
+            template = template.replaceAll("\\{CITE_TIME\\}",
+                    DateUtil.getTimeStringFromDate(ticket.getTicketDate()) + "");
+            template = template.replaceAll("\\{METER\\}", ticket.getMeter() + "");
+            template = template.replaceAll("\\{LOCATION\\}", TPUtility.getFullAddress(ticket) + "");
             template = template.replaceAll("\\{VIOLATION\\}", TPUtility.escapeSpecialChars(ticket.getViolation()));
-            template = template.replaceAll("\\{PLATE\\}", ticket.getPlate() != null ? ticket.getPlate().toString() : "");
-            template = template.replaceAll("\\{EXPDATE\\}", ticket.getExpiration() != null ? ticket.getExpiration().toString() : "");
-            template = template.replaceAll("\\{VIN\\}", ticket.getVin() != null ? ticket.getVin().toString() : "");
-            template = template.replaceAll("\\{STATE_CODE\\}", ticket.getStateCode() != null ? ticket.getStateCode().toString() : "");
-            template = template.replaceAll("\\{MAKE_CODE\\}", ticket.getMakeCode() != null ? ticket.getMakeCode().toString() : "");
-            template = template.replaceAll("\\{BODY_CODE\\}", ticket.getBodyCode() != null ? ticket.getBodyCode().toString() : "");
-            template = template.replaceAll("\\{COLOR_CODE\\}", ticket.getColorCode() != null ? ticket.getColorCode().toString() : "");
+            template = template.replaceAll("\\{PLATE\\}", ticket.getPlate() + "");
+            template = template.replaceAll("\\{EXPDATE\\}", ticket.getExpiration() + "");
+            template = template.replaceAll("\\{VIN\\}", ticket.getVin() + "");
+            template = template.replaceAll("\\{STATE_CODE\\}", ticket.getStateCode() + "");
+            template = template.replaceAll("\\{MAKE_CODE\\}", ticket.getMakeCode() + "");
+            template = template.replaceAll("\\{BODY_CODE\\}", ticket.getBodyCode() + "");
+            template = template.replaceAll("\\{COLOR_CODE\\}", ticket.getColorCode() + "");
 
             if (ticket.getStateCode() != null && !ticket.getStateCode().equals("")) {
                 State state = State.getStateByName(ticket.getStateCode());
@@ -2143,12 +2160,12 @@ public class TPUtility {
                 e.printStackTrace();
             }
 
-            if (ticket.getTicketPictures().size() > 0) {
+            if (!ticket.getTicketPictures().isEmpty()) {
                 if (ticket.isLPR()) {
                     for (int i = 0; i < ticket.getTicketPictures().size(); i++) {
                         TicketPicture pic = ticket.getTicketPictures().get(i);
                         if (pic.getImagePath().contains("LPR")) {
-                            template = template.replaceAll("\\{LPR_IMAGE\\}",
+                            template = template.replaceAll("\\{LPR_IMAGE" + (i + 1) + "\\}",
                                     "<img src=\"file://" + ticket.getTicketPictures().get(i).getImagePath() + "\"/>");
                         }
                     }
@@ -2157,7 +2174,7 @@ public class TPUtility {
 
                 for (int i = 0; i < ticket.getTicketPictures().size(); i++) {
                     TicketPicture pic = ticket.getTicketPictures().get(i);
-                    if (!pic.getImagePath().contains("LPR") && !pic.isSelfi()) {
+                    if (!pic.getImagePath().contains("LPR")) {
                         template = template.replaceAll("\\{TICKET_IMAGE" + (i + 1) + "\\}",
                                 "<img src=\"file://" + pic.getImagePath() + "\"/>");
                     }
@@ -2170,7 +2187,10 @@ public class TPUtility {
                     "<div class=\"BARCODE\">" + TPUtility.prefixZeros(ticket.getCitationNumber(), 8) + "</div>");
 
             // Empty Tokens
-            template = template.replaceAll("\\{LPR_IMAGE\\}", "");
+            template = template.replaceAll("\\{LPR_IMAGE1\\}", "");
+            template = template.replaceAll("\\{LPR_IMAGE2\\}", "");
+            template = template.replaceAll("\\{LPR_IMAGE3\\}", "");
+            template = template.replaceAll("\\{LPR_IMAGE4\\}", "");
             template = template.replaceAll("\\{TICKET_IMAGE1\\}", "");
             template = template.replaceAll("\\{TICKET_IMAGE2\\}", "");
             template = template.replaceAll("\\{TICKET_IMAGE3\\}", "");
@@ -3790,7 +3810,7 @@ public class TPUtility {
     }
 
     public static String readExistingDeviceName() {
-        File  file = new File(TPUtility.getDataFolder() + "deviceName.txt");
+        File file = new File(TPUtility.getDataFolder() + "deviceName.txt");
         StringBuilder st = new StringBuilder();
         try {
             FileReader fr = new FileReader(file);
@@ -3805,5 +3825,23 @@ public class TPUtility {
         }
         String s = st.toString().replaceAll("\n", "");
         return s + "-" + TPConstant.MODULE_NAME;
+    }
+
+    public static HashMap<Integer,Integer> getVendorCode(String input){
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        String[] pairs = input.split(";");
+
+        for (String pair : pairs) {
+            String[] keyValue = pair.split(",");
+
+            int key = Integer.parseInt(keyValue[0].trim());
+            int value = Integer.parseInt(keyValue[1].trim());
+
+            map.put(key, value);
+        }
+
+        return map;
     }
 }
