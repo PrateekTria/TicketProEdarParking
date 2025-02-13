@@ -155,7 +155,7 @@ public class NotificationHandler {
         try {
             final LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-            inputDlgView = layoutInflater.inflate(R.layout.lpr_notification_dialog, null, false);
+            inputDlgView = layoutInflater.inflate(R.layout.lpr_notification_photostamp_dialog, null, false);
 
             notificationDialog = new Dialog(getRunningActivity());
             notificationDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -194,6 +194,15 @@ public class NotificationHandler {
                         .setText(DateUtil.getStringFromDate(lprNotify.getLastSeen()));
                 ((TextView) inputDlgView.findViewById(R.id.zone_textview))
                         .setText(StringUtil.getDisplayString(lprNotify.getZone()));
+
+                ((TextView) inputDlgView.findViewById(R.id.photo1_stamp))
+                        .setText("( "+DateUtil.getStringFromDate(lprNotify.getFirstChalkTime())+" )");
+                ((TextView) inputDlgView.findViewById(R.id.photo2_stamp))
+                        .setText("( "+DateUtil.getStringFromDate(lprNotify.getFirstChalkTime())+" )");
+                ((TextView) inputDlgView.findViewById(R.id.photo3_stamp))
+                        .setText("( "+DateUtil.getStringFromDate(lprNotify.getLastSeen())+" )");
+                ((TextView) inputDlgView.findViewById(R.id.photo4_stamp))
+                        .setText("( "+DateUtil.getStringFromDate(lprNotify.getLastSeen())+" )");
             } catch (Exception e) {
                 log.error(TPUtility.getPrintStackTrace(e));
 
@@ -216,7 +225,7 @@ public class NotificationHandler {
 
                 photo1ImageView.setClickable(true);
                 photo1ImageView.setOnClickListener(view -> {
-                 //   notificationDialog.dismiss();
+                    //   notificationDialog.dismiss();
 
                     Handler handler = new Handler();
                     handler.postDelayed(() -> {
@@ -248,7 +257,7 @@ public class NotificationHandler {
                 photo2ImageView.setClickable(true);
                 photo2ImageView.setOnClickListener(view -> {
 
-                  //  notificationDialog.dismiss();
+                    //  notificationDialog.dismiss();
 
                     Handler handler = new Handler();
                     handler.postDelayed(() -> {
@@ -276,7 +285,7 @@ public class NotificationHandler {
                 photo3ImageView.setClickable(true);
                 photo3ImageView.setOnClickListener(view -> {
 
-                 //   notificationDialog.dismiss();
+                    //   notificationDialog.dismiss();
 
                     Handler handler = new Handler();
                     handler.postDelayed(() -> {
@@ -304,7 +313,7 @@ public class NotificationHandler {
                 photo4ImageView.setClickable(true);
                 photo4ImageView.setOnClickListener(view -> {
 
-                 //   notificationDialog.dismiss();
+                    //   notificationDialog.dismiss();
 
                     Handler handler = new Handler();
                     handler.postDelayed(() -> {
@@ -357,6 +366,7 @@ public class NotificationHandler {
                     ticket.setTicketSource(TicketSource.LPR_NOTIFICATION);
                     ticket.setLprNotificationId(lprNotify.getNotificationId());
                     ticket.setPhoto_count(photocount);
+                    ticket.setIsLPR("Y");
                     ticket.setChalkTime(DateUtil.getStringFromDate4(lprNotify.getFirstChalkTime()));
                     ticket.setChalkLastSeen(DateUtil.getStringFromDate4(lprNotify.getLastSeen()));
 
@@ -528,7 +538,7 @@ public class NotificationHandler {
             Button deleteButton = (Button) inputDlgView.findViewById(R.id.delete_button);
             deleteButton.setOnClickListener(view -> deleteNotification(lprNotify.getNotificationId()));
 
-            if (TPApp.getUserInfo() == null || TPApp.getActiveDutyReport()==null || TPApp.getDarTaskReoprtId().equals("")) {
+            if (TPApp.getUserInfo() == null || TPApp.getActiveDutyReport()==null || TPApp.getActiveDutyInfo().getAllowTicket().equalsIgnoreCase("N")) {
                 closeButton.setVisibility(View.VISIBLE);
                 cancelBtn.setVisibility(View.GONE);
                 writeBtn.setVisibility(View.GONE);
@@ -589,7 +599,7 @@ public class NotificationHandler {
         picture.setCustId(ticket.getCustId());
         picture.setDownloadImageUrl(url);  // Optional: Use the URL for download if needed
         picture.setImageName(imagePath);
-        picture.setSyncStatus("P");
+        picture.setSyncStatus("L");
         picture.setMarkPrint("N");
 
         if (pictureDate == null) {
@@ -604,7 +614,7 @@ public class NotificationHandler {
         ticket.getTicketPictures().add(picture);
     }
 
-    // this code is mofified on 18 jan 2025 by prateek
+
     private void addLPRImage(Ticket ticket, ImageView photo1ImageView, String imageFile, Date pictureDate, String url) throws IOException {
         if (StringUtil.isEmpty(imageFile) || photo1ImageView == null) {
             return;
@@ -973,8 +983,6 @@ public class NotificationHandler {
             contentFolder = customerInfo.getCustId() + "";
         }
 
-        // this code is mofified on 18 jan 2025 by prateek
-
         if(filename.contains("http")){
             return filename;
         }else{
@@ -1045,7 +1053,7 @@ public class NotificationHandler {
                 public void onClick(View view) {
                     imageDialog.dismiss();
 
-                  //  showLPRNotify(lprNotify);
+                    //  showLPRNotify(lprNotify);
                 }
             });
 
